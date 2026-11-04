@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load taller %}
-{% block titulo %}Finalizar compra · Taller Mecánico Francois{% endblock %}
+{% block titulo %}Finalizar compra · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <p><a href="{% url 'tienda:carrito' %}">← Carrito</a></p>
 <form method="post" novalidate>

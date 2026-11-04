@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load taller %}
-{% block titulo %}{{ p.nombre }} · Taller Francois{% endblock %}
+{% block titulo %}{{ p.nombre }} · {{ marca.NOMBRE }}{% endblock %}
 {% block ancho %}ancho{% endblock %}
 {% block contenido %}
 <p><a href="{% url 'inventario:lista' %}">← Inventario</a></p>

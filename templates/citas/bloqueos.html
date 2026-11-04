@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block titulo %}Bloquear agenda · Taller Francois{% endblock %}
+{% load taller %}
+{% block titulo %}Bloquear agenda · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <p><a href="{% url 'citas:agenda' %}">← Agenda</a></p>
 <form method="post" class="tarjeta" novalidate>
@@ -28,7 +29,7 @@
   <h2>Horas bloqueadas</h2>
   {% for b in horas %}
     <div class="acciones" style="justify-content:space-between; border-bottom:1px solid var(--borde); padding:.4rem 0">
-      <span><strong>{{ b.inicio|date:"l j \d\e F"|lower }}</strong>, {{ b.inicio|time:"g:i A" }} – {{ b.fin|time:"g:i A" }} · {{ b.motivo }}</span>
+      <span><strong>{{ b.inicio|date:"l j \d\e F"|lower }}</strong>, {{ b.inicio|hora }} a {{ b.fin|hora }} · {{ b.motivo }}</span>
       <form method="post" action="{% url 'citas:quitar_bloqueo' 'horas' b.pk %}">{% csrf_token %}<button class="boton-link" type="submit">Quitar</button></form>
     </div>
   {% empty %}<p class="ayuda">Ninguna.</p>{% endfor %}

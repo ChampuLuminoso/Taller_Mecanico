@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load taller %}
-{% block titulo %}Panel · Taller Francois{% endblock %}
+{% block titulo %}Panel · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <h1>Hola, {{ user.nombre_visible }}</h1>
 

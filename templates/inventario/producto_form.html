@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block titulo %}{% if producto %}Editar {{ producto.sku }}{% else %}Nuevo producto{% endif %} · Taller Francois{% endblock %}
+{% block titulo %}{% if producto %}Editar {{ producto.sku }}{% else %}Nuevo producto{% endif %} · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <form method="post" enctype="multipart/form-data" novalidate>
   {% csrf_token %}

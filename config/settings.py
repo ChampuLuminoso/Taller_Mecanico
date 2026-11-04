@@ -52,6 +52,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "pedidos.contexto.tienda",
+                "cuentas.navegacion.contexto",
             ],
         },
     },
@@ -124,6 +125,13 @@ DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "notificaciones@taller
 TAMANO_MAX_IMAGEN_MB = 3
 
 # ── Reglas del negocio (se pueden ajustar sin tocar el código de las apps) ──
+MARCA = {
+    "NOMBRE": os.environ.get("MARCA_NOMBRE", "AutoPartes M&F"),          # el nombre que trae el logo
+    "SUBTITULO": os.environ.get("MARCA_SUBTITULO", "Taller Mecánico Francois"),
+    "DESDE": 2012,
+    "CIUDAD": "Bogotá",
+}
+
 TALLER = {
     "URL_SITIO": os.environ.get("URL_SITIO", "http://localhost:8000"),   # para enlaces en correos
     "EMAIL_SISTEMA": "sistema@tallerfrancois.local",   # usuario técnico de tareas automáticas

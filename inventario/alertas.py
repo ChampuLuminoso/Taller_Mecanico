@@ -28,7 +28,7 @@ def avisar_stock_minimo(producto_id):
     try:
         # bcc: cada jefe recibe el correo sin ver a los demás destinatarios (Fran incluido).
         EmailMessage(
-            subject=f"[Taller Francois] Stock bajo: {producto.nombre} ({estado})",
+            subject=f"[{settings.MARCA['NOMBRE']}] Stock bajo: {producto.nombre} ({estado})",
             body=(f"El producto {producto.sku} · {producto.nombre} llegó a su stock mínimo.\n\n"
                   f"Disponibles: {producto.disponible}\n"
                   f"Apartados: {producto.cantidad_apartada}\n"

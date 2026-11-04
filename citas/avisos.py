@@ -70,6 +70,6 @@ def a_cliente(cita_id, evento, detalle=""):
     if evento != "cancelada":
         lineas += ["", f"Si necesitas cancelar o cambiar la hora, hazlo desde tu cuenta hasta {limite} horas antes:",
                    _url("citas:mis_citas")]
-    lineas += ["", "Taller Mecánico Francois"]
+    lineas += ["", f"{settings.MARCA['NOMBRE']} · {settings.MARCA['SUBTITULO']}"]
     asunto = {"recordatorio": "Recordatorio de tu cita"}.get(evento, textos[evento].rstrip("."))
     return enviar(asunto, "\n".join(lineas), para=[cita.cliente.email])

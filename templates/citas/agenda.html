@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load taller %}
-{% block titulo %}Agenda {{ fecha|date:"d/m" }} · Taller Francois{% endblock %}
+{% block titulo %}Agenda {{ fecha|date:"d/m" }} · {{ marca.NOMBRE }}{% endblock %}
 {% block ancho %}ancho{% endblock %}
 {% block contenido %}
 <div class="acciones" style="justify-content:space-between; margin-bottom:.5rem">
@@ -23,12 +23,12 @@
 {% if info.tipo == "NO_LABORAL" %}
   <div class="mensaje aviso">El taller no atiende este día: {{ info.motivo }}.</div>
 {% else %}
-  <p class="ayuda">Horario {{ info.abre|time:"g:i A" }} – {{ info.cierra|time:"g:i A" }}{% if info.almuerzo_inicio %} · almuerzo {{ info.almuerzo_inicio|time:"g:i" }} – {{ info.almuerzo_fin|time:"g:i A" }}{% endif %} ·
+  <p class="ayuda">Horario {{ info.abre|hora }} a {{ info.cierra|hora }}{% if info.almuerzo_inicio %} · almuerzo {{ info.almuerzo_inicio|hora }} a {{ info.almuerzo_fin|hora }}{% endif %} ·
     {{ total_activas }} cita{{ total_activas|pluralize }} activa{{ total_activas|pluralize }} · {{ bahias|length }} bahías</p>
 {% endif %}
 
 {% for b in bloqueos %}
-  <div class="mensaje aviso">Bloqueado {{ b.inicio|time:"g:i A" }} – {{ b.fin|time:"g:i A" }}{% if b.bahia %} ({{ b.bahia }}){% endif %}: {{ b.motivo }}</div>
+  <div class="mensaje aviso">Bloqueado {{ b.inicio|hora }} a {{ b.fin|hora }}{% if b.bahia %} ({{ b.bahia }}){% endif %}: {{ b.motivo }}</div>
 {% endfor %}
 
 {% for c in citas %}

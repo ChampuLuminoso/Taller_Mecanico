@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load taller %}
-{% block titulo %}Pedido #{{ p.pk }} · Taller Francois{% endblock %}
+{% block titulo %}Pedido #{{ p.pk }} · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <p><a href="{% url 'pedidos:lista' %}">← Pedidos</a></p>
 <div class="tarjeta">

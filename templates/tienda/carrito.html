@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load taller %}
-{% block titulo %}Carrito · Taller Mecánico Francois{% endblock %}
+{% block titulo %}Carrito · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <h1>Tu carrito</h1>
 {% if lineas %}

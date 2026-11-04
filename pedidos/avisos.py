@@ -54,5 +54,5 @@ def a_cliente(pedido_id, evento):
     if evento in ("recibido", "confirmado") and p.modalidad == Pedido.ENVIO:
         cuerpo += ["", settings.TALLER["TEXTO_ENTREGAS"]]
     cuerpo += ["", f"Pedido #{p.pk}:", *_detalle(p), "", f"Ver tus pedidos: {_url('pedidos:mis_pedidos')}",
-               "", "Taller Mecánico Francois"]
+               "", f"{settings.MARCA['NOMBRE']} · {settings.MARCA['SUBTITULO']}"]
     return enviar(f"{asunto} (#{p.pk})", "\n".join(cuerpo), para=[p.cliente.email])

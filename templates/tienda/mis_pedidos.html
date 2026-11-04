@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load taller %}
-{% block titulo %}Mis pedidos · Taller Mecánico Francois{% endblock %}
+{% block titulo %}Mis pedidos · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <h1>Mis pedidos</h1>
 {% for p in pedidos %}

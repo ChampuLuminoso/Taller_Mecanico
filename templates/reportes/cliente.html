@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load taller %}
-{% block titulo %}{{ c }} · Historial · Taller Francois{% endblock %}
+{% block titulo %}{{ c }} · Historial · {{ marca.NOMBRE }}{% endblock %}
 {% block ancho %}ancho{% endblock %}
 {% block contenido %}
 <p><a href="{% url 'reportes:clientes' %}">← Buscar otro cliente</a></p>

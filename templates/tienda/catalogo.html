@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% load taller %}
-{% block titulo %}Repuestos · Taller Mecánico Francois{% endblock %}
+{% block titulo %}Repuestos · {{ marca.NOMBRE }}{% endblock %}
 {% block ancho %}ancho{% endblock %}
 {% block contenido %}
-<h1 style="margin-bottom:.25rem">Repuestos para tu vehículo</h1>
-<p class="ayuda" style="margin-top:0">Precios y unidades disponibles hoy. Domicilio en Bogotá por {{ costo_envio|pesos }} o recoge gratis en el taller.</p>
+<header class="portada">
+  <span class="antetitulo">Repuestos y taller · {{ marca.CIUDAD }} · desde {{ marca.DESDE }}</span>
+  <h1 style="margin:0">Repuestos para tu vehículo</h1>
+  <p class="ayuda" style="margin:0">Precios y unidades disponibles hoy. Domicilio en {{ marca.CIUDAD }} por {{ costo_envio|pesos }} o recoge gratis en el taller.</p>
+</header>
 
 <form class="filtros" method="get" action="{% url 'tienda:catalogo' %}" role="search"
       hx-get="{% url 'tienda:catalogo' %}" hx-target="#resultados" hx-push-url="true"

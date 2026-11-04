@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block titulo %}{% if accion == "reprogramar" %}Cambiar cita{% else %}Agendar cita{% endif %} · Taller Francois{% endblock %}
+{% block titulo %}{% if accion == "reprogramar" %}Cambiar cita{% else %}Agendar cita{% endif %} · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <p><a href="{% if personal %}{% url 'citas:agenda' %}{% else %}{% url 'citas:mis_citas' %}{% endif %}">← {% if personal %}Agenda{% else %}Mis citas{% endif %}</a></p>
 
@@ -61,7 +61,7 @@
     {% if form.vehiculo.field.queryset.exists %}
       {{ form.vehiculo.label_tag }} {{ form.vehiculo }} {{ form.vehiculo.errors }}
     {% else %}{{ form.vehiculo }}{% endif %}
-    <div class="dos-col">
+    <div class="dos-col" id="vehiculo-nuevo">
       <div>{{ form.placa.label_tag }} {{ form.placa }} {{ form.placa.errors }}</div>
       <div>{{ form.marca.label_tag }} {{ form.marca }} {{ form.marca.errors }}</div>
       <div>{{ form.modelo.label_tag }} {{ form.modelo }} {{ form.modelo.errors }}</div>
@@ -72,4 +72,13 @@
   {% endif %}
 </form>
 {% endif %}
+<script>
+  // Si eligió uno de sus vehículos, no hace falta mostrar los campos de un vehículo nuevo.
+  (function () {
+    var lista = document.querySelector('select[name="vehiculo"]'), nuevo = document.getElementById("vehiculo-nuevo");
+    if (!lista || !nuevo) return;
+    function ver() { nuevo.hidden = lista.value !== ""; }
+    lista.addEventListener("change", ver); ver();
+  })();
+</script>
 {% endblock %}

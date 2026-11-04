@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block titulo %}Apartado directo · Taller Francois{% endblock %}
+{% block titulo %}Apartado directo · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <p><a href="{% url 'apartados:lista' %}">← Apartados</a></p>
 <div class="tarjeta">

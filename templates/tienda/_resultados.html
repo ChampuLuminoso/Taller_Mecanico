@@ -4,8 +4,8 @@
 <ul class="productos" style="list-style:none; padding:0; margin:0">
   {% for p in pagina %}
   <li class="producto">
-    <a class="foto" href="{% url 'tienda:producto' p.sku %}" tabindex="-1" aria-hidden="true">
-      {% if p.imagen %}<img src="{{ p.imagen.url }}" alt="" loading="lazy">{% else %}{{ p.categoria.nombre|default:"·"|slice:":1" }}{% endif %}
+    <a class="foto{% if not p.imagen %} sin-imagen{% endif %}" href="{% url 'tienda:producto' p.sku %}" tabindex="-1" aria-hidden="true">
+      {% if p.imagen %}<img src="{{ p.imagen.url }}" alt="" loading="lazy">{% endif %}
     </a>
     <div class="cuerpo">
       <h2><a href="{% url 'tienda:producto' p.sku %}">{{ p.nombre }}</a></h2>

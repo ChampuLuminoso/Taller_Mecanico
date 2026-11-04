@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block titulo %}Cargar productos · Taller Francois{% endblock %}
+{% block titulo %}Cargar productos · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <p><a href="{% url 'inventario:lista' %}">← Inventario</a></p>
 <div class="tarjeta">

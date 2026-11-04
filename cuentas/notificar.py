@@ -22,7 +22,7 @@ def enviar(asunto, cuerpo, *, para=(), copia_oculta=()):
     if not para and not copia_oculta:
         return False
     try:
-        EmailMessage(subject=f"[Taller Francois] {asunto}", body=cuerpo,
+        EmailMessage(subject=f"[{settings.MARCA['NOMBRE']}] {asunto}", body=cuerpo,
                      from_email=settings.DEFAULT_FROM_EMAIL,
                      to=para or [settings.DEFAULT_FROM_EMAIL], bcc=copia_oculta).send()
         return True

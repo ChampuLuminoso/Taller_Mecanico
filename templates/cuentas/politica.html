@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% block titulo %}Política de tratamiento de datos · Taller Francois{% endblock %}
+{% block titulo %}Política de tratamiento de datos · {{ marca.NOMBRE }}{% endblock %}
 {% block contenido %}
 <div class="tarjeta">
   <h1>Política de tratamiento de datos personales</h1>
   <p class="ayuda">BORRADOR para revisar con los dueños y, idealmente, con un abogado antes de publicar.</p>
 
   <h2>Responsable</h2>
-  <p>Taller Mecánico Francois, Bogotá D.C. [NIT, dirección, correo y teléfono de contacto por completar].</p>
+  <p>{{ marca.NOMBRE }} ({{ marca.SUBTITULO }}), Bogotá D.C. [NIT, dirección, correo y teléfono de contacto por completar].</p>
 
   <h2>Qué datos recogemos y para qué</h2>
   <p>Nombre, documento, celular, correo, fecha de nacimiento, direcciones de entrega y datos de tus vehículos.

@@ -2,12 +2,13 @@
 {# Ficha del producto: la usan la página completa y la vista rápida. #}
 <div class="dos-col">
   <div>
-    {% if p.imagen %}<img src="{{ p.imagen.url }}" alt="{{ p.nombre }}" style="width:100%; border-radius:8px">
-    {% else %}<div class="producto"><div class="foto" aria-hidden="true">{{ p.categoria.nombre|default:"·"|slice:":1" }}</div></div>{% endif %}
+    <div class="foto ficha-foto{% if not p.imagen %} sin-imagen{% endif %}">
+      {% if p.imagen %}<img src="{{ p.imagen.url }}" alt="{{ p.nombre }}">{% endif %}
+    </div>
   </div>
   <div>
     <p class="ayuda" style="margin:0">{{ p.categoria.nombre|default:"" }}{% if p.marca %} · {{ p.marca }}{% endif %} · Ref. {{ p.sku }}</p>
-    <p style="font-size:1.6rem; font-weight:700; margin:.4rem 0">{{ p.precio_venta|pesos }}</p>
+    <p style="font:700 2rem/1.1 var(--f-titulo); margin:.4rem 0">{{ p.precio_venta|pesos }}</p>
     {% if p.disponible > 0 %}
       <span class="etiqueta ok">{{ p.disponible }} disponible{{ p.disponible|pluralize }}</span>
     {% else %}

@@ -1,6 +1,6 @@
-# Taller Mecánico Francois · Plataforma web
+# AutoPartes M&F · Taller Mecánico Francois · Plataforma web
 
-Fases 1 a 6: modelo de datos, autenticación y roles, inventario y apartados, agenda de citas, tienda y pedidos, reportes. Django 5.2 + PostgreSQL 16.
+Fases 1 a 7: modelo de datos, autenticación y roles, inventario y apartados, agenda de citas, tienda y pedidos, reportes, diseño de marca. Django 5.2 + PostgreSQL 16.
 
 ## Instalar en tu computador
 
@@ -17,7 +17,7 @@ CREATE DATABASE taller_francois OWNER taller;
 # 3. Crear las tablas y los datos iniciales (roles, 3 bahías, horario, tipos de visita)
 python manage.py migrate
 
-# 4. Probar que todas las reglas funcionan (119 pruebas)
+# 4. Probar que todas las reglas funcionan (125 pruebas)
 python manage.py test
 
 # 5. Tu cuenta de Ingeniero (pide la contraseña sin mostrarla)
@@ -95,12 +95,24 @@ Después, Fran (o tú, en pruebas) crea el primer Jefe desde **Personal → Nuev
 - El total de un pedido siempre cuadra (`total_cuadra`).
 - Auditoría e historial de inventario solo admiten inserciones (triggers).
 
+## Diseño (Fase 7)
+
+- Identidad tomada del logo de AutoPartes M&F: naranja de la carrocería, blanco, gris carbón y el gris salvia del fondo.
+  Botones y enlaces usan un naranja un poco más hondo (`#c4501f`) para que el texto blanco se lea bien (4,65:1).
+- Nombre y subtítulo configurables con `MARCA_NOMBRE` y `MARCA_SUBTITULO` (por defecto "AutoPartes M&F" / "Taller Mecánico Francois").
+- Fondo con la marca de agua moviéndose lento en diagonal; guiño del logo en la esquina de cada foto de producto.
+- Fuentes Barlow y Barlow Condensed servidas desde `static/fuentes` (licencia OFL incluida).
+- Navegación deslizante entre secciones (View Transitions) en el sitio y en el panel, y gesto de deslizar en celular.
+  El orden de las secciones sale del menú de cada rol (`cuentas/navegacion.py`). Con "reducir movimiento" activado
+  en el celular o el computador, no hay deriva ni deslizamiento: solo un fundido corto.
+
 ## Reportes
 
 - Una venta es un pedido **confirmado** (el inventario ya salió) y no cancelado; cuenta el día en que se confirmó.
 - Por defecto se ve **hoy**; también semana (lunes a domingo) y mes, con comparación contra el periodo anterior.
 - Productos ordenados por precio de mayor a menor (o más vendidos, o mayor ingreso). Ganancia = precio − costo guardados el día de la venta.
-- Solo Jefe y Fran ven ventas, ganancias e historial de clientes. Exporte a Excel con hojas Resumen, Productos y Pedidos.
+- Solo Jefe y Fran ven ventas, ganancias e historial de clientes.
+- Solo cuenta lo que se vende por la aplicación: las ventas a mano con recibo en el taller no entran (decisión de los dueños). Exporte a Excel con hojas Resumen, Productos y Pedidos.
 
 ## Reglas de la tienda
 
