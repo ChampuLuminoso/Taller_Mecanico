@@ -9,6 +9,7 @@ urlpatterns = [
     path("nuevo/", views.producto_form, name="nuevo"),
     path("plantilla.xlsx", views.plantilla, name="plantilla"),
     path("importar/", views.importar, name="importar"),
+    path("fotos/", views.fotos_lote, name="fotos_lote"),
     path("<int:pk>/", views.detalle, name="detalle"),
     path("<int:pk>/editar/", views.producto_form, name="editar"),
     path("<int:pk>/fila/", views.fila_editar, name="fila"),

@@ -254,3 +254,33 @@ class ApartadosPantallasTests(Base):
         self.assertEqual(a.estado, "VENCIDO")
         mov = self.p.movimientos.filter(tipo=M.LIBERACION).get()
         self.assertEqual(mov.usuario.nombre_visible, "Sistema automático")
+
+
+@override_settings(MEDIA_ROOT=MEDIA_TEMPORAL)
+class FotosLoteTests(Base):
+    def foto(self, nombre, tamano=(2400, 1600), formato="JPEG"):
+        buffer = BytesIO()
+        Image.new("RGB", tamano, "orange").save(buffer, formato)
+        return SimpleUploadedFile(nombre, buffer.getvalue(), content_type="image/jpeg")
+
+    def test_asigna_por_nombre_y_reporta_lo_que_no_calza(self):
+        otro = Producto.objects.create(sku="ACE-001", nombre="Aceite", precio_venta=1000)
+        self.client.force_login(self.subjefe)
+        archivos = [self.foto("fre-001.jpg"), self.foto("ACE-001.png", formato="PNG"), self.foto("NO-EXISTE.jpg"),
+                    SimpleUploadedFile("lista.txt", b"hola", content_type="text/plain"),
+                    SimpleUploadedFile("FRE-001.jpg", b"esto no es una imagen", content_type="image/jpeg")]
+        r = self.client.post(reverse("inventario:fotos_lote"), {"fotos": archivos})
+        res = r.context["resultado"]
+        self.assertEqual({p.sku for p in res["listas"]}, {"FRE-001", "ACE-001"})
+        self.assertEqual(res["sin_producto"], ["NO-EXISTE.jpg"])
+        self.assertEqual(len(res["con_error"]), 2)               # el .txt y la "foto" dañada
+        self.p.refresh_from_db()
+        otro.refresh_from_db()
+        self.assertTrue(self.p.imagen.name.endswith("fre-001.webp"))
+        with Image.open(self.p.imagen.path) as img:
+            self.assertEqual(max(img.size), 1200)
+        self.assertTrue(Auditoria.objects.filter(accion="fotos_en_lote").exists())
+
+    def test_empleado_no_sube_fotos(self):
+        self.client.force_login(self.empleado)
+        self.assertEqual(self.client.get(reverse("inventario:fotos_lote")).status_code, 403)

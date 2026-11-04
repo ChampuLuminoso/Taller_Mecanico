@@ -5,6 +5,7 @@ from io import StringIO
 from unittest.mock import patch
 from zoneinfo import ZoneInfo
 
+from django.conf import settings
 from django.core import mail
 from django.core.exceptions import PermissionDenied, ValidationError
 from django.core.management import call_command
@@ -156,7 +157,7 @@ class CancelarYCambiarTests(Base):
             servicios.cancelar(self.cita.pk, self.usuario_cliente)
         self.cita.refresh_from_db()
         self.assertEqual(self.cita.estado, Cita.CANCELADA)
-        self.assertEqual([m.to for m in mail.outbox][-1], ["notificaciones@tallerfrancois.local"])  # solo jefes
+        self.assertEqual([m.to for m in mail.outbox][-1], [settings.DEFAULT_FROM_EMAIL])  # solo a los jefes (copia oculta)
 
     def test_taller_cancela_cuando_sea_con_motivo_y_avisa_al_cliente(self):
         with reloj(MIE4, 13):

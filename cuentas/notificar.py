@@ -24,7 +24,9 @@ def enviar(asunto, cuerpo, *, para=(), copia_oculta=()):
     try:
         EmailMessage(subject=f"[{settings.MARCA['NOMBRE']}] {asunto}", body=cuerpo,
                      from_email=settings.DEFAULT_FROM_EMAIL,
-                     to=para or [settings.DEFAULT_FROM_EMAIL], bcc=copia_oculta).send()
+                     to=para or [settings.DEFAULT_FROM_EMAIL], bcc=copia_oculta,
+                     # Si el cliente responde, la respuesta llega al correo del taller (no a "avisos@").
+                     reply_to=[settings.CORREO_RESPUESTA] if settings.CORREO_RESPUESTA else None).send()
         return True
     except Exception:
         log.exception("No se pudo enviar el correo: %s", asunto)

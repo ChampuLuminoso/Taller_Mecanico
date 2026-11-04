@@ -1,14 +1,8 @@
-from io import BytesIO
-from pathlib import Path
-
 from django import forms
-from django.conf import settings
-from django.core.files.base import ContentFile
-from PIL import Image, ImageOps
+from django.core.exceptions import ValidationError
 
+from .imagenes import optimizar
 from .models import Compatibilidad, Producto
-
-LADO_MAX_IMAGEN = 1200
 
 
 class ProductoForm(forms.ModelForm):
@@ -29,20 +23,13 @@ class ProductoForm(forms.ModelForm):
         return self.cleaned_data["sku"].upper().strip()
 
     def clean_imagen(self):
-        """Valida y optimiza la foto: máximo 3 MB, se reduce a 1200 px y se guarda en WebP.
-        Una foto de celular de 4 MB queda en ~100 KB: la tienda carga mucho más rápido."""
         imagen = self.cleaned_data.get("imagen")
         if not imagen or not hasattr(imagen, "content_type"):   # sin cambios
             return imagen
-        if imagen.size > settings.TAMANO_MAX_IMAGEN_MB * 1024 * 1024:
-            raise forms.ValidationError(f"La imagen pesa más de {settings.TAMANO_MAX_IMAGEN_MB} MB.")
-        foto = ImageOps.exif_transpose(Image.open(imagen))   # respeta la orientación del celular
-        foto = foto.convert("RGB")
-        foto.thumbnail((LADO_MAX_IMAGEN, LADO_MAX_IMAGEN))
-        salida = BytesIO()
-        foto.save(salida, "WEBP", quality=82)
-        nombre = Path(self.cleaned_data.get("sku") or "producto").stem.lower() + ".webp"
-        return ContentFile(salida.getvalue(), name=nombre)
+        try:
+            return optimizar(imagen, self.cleaned_data.get("sku") or "producto")
+        except ValidationError as e:
+            raise forms.ValidationError("La imagen " + e.messages[0] + ".")
 
 
 CompatibilidadFormSet = forms.inlineformset_factory(
@@ -96,3 +83,27 @@ class ApartadoDirectoForm(forms.Form):
     cantidad = forms.IntegerField(min_value=1, initial=1)
     abono = forms.DecimalField(min_value=0, max_digits=12, decimal_places=0, required=False, initial=0)
     nota = forms.CharField(max_length=300, required=False)
+
+
+class VariosArchivos(forms.ClearableFileInput):
+    allow_multiple_selected = True
+
+
+class VariosArchivosField(forms.FileField):
+    """Campo que acepta varios archivos (patrón de la documentación de Django)."""
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault("widget", VariosArchivos(attrs={"accept": "image/*"}))
+        super().__init__(*args, **kwargs)
+
+    def clean(self, data, initial=None):
+        limpiar = super().clean
+        if isinstance(data, (list, tuple)):
+            if not data and self.required:
+                raise forms.ValidationError("Elige al menos una foto.")
+            return [limpiar(d, initial) for d in data]
+        return [limpiar(data, initial)]
+
+
+class FotosLoteForm(forms.Form):
+    fotos = VariosArchivosField(label="Fotos",
+                                help_text="Nombra cada foto con el ProductoID: FRE-PAST-001.jpg. Puedes elegir muchas a la vez.")

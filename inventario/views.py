@@ -182,3 +182,50 @@ def importar(request):
             messages.success(request, f"Se cargaron {resultado.creados} productos.")
             return redirect("inventario:lista")
     return render(request, "inventario/importar.html", {"form": form, "resultado": resultado})
+
+
+# ───────────────────────── Fotos en lote ─────────────────────────
+
+MAX_FOTOS_LOTE = 60
+
+
+@permiso_requerido("inventario.editar")
+def fotos_lote(request):
+    """Varias fotos de una vez: el nombre del archivo (sin extensión) es el ProductoID."""
+    from pathlib import Path
+
+    from .forms import FotosLoteForm
+    from .imagenes import EXTENSIONES, optimizar
+
+    form = FotosLoteForm(request.POST or None, request.FILES or None)
+    resultado = None
+    if request.method == "POST" and form.is_valid():
+        archivos = form.cleaned_data["fotos"][:MAX_FOTOS_LOTE]
+        productos = {p.sku: p for p in Producto.objects.filter(
+            sku__in=[Path(a.name).stem.upper().strip() for a in archivos])}
+        resultado = {"listas": [], "sin_producto": [], "con_error": []}
+        for archivo in archivos:
+            sku = Path(archivo.name).stem.upper().strip()
+            if Path(archivo.name).suffix.lower() not in EXTENSIONES:
+                resultado["con_error"].append((archivo.name, "no es una foto (usa JPG, PNG o WebP)"))
+                continue
+            producto = productos.get(sku)
+            if not producto:
+                resultado["sin_producto"].append(archivo.name)
+                continue
+            try:
+                contenido = optimizar(archivo, sku)
+            except ValidationError as e:
+                resultado["con_error"].append((archivo.name, e.messages[0]))
+                continue
+            if producto.imagen:
+                producto.imagen.delete(save=False)   # la foto vieja no se queda ocupando disco
+            producto.imagen.save(contenido.name, contenido, save=True)
+            resultado["listas"].append(producto)
+        if resultado["listas"]:
+            registrar(request.user, "fotos_en_lote", "Producto",
+                      despues={"productos": [p.sku for p in resultado["listas"]]}, ip=ip_de(request))
+        if len(form.cleaned_data["fotos"]) > MAX_FOTOS_LOTE:
+            messages.info(request, f"Se procesaron las primeras {MAX_FOTOS_LOTE} fotos. Sube el resto en otra tanda.")
+    sin_foto = Producto.objects.filter(activo=True, imagen="").order_by("sku").values_list("sku", "nombre")[:200]
+    return render(request, "inventario/fotos_lote.html", {"form": form, "resultado": resultado, "sin_foto": sin_foto})

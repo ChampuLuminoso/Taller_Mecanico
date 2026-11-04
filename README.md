@@ -1,10 +1,15 @@
 # AutoPartes M&F · Taller Mecánico Francois · Plataforma web
 
-Fases 1 a 7: modelo de datos, autenticación y roles, inventario y apartados, agenda de citas, tienda y pedidos, reportes, diseño de marca. Django 5.2 + PostgreSQL 16.
+Fases 1 a 8: modelo de datos, autenticación y roles, inventario y apartados, agenda de citas, tienda y pedidos, reportes, diseño de marca y preparación para publicar.
+
+**Para publicar en internet (Railway + dominio + correo): ver [DESPLIEGUE.md](DESPLIEGUE.md).** Django 5.2 + PostgreSQL 16.
 
 ## Instalar en tu computador
 
 ```bash
+# 0. Configuración local: copia el ejemplo (enciende el modo desarrollo)
+cp .env.ejemplo .env
+
 # 1. Entorno virtual
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
@@ -16,8 +21,9 @@ CREATE DATABASE taller_francois OWNER taller;
 
 # 3. Crear las tablas y los datos iniciales (roles, 3 bahías, horario, tipos de visita)
 python manage.py migrate
+python manage.py createcachetable
 
-# 4. Probar que todas las reglas funcionan (125 pruebas)
+# 4. Probar que todas las reglas funcionan (133 pruebas)
 python manage.py test
 
 # 5. Tu cuenta de Ingeniero (pide la contraseña sin mostrarla)
@@ -42,6 +48,7 @@ python manage.py runserver
 | http://localhost:8000/cuenta/personal/ | Crear y bloquear personal |
 | http://localhost:8000/panel/inventario/ | Inventario, edición rápida, historial |
 | http://localhost:8000/panel/inventario/importar/ | Cargar productos desde Excel (Jefe) |
+| http://localhost:8000/panel/inventario/fotos/ | Subir muchas fotos a la vez (nombre = ProductoID) |
 | http://localhost:8000/panel/apartados/solicitudes/ | Aprobar o rechazar solicitudes |
 | http://localhost:8000/panel/apartados/ | Entregar o cancelar apartados |
 | http://localhost:8000/citas/ | Cliente: mis citas, agendar, cambiar, cancelar |
@@ -133,8 +140,7 @@ Después, Fran (o tú, en pruebas) crea el primer Jefe desde **Personal → Nuev
 ## Tareas programadas (cuando haya servidor)
 
 ```bash
-python manage.py vencer_apartados    # cada noche, ~11:55 p. m.
-python manage.py recordar_citas      # cada tarde, ~5:00 p. m. (citas de mañana)
+python manage.py tareas_programadas  # cada hora: vence apartados y, desde las 5 p. m., recuerda las citas de mañana
 ```
 
 ## Correo
