@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load taller %}
+{% block titulo %}Panel · Taller Francois{% endblock %}
+{% block contenido %}
+<h1>Hola, {{ user.nombre_visible }}</h1>
+
+{% if ventas_hoy %}
+  <a class="tarjeta" href="{% url 'reportes:ventas' %}" style="display:block; color:inherit; text-decoration:none">
+    <p class="ayuda" style="margin:0">Ventas de hoy</p>
+    <p style="font-size:2rem; font-weight:700; margin:.1rem 0">{{ ventas_hoy.total|pesos }}</p>
+    <p class="ayuda" style="margin:0">{{ ventas_hoy.cantidad_pedidos }} pedido{{ ventas_hoy.cantidad_pedidos|pluralize }} · {{ ventas_hoy.unidades }} unidad{{ ventas_hoy.unidades|pluralize:"es" }} · ver reporte →</p>
+  </a>
+{% endif %}
+
+{% if proxima_cita %}
+  <div class="tarjeta">
+    <h2 style="margin-top:0">Tu próxima cita</h2>
+    <p style="margin:0"><strong>{{ proxima_cita.tipo_visita.nombre }}</strong> · {{ proxima_cita.inicio|date:"l j \d\e F"|lower }} a las {{ proxima_hora }}</p>
+    <p><a href="{% url 'citas:mis_citas' %}">Ver mis citas</a></p>
+  </div>
+{% endif %}
+
+{% if citas_hoy is not None %}
+  <div class="mensaje" role="status">
+    Hoy hay <strong>{{ citas_hoy }}</strong> cita{{ citas_hoy|pluralize }} en el taller. <a href="{% url 'citas:agenda' %}">Ver agenda</a>
+  </div>
+{% endif %}
+
+{% if pedidos_pendientes %}
+  <div class="mensaje aviso" role="status">
+    Hay <strong>{{ pedidos_pendientes }}</strong> pedido{{ pedidos_pendientes|pluralize }} de la tienda por confirmar.
+    <a href="{% url 'pedidos:lista' %}">Ver pedidos</a>
+  </div>
+{% endif %}
+
+{% if solicitudes_pendientes %}
+  <div class="mensaje aviso" role="status">
+    Tienes <strong>{{ solicitudes_pendientes }}</strong> solicitud{{ solicitudes_pendientes|pluralize:"es" }} de apartado por revisar.
+    <a href="{% url 'apartados:solicitudes' %}">Revisar</a>
+  </div>
+{% endif %}
+
+{% if bajo_stock %}
+  <div class="tarjeta">
+    <h2 style="margin-top:0">⚠ Stock bajo</h2>
+    <div class="tabla"><table>
+      <thead><tr><th>Producto</th><th class="num">Disponibles</th><th class="num">Mínimo</th></tr></thead>
+      <tbody>
+      {% for p in bajo_stock %}
+        <tr>
+          <td><a href="{% url 'inventario:detalle' p.pk %}">{{ p.nombre }}</a> <span class="ayuda">{{ p.sku }}</span></td>
+          <td class="num"><span class="etiqueta {% if p.unidades_disponibles <= 0 %}error{% else %}aviso{% endif %}">{{ p.unidades_disponibles }}</span></td>
+          <td class="num">{{ p.stock_minimo }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table></div>
+    <p><a href="{% url 'inventario:lista' %}?estado=bajo">Ver todos los productos con stock bajo</a></p>
+  </div>
+{% endif %}
+
+<div class="tarjeta">
+  <h2 style="margin-top:0">Secciones</h2>
+  <ul>
+    {% for nombre, url, fase in secciones %}
+      <li>{% if url %}<a href="{% url url %}">{{ nombre }}</a>{% else %}{{ nombre }} <span class="etiqueta">{{ fase }}</span>{% endif %}</li>
+    {% endfor %}
+    {% if ruta_admin %}<li><a href="{{ ruta_admin }}">Mantenimiento técnico (admin)</a></li>{% endif %}
+  </ul>
+  <p><a href="{% url 'cuentas:cambiar_clave' %}">Cambiar mi contraseña</a></p>
+</div>
+{% endblock %}

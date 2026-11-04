@@ -1,0 +1,8 @@
+<div style="padding:1.25rem">
+  <div class="acciones" style="justify-content:space-between; align-items:flex-start">
+    <h2 style="margin:0">{{ p.nombre }}</h2>
+    <button type="button" class="boton-link" onclick="this.closest('dialog').close()" aria-label="Cerrar">Cerrar ✕</button>
+  </div>
+  {% include "tienda/_ficha.html" %}
+  <p><a href="{% url 'tienda:producto' p.sku %}">Ver página completa{% if es_cliente %} y solicitar apartado{% endif %}</a></p>
+</div>

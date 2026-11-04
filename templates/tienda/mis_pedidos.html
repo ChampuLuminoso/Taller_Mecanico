@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load taller %}
+{% block titulo %}Mis pedidos · Taller Mecánico Francois{% endblock %}
+{% block contenido %}
+<h1>Mis pedidos</h1>
+{% for p in pedidos %}
+  <div class="tarjeta">
+    <div class="acciones" style="justify-content:space-between">
+      <h2 style="margin:0">Pedido #{{ p.pk }}</h2>
+      <span class="etiqueta {% if p.estado == 'ENTREGADO' %}ok{% elif p.estado == 'CANCELADO' %}error{% else %}aviso{% endif %}">
+        {% if p.estado == "RECIBIDO" %}Por confirmar{% else %}{{ p.get_estado_display }}{% endif %}</span>
+    </div>
+    <p class="ayuda" style="margin:.25rem 0">{{ p.creado_en|date:"d/m/Y h:i A" }} · {{ p.get_modalidad_display }} · {{ p.get_metodo_pago_display }}</p>
+    <ul style="margin:.4rem 0">{% for i in p.items.all %}<li>{{ i.cantidad }} × {{ i.nombre_producto }} · {{ i.subtotal|pesos }}</li>{% endfor %}</ul>
+    <p style="margin:.25rem 0">{% if p.costo_envio %}Domicilio {{ p.costo_envio|pesos }} · {% endif %}<strong>Total {{ p.total|pesos }}</strong></p>
+    {% if p.direccion_texto %}<p class="ayuda" style="margin:.25rem 0">Entrega en: {{ p.direccion_texto }}</p>{% endif %}
+    {% if p.estado == "CANCELADO" %}<p class="ayuda">Motivo: {{ p.motivo_cancelacion }}</p>{% endif %}
+    {% if p.estado == "RECIBIDO" %}
+      <form method="post" action="{% url 'pedidos:cancelar_mio' p.pk %}" onsubmit="return confirm('¿Cancelar este pedido?')">{% csrf_token %}
+        <button type="submit" class="secundario">Cancelar pedido</button>
+      </form>
+    {% elif p.estado != "ENTREGADO" and p.estado != "CANCELADO" and p.modalidad == "ENVIO" %}
+      <p class="ayuda">{{ texto_entregas }}</p>
+    {% endif %}
+  </div>
+{% empty %}
+  <div class="tarjeta"><p>Aún no tienes pedidos.</p><a class="boton" href="{% url 'tienda:catalogo' %}">Ver repuestos</a></div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load taller %}
+{% block titulo %}Finalizar compra · Taller Mecánico Francois{% endblock %}
+{% block contenido %}
+<p><a href="{% url 'tienda:carrito' %}">← Carrito</a></p>
+<form method="post" novalidate>
+  {% csrf_token %}
+  <div class="tarjeta">
+    <h1>Finalizar compra</h1>
+    {{ form.non_field_errors }}
+    <fieldset style="border:0; padding:0; margin:0">
+      <legend><strong>{{ form.modalidad.label }}</strong></legend>
+      {% for r in form.modalidad %}
+        <div class="check"><label>{{ r.tag }} {{ r.choice_label }}{% if r.data.value == "ENVIO" %} · {{ costo_envio|pesos }}{% else %} · gratis{% endif %}</label></div>
+      {% endfor %}
+    </fieldset>
+  </div>
+
+  <div class="tarjeta" id="bloque-envio">
+    <h2 style="margin-top:0">Dirección en Bogotá</h2>
+    {% if form.direccion.field.queryset.exists %}{{ form.direccion.label_tag }} {{ form.direccion }}{% else %}{{ form.direccion }}{% endif %}
+    <div id="nueva-direccion">
+      <div class="dos-col">
+        <div>{{ form.localidad.label_tag }} {{ form.localidad }} {{ form.localidad.errors }}</div>
+        <div>{{ form.barrio.label_tag }} {{ form.barrio }} {{ form.barrio.errors }}</div>
+      </div>
+      {{ form.direccion_texto.label_tag }} {{ form.direccion_texto }} {{ form.direccion_texto.errors }}
+      {{ form.indicaciones.label_tag }} {{ form.indicaciones }}
+    </div>
+    <p class="mensaje aviso" style="margin-top:1rem">{{ texto_entregas }} El domicilio se paga contra entrega.</p>
+  </div>
+
+  <div class="tarjeta" id="bloque-pago">
+    <fieldset style="border:0; padding:0; margin:0">
+      <legend><strong>{{ form.metodo_pago.label }}</strong></legend>
+      {% for r in form.metodo_pago %}<div class="check"><label>{{ r.tag }} {{ r.choice_label }}</label></div>{% endfor %}
+      <p class="ayuda">Si recoges en el taller, puedes pagar allá. A domicilio se paga al recibir.</p>
+    </fieldset>
+  </div>
+
+  <div class="tarjeta">
+    {{ form.telefono.label_tag }} {{ form.telefono }} {{ form.telefono.errors }}
+    {{ form.nota.label_tag }} {{ form.nota }}
+  </div>
+
+  <div class="tarjeta">
+    <h2 style="margin-top:0">Resumen</h2>
+    {% for l in lineas %}<p style="margin:.2rem 0">{{ l.cantidad }} × {{ l.producto.nombre }} <span style="float:right">{{ l.subtotal|pesos }}</span></p>{% endfor %}
+    <p style="margin:.5rem 0 0">Subtotal <span style="float:right">{{ subtotal|pesos }}</span></p>
+    <p style="margin:.2rem 0" id="linea-envio">Domicilio <span style="float:right">{{ costo_envio|pesos }}</span></p>
+    <p class="ayuda">El taller revisa y confirma tu pedido antes de alistarlo.</p>
+    <button type="submit">Hacer pedido</button>
+  </div>
+</form>
+<script>
+  // Muestra la dirección y el costo de envío solo si eligió domicilio. Sin JavaScript, todo se ve igual y funciona.
+  (function () {
+    var radios = document.querySelectorAll('input[name="modalidad"]');
+    function actualizar() {
+      var envio = document.querySelector('input[name="modalidad"]:checked').value === "ENVIO";
+      document.getElementById("bloque-envio").hidden = !envio;
+      document.getElementById("bloque-pago").hidden = envio;
+      document.getElementById("linea-envio").hidden = !envio;
+    }
+    radios.forEach(function (r) { r.addEventListener("change", actualizar); });
+    actualizar();
+    // Si eligió una dirección guardada, no hace falta mostrar los campos de dirección nueva.
+    var guardada = document.querySelector('select[name="direccion"]');
+    if (guardada) {
+      var nueva = function () { document.getElementById("nueva-direccion").hidden = guardada.value !== ""; };
+      guardada.addEventListener("change", nueva);
+      nueva();
+    }
+  })();
+</script>
+{% endblock %}

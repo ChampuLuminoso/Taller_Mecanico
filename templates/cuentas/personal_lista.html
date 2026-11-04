@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block titulo %}Personal · Taller Francois{% endblock %}
+{% block ancho %}ancho{% endblock %}
+{% block contenido %}
+<div class="tarjeta">
+  <h1>Personal</h1>
+  {% if puede_crear %}<a class="boton" href="{% url 'cuentas:personal_crear' %}">+ Nueva cuenta</a>{% endif %}
+  <table>
+    <thead><tr><th>Nombre</th><th>Rol</th><th>Cargo</th><th>Estado</th>{% if puede_bloquear %}<th>Acción</th>{% endif %}</tr></thead>
+    <tbody>
+    {% for u in personal %}
+      <tr>
+        <td>{{ u.empleado }}<br><span class="ayuda">{{ u.email }}</span></td>
+        <td>{% for r in u.roles.all %}{{ r.nombre }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+        <td>{{ u.empleado.cargo }}</td>
+        <td>{% if u.bloqueado %}Bloqueado<br><span class="ayuda">{{ u.motivo_bloqueo }}</span>{% else %}Activo{% endif %}</td>
+        {% if puede_bloquear %}
+        <td>
+          {% if u.pk != user.pk %}
+          <form method="post" action="{% url 'cuentas:personal_bloqueo' u.pk %}">
+            {% csrf_token %}
+            {% if u.bloqueado %}
+              <input type="hidden" name="accion" value="desbloquear">
+              <button class="boton-link" type="submit">Desbloquear</button>
+            {% else %}
+              <label class="ayuda" for="motivo-{{ u.pk }}">Motivo</label>
+              <input id="motivo-{{ u.pk }}" type="text" name="motivo" required maxlength="255">
+              <button class="boton-link" type="submit">Bloquear</button>
+            {% endif %}
+          </form>
+          {% endif %}
+        </td>
+        {% endif %}
+      </tr>
+    {% empty %}
+      <tr><td colspan="5">Todavía no hay cuentas de personal.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p><a href="{% url 'cuentas:panel' %}">← Volver al panel</a></p>
+</div>
+{% endblock %}

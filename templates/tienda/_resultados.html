@@ -1,0 +1,45 @@
+{% load taller %}
+{% if pagina.paginator.count %}
+<p class="ayuda">{{ pagina.paginator.count }} producto{{ pagina.paginator.count|pluralize }}</p>
+<ul class="productos" style="list-style:none; padding:0; margin:0">
+  {% for p in pagina %}
+  <li class="producto">
+    <a class="foto" href="{% url 'tienda:producto' p.sku %}" tabindex="-1" aria-hidden="true">
+      {% if p.imagen %}<img src="{{ p.imagen.url }}" alt="" loading="lazy">{% else %}{{ p.categoria.nombre|default:"·"|slice:":1" }}{% endif %}
+    </a>
+    <div class="cuerpo">
+      <h2><a href="{% url 'tienda:producto' p.sku %}">{{ p.nombre }}</a></h2>
+      <span class="ayuda">{{ p.categoria.nombre|default:"" }}{% if p.marca %} · {{ p.marca }}{% endif %}</span>
+      <span class="precio">{{ p.precio_venta|pesos }}</span>
+      {% if p.unidades_disponibles > 0 %}
+        <span class="etiqueta ok" style="align-self:flex-start">{{ p.unidades_disponibles }} disponible{{ p.unidades_disponibles|pluralize }}</span>
+      {% else %}
+        <span class="etiqueta error" style="align-self:flex-start">Agotado</span>
+      {% endif %}
+      <div class="pie">
+        {% if p.unidades_disponibles > 0 %}
+        <form method="post" action="{% url 'tienda:agregar' p.pk %}">{% csrf_token %}
+          <input type="hidden" name="volver" value="{{ request.get_full_path }}">
+          <button type="submit" aria-label="Agregar {{ p.nombre }} al carrito">Agregar</button>
+        </form>
+        {% endif %}
+        <button type="button" class="secundario" hx-get="{% url 'tienda:producto' p.sku %}" hx-target="#vista-rapida"
+                aria-label="Vista rápida de {{ p.nombre }}">Ver</button>
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% if pagina.has_other_pages %}
+  <p class="acciones">
+    {% if pagina.has_previous %}<a href="?pagina={{ pagina.previous_page_number }}&q={{ q|urlencode }}&categoria={{ categoria }}{% if solo_disponibles %}&disponibles=1{% endif %}">← Anterior</a>{% endif %}
+    <span class="ayuda">Página {{ pagina.number }} de {{ pagina.paginator.num_pages }}</span>
+    {% if pagina.has_next %}<a href="?pagina={{ pagina.next_page_number }}&q={{ q|urlencode }}&categoria={{ categoria }}{% if solo_disponibles %}&disponibles=1{% endif %}">Siguiente →</a>{% endif %}
+  </p>
+{% endif %}
+{% else %}
+  <div class="tarjeta">
+    <p>No encontramos repuestos con esa búsqueda.</p>
+    <p class="ayuda">¿No lo ves? Escríbenos y te ayudamos a conseguirlo.</p>
+  </div>
+{% endif %}

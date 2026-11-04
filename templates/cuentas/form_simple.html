@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block titulo %}{{ titulo }} · Taller Francois{% endblock %}
+{% block contenido %}
+<div class="tarjeta">
+  <h1>{{ titulo }}</h1>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {% for campo in form %}
+      <div class="{% if campo.field.widget.input_type == 'checkbox' %}check{% endif %}">
+        {% if campo.field.widget.input_type == 'checkbox' %}
+          <label>{{ campo }} {{ campo.label }}</label>
+        {% else %}
+          {{ campo.label_tag }} {{ campo }}
+        {% endif %}
+        {% if campo.help_text %}<div class="ayuda">{{ campo.help_text|safe }}</div>{% endif %}
+        {{ campo.errors }}
+      </div>
+    {% endfor %}
+    <button type="submit">{{ boton }}</button>
+  </form>
+  <p><a href="{% url 'cuentas:panel' %}">← Volver al panel</a></p>
+</div>
+{% endblock %}

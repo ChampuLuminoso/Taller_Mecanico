@@ -1,0 +1,5 @@
+Django==5.2.18
+holidays==0.107
+pillow==12.3.0
+psycopg[binary]==3.3.6
+openpyxl==3.1.5

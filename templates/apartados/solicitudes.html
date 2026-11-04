@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load taller %}
+{% block titulo %}Solicitudes de apartado · Taller Francois{% endblock %}
+{% block ancho %}ancho{% endblock %}
+{% block contenido %}
+<div class="acciones" style="justify-content:space-between; margin-bottom:1rem">
+  <h1 style="margin:0">Solicitudes de apartado</h1>
+  <div class="acciones">
+    <a class="boton secundario" href="{% url 'apartados:lista' %}">Ver apartados</a>
+    <a class="boton" href="{% url 'apartados:nuevo' %}">+ Apartado directo</a>
+  </div>
+</div>
+
+{% for s in pendientes %}
+  <div class="tarjeta">
+    <div class="dos-col">
+      <div>
+        <h2 style="margin-top:0">{{ s.cliente }}</h2>
+        <p style="margin:.25rem 0">
+          Pide <strong>{{ s.cantidad }}</strong> × <a href="{% url 'inventario:detalle' s.producto.pk %}">{{ s.producto.nombre }}</a>
+          <span class="ayuda">({{ s.producto.sku }})</span>
+        </p>
+        <p style="margin:.25rem 0">Disponibles hoy: <strong>{{ s.producto.disponible }}</strong>
+          {% if s.producto.disponible < s.cantidad %}<span class="etiqueta error">No alcanza</span>{% endif %}</p>
+        {% if s.nota_cliente %}<p style="margin:.25rem 0">Nota: “{{ s.nota_cliente }}”</p>{% endif %}
+        <p class="ayuda" style="margin:.25rem 0">Pedido el {{ s.creado_en|date:"d/m/Y h:i A" }}</p>
+        <p style="margin:.25rem 0">
+          <a href="https://wa.me/{{ s.cliente.telefono|whatsapp }}" target="_blank" rel="noopener">WhatsApp {{ s.cliente.telefono }}</a>
+        </p>
+      </div>
+      <form method="post" action="{% url 'apartados:responder' s.pk %}">
+        {% csrf_token %}
+        <label for="resp-{{ s.pk }}">Mensaje para el cliente</label>
+        <input id="resp-{{ s.pk }}" type="text" name="respuesta" maxlength="300" placeholder="Opcional">
+        <label for="abono-{{ s.pk }}">Abono acordado ($)</label>
+        <input id="abono-{{ s.pk }}" type="number" name="abono" min="0" step="1" value="0">
+        <div class="ayuda">Sin abono vence en 3 días hábiles; con abono, en 7.</div>
+        <div class="acciones">
+          <button type="submit" name="decision" value="aprobar">Aprobar y apartar</button>
+          <button type="submit" name="decision" value="rechazar" class="secundario">Rechazar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% empty %}
+  <div class="tarjeta"><p>No hay solicitudes pendientes. 👍</p></div>
+{% endfor %}
+
+{% if recientes %}
+<div class="tarjeta">
+  <h2 style="margin-top:0">Respondidas recientemente</h2>
+  <div class="tabla"><table>
+    <thead><tr><th>Fecha</th><th>Cliente</th><th>Producto</th><th>Decisión</th><th>Por</th></tr></thead>
+    <tbody>
+    {% for s in recientes %}
+      <tr>
+        <td>{{ s.revisada_en|date:"d/m/Y" }}</td><td>{{ s.cliente }}</td>
+        <td>{{ s.cantidad }} × {{ s.producto.nombre }}</td>
+        <td><span class="etiqueta {% if s.estado == 'APROBADA' %}ok{% else %}error{% endif %}">{{ s.get_estado_display }}</span></td>
+        <td>{{ s.revisada_por.nombre_visible|default:"—" }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+</div>
+{% endif %}
+{% endblock %}

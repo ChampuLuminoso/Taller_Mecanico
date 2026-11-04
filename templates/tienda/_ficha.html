@@ -1,0 +1,30 @@
+{% load taller %}
+{# Ficha del producto: la usan la página completa y la vista rápida. #}
+<div class="dos-col">
+  <div>
+    {% if p.imagen %}<img src="{{ p.imagen.url }}" alt="{{ p.nombre }}" style="width:100%; border-radius:8px">
+    {% else %}<div class="producto"><div class="foto" aria-hidden="true">{{ p.categoria.nombre|default:"·"|slice:":1" }}</div></div>{% endif %}
+  </div>
+  <div>
+    <p class="ayuda" style="margin:0">{{ p.categoria.nombre|default:"" }}{% if p.marca %} · {{ p.marca }}{% endif %} · Ref. {{ p.sku }}</p>
+    <p style="font-size:1.6rem; font-weight:700; margin:.4rem 0">{{ p.precio_venta|pesos }}</p>
+    {% if p.disponible > 0 %}
+      <span class="etiqueta ok">{{ p.disponible }} disponible{{ p.disponible|pluralize }}</span>
+    {% else %}
+      <span class="etiqueta error">Agotado</span>
+    {% endif %}
+    {% if en_carrito %}<p class="ayuda">Ya tienes {{ en_carrito }} en el carrito.</p>{% endif %}
+    {% if p.disponible > 0 %}
+    <form method="post" action="{% url 'tienda:agregar' p.pk %}" class="acciones" style="margin-top:.75rem">{% csrf_token %}
+      <label for="cant-{{ p.pk }}" class="ayuda" style="margin:0">Cantidad</label>
+      <input id="cant-{{ p.pk }}" type="number" name="cantidad" min="1" max="{{ p.disponible }}" value="1" style="width:5rem">
+      <button type="submit">Agregar al carrito</button>
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% if p.descripcion %}<p>{{ p.descripcion|linebreaksbr }}</p>{% endif %}
+{% if compatibilidades %}
+  <h2>Sirve para</h2>
+  <ul>{% for c in compatibilidades %}<li>{{ c.marca_vehiculo }} {{ c.modelo }}{% if c.anio_desde %} {{ c.anio_desde }}{% if c.anio_hasta and c.anio_hasta != c.anio_desde %}–{{ c.anio_hasta }}{% endif %}{% endif %}</li>{% endfor %}</ul>
+{% endif %}

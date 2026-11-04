@@ -1,0 +1,18 @@
+{# Fila en modo edición: guarda con HTMX y se reemplaza por la fila normal. #}
+<tr id="producto-{{ p.pk }}">
+  <td colspan="8">
+    <form hx-post="{% url 'inventario:fila' p.pk %}" hx-target="#producto-{{ p.pk }}" hx-swap="outerHTML"
+          class="acciones" style="align-items:flex-end">
+      <strong style="flex-basis:100%">{{ p.nombre }} <span class="ayuda">{{ p.sku }}</span></strong>
+      <div><label for="precio-{{ p.pk }}" class="ayuda" style="margin:0">Precio</label>
+        <input id="precio-{{ p.pk }}" type="number" name="precio_venta" min="0" step="1" value="{{ form.precio_venta.value|floatformat:0 }}" style="width:9rem"></div>
+      <div><label for="minimo-{{ p.pk }}" class="ayuda" style="margin:0">Stock mínimo</label>
+        <input id="minimo-{{ p.pk }}" type="number" name="stock_minimo" min="0" value="{{ form.stock_minimo.value }}" style="width:7rem"></div>
+      <div class="check"><label><input type="checkbox" name="activo" {% if form.activo.value %}checked{% endif %}> Activo</label></div>
+      <button type="submit">Guardar</button>
+      <button type="button" class="secundario" hx-get="{% url 'inventario:fila' p.pk %}?cancelar=1"
+              hx-target="#producto-{{ p.pk }}" hx-swap="outerHTML">Cancelar</button>
+      {% if form.errors %}<div class="errorlist" style="flex-basis:100%">{% for f in form %}{{ f.errors }}{% endfor %}</div>{% endif %}
+    </form>
+  </td>
+</tr>
