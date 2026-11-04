@@ -5,7 +5,7 @@
 <div class="tarjeta">
   <h1>Personal</h1>
   {% if puede_crear %}<a class="boton" href="{% url 'cuentas:personal_crear' %}">+ Nueva cuenta</a>{% endif %}
-  <table>
+  <div class="tabla"><table>
     <thead><tr><th>Nombre</th><th>Rol</th><th>Cargo</th><th>Estado</th>{% if puede_bloquear %}<th>Acción</th>{% endif %}</tr></thead>
     <tbody>
     {% for u in personal %}
@@ -36,7 +36,7 @@
       <tr><td colspan="5">Todavía no hay cuentas de personal.</td></tr>
     {% endfor %}
     </tbody>
-  </table>
+  </table></div>
   <p><a href="{% url 'cuentas:panel' %}">← Volver al panel</a></p>
 </div>
 {% endblock %}
