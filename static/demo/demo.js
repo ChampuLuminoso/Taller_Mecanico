@@ -5,6 +5,7 @@
   var CLAVE = "Demo-AutoPartes-2026";
   var guion = document.currentScript || document.querySelector('script[src*="demo/demo.js"]');
   var RAIZ = new URL('../../', guion.src).href;   // carpeta de la demostración
+  document.documentElement.setAttribute('data-demo', '');   // edicion.js: simula sin servidor
 
   function aviso(texto) {
     var a = document.querySelector('.demo-aviso');
@@ -49,6 +50,7 @@
 
   document.addEventListener('submit', function (e) {
     var form = e.target;
+    if (form.classList.contains('form-edicion')) return;   // el lápiz tiene su propio aviso
     e.preventDefault();
     if (esSalir(form)) { window.location.href = RAIZ + 'visitante/index.html'; return; }
     if (esLogin(form)) {

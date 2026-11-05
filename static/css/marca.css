@@ -322,6 +322,52 @@ dialog::backdrop { background: rgb(40 48 56 / .55); backdrop-filter: blur(2px); 
   .heroe-botones .boton { flex: 1 1 12rem; }
 }
 
+/* ── Edición en la tienda: el lápiz (Fase 10) ── */
+.lapiz { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; padding: 0; margin: 0 0 0 .35rem;
+  vertical-align: middle; border-radius: 50%; border: 1px solid var(--borde-fuerte); background: var(--blanco); color: var(--naranja-texto);
+  box-shadow: 0 2px 8px rgb(40 48 56 / .18); cursor: pointer; opacity: 0; transform: scale(.85);
+  transition: opacity .15s ease, transform .15s ease; }
+.lapiz svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lapiz:hover { background: var(--naranja); border-color: var(--naranja); color: #fff; }
+.lapiz:focus-visible { opacity: 1; transform: none; }
+[data-editar-foto]:hover > .lapiz, [data-editar-foto]:focus-within > .lapiz,
+.editable:hover > .lapiz, .editable:focus-within > .lapiz { opacity: 1; transform: none; }
+@media (hover: none) { .lapiz { opacity: 1; transform: none; } }   /* celular/tableta: siempre a la vista */
+[data-editar-foto] { position: relative; }
+[data-editar-foto] > .lapiz { position: absolute; top: .5rem; right: .5rem; z-index: 3; margin: 0; width: 2.3rem; height: 2.3rem; }
+[data-editar-foto].subiendo .foto, .foto[data-editar-foto].subiendo { opacity: .55; }
+[data-editar-foto].subiendo::before { content: "Guardando foto…"; position: absolute; z-index: 4; top: .6rem; left: .6rem;
+  background: var(--carbon); color: #fff; font-size: .8rem; font-weight: 600; padding: .25rem .55rem; border-radius: 999px; }
+[data-editar-foto].soltar-aqui .foto, .foto[data-editar-foto].soltar-aqui { outline: 3px dashed var(--naranja); outline-offset: -6px; }
+.editable { position: relative; }
+.editable.editando > .valor, .editable.editando > .lapiz { display: none; }
+.bloque-editable { margin: 1rem 0; padding: .1rem .2rem; border-radius: var(--radio); }
+.bloque-editable:hover { background: rgb(216 90 42 / .05); }
+.bloque-editable > .lapiz { position: absolute; top: -.2rem; right: -.2rem; }
+.valor.vacio { color: var(--gris); font-style: italic; }
+.form-edicion { display: grid; gap: .5rem; margin: .3rem 0; font: 400 1rem/1.5 var(--f-texto); }
+.form-edicion input, .form-edicion textarea { width: 100%; font: inherit; }
+.pie-edicion { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; justify-content: flex-end; }
+.pie-edicion .contador { margin-right: auto; }
+.pie-edicion button { margin: 0; padding: .45rem .9rem; }
+.menu-foto { position: absolute; z-index: 5; top: 3.1rem; right: .5rem; width: min(16rem, calc(100% - 1rem)); display: grid; gap: .15rem;
+  padding: .4rem; background: var(--blanco); border: 1px solid var(--borde-fuerte); border-radius: var(--radio);
+  box-shadow: 0 12px 30px rgb(40 48 56 / .22); text-align: left; }
+.menu-foto button { margin: 0; display: flex; justify-content: space-between; gap: .5rem; width: 100%; padding: .55rem .65rem;
+  background: none; border: 0; color: var(--carbon); font-weight: 600; text-align: left; border-radius: calc(var(--radio) - 2px); }
+.menu-foto button:hover, .menu-foto button:focus-visible { background: var(--naranja-suave); color: var(--naranja-texto); }
+.menu-foto button.peligro { color: var(--error); }
+.menu-foto kbd { font: 500 .75rem/1.6 var(--f-texto); color: var(--gris); border: 1px solid var(--borde); border-radius: 4px; padding: 0 .3rem; }
+.menu-foto p { margin: .2rem .65rem .3rem; font-size: .8rem; color: var(--gris); }
+.edicion-aviso { position: fixed; left: 50%; bottom: 1.2rem; transform: translateX(-50%); z-index: 70; max-width: min(26rem, calc(100vw - 32px));
+  background: var(--carbon); color: #fff; padding: .65rem 1rem; border-radius: var(--radio); box-shadow: 0 10px 30px rgb(0 0 0 / .25); font-weight: 600; }
+.edicion-aviso[data-tipo="error"] { background: var(--error); }
+.interruptor-lapices { position: fixed; left: max(16px, env(safe-area-inset-left, 0px)); bottom: 1.2rem; z-index: 40; margin: 0;
+  padding: .45rem .8rem; font-size: .82rem; border-radius: 999px; background: var(--blanco); color: var(--carbon);
+  border: 1px solid var(--borde-fuerte); box-shadow: var(--sombra); }
+.interruptor-lapices[aria-pressed="true"] { border-color: var(--naranja); color: var(--naranja-texto); }
+body.sin-lapices .lapiz { display: none; }
+
 /* Carga de HTMX */
 .htmx-request { opacity: .55; transition: opacity .2s; }
 
