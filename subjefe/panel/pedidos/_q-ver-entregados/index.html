@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="2">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Pedidos · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../../static/demo/demo.css">
+  <script src="../../../../static/demo/demo.js" defer></script>
+</head>
+<body class="panel-interno">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../../subjefe/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../../subjefe/cuenta/panel/index.html" data-orden="0" >Panel</a>
+        
+          <a href="../../../../subjefe/panel/inventario/index.html" data-orden="1" >Inventario</a>
+        
+          <a href="../../../../subjefe/panel/pedidos/index.html" data-orden="2" aria-current="page">Pedidos</a>
+        
+          <a href="../../../../subjefe/panel/agenda/index.html" data-orden="3" >Agenda</a>
+        
+          <a href="../../../../subjefe/panel/apartados/solicitudes/index.html" data-orden="4" >Apartados</a>
+        
+          <a href="../../../../subjefe/cuenta/personal/index.html" data-orden="5" >Personal</a>
+        
+          <a href="../../../../subjefe/index.html" data-orden="6" >Tienda</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="ancho">
+    
+    
+<h1>Pedidos de la tienda</h1>
+<nav class="acciones" aria-label="Filtrar pedidos" style="margin-bottom:1rem">
+  
+    <a class="etiqueta " href="../../../../subjefe/panel/pedidos/_q-ver-pendientes/index.html" >
+      Por confirmar (2)</a>
+  
+    <a class="etiqueta " href="../../../../subjefe/panel/pedidos/_q-ver-en-proceso/index.html" >
+      En proceso (6)</a>
+  
+    <a class="etiqueta ok" href="../../../../subjefe/panel/pedidos/_q-ver-entregados/index.html" aria-current="page">
+      Entregados</a>
+  
+    <a class="etiqueta " href="../../../../subjefe/panel/pedidos/_q-ver-cancelados/index.html" >
+      Cancelados</a>
+  
+</nav>
+<div class="tarjeta">
+  <div class="tabla"><table>
+    <thead><tr><th>#</th><th>Fecha</th><th>Cliente</th><th>Entrega</th><th class="num">Total</th><th>Estado</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#75</a></td>
+        <td>02/11 09:50 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$490.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#74</a></td>
+        <td>02/11 09:20 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$162.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#73</a></td>
+        <td>02/11 08:50 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$242.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#72</a></td>
+        <td>31/10 10:05 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$429.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#71</a></td>
+        <td>31/10 03:50 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$35.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#70</a></td>
+        <td>31/10 02:20 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$799.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#69</a></td>
+        <td>30/10 10:50 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$301.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#68</a></td>
+        <td>30/10 10:05 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$422.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#67</a></td>
+        <td>30/10 03:20 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$44.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#66</a></td>
+        <td>30/10 10:20 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$256.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#65</a></td>
+        <td>30/10 04:20 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$134.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#64</a></td>
+        <td>29/10 05:50 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$212.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#63</a></td>
+        <td>29/10 03:20 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$330.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#62</a></td>
+        <td>29/10 05:35 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$391.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#61</a></td>
+        <td>29/10 09:05 AM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$120.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#60</a></td>
+        <td>29/10 11:35 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$347.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#59</a></td>
+        <td>28/10 08:20 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$435.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#58</a></td>
+        <td>28/10 04:20 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$114.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#57</a></td>
+        <td>28/10 10:35 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$760.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#56</a></td>
+        <td>28/10 09:35 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$24.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#55</a></td>
+        <td>27/10 04:35 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$35.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#54</a></td>
+        <td>27/10 03:50 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$170.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#53</a></td>
+        <td>26/10 11:35 AM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$667.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#52</a></td>
+        <td>26/10 05:05 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$436.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#51</a></td>
+        <td>24/10 11:05 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$675.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#50</a></td>
+        <td>24/10 08:05 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$50.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#49</a></td>
+        <td>23/10 11:20 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$155.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#48</a></td>
+        <td>23/10 08:05 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$475.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#47</a></td>
+        <td>23/10 10:50 AM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$245.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#46</a></td>
+        <td>23/10 05:50 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$746.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#45</a></td>
+        <td>23/10 11:05 AM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$140.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#44</a></td>
+        <td>22/10 10:05 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$425.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#43</a></td>
+        <td>22/10 09:35 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$308.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#42</a></td>
+        <td>21/10 10:20 AM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$820.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#41</a></td>
+        <td>21/10 08:35 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$442.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#40</a></td>
+        <td>20/10 09:35 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$124.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#39</a></td>
+        <td>20/10 04:50 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$409.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#38</a></td>
+        <td>20/10 03:05 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$311.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#37</a></td>
+        <td>20/10 09:20 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$170.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#36</a></td>
+        <td>19/10 08:50 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$162.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#35</a></td>
+        <td>19/10 03:20 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$718.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#34</a></td>
+        <td>19/10 04:20 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$48.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#33</a></td>
+        <td>17/10 11:35 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$545.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#32</a></td>
+        <td>17/10 05:20 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$692.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#31</a></td>
+        <td>17/10 02:20 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$571.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#30</a></td>
+        <td>17/10 03:20 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$180.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#29</a></td>
+        <td>16/10 04:05 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$636.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#28</a></td>
+        <td>16/10 02:50 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$422.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#27</a></td>
+        <td>16/10 04:20 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$177.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#26</a></td>
+        <td>16/10 10:35 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$727.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#25</a></td>
+        <td>16/10 05:35 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$46.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#24</a></td>
+        <td>15/10 05:50 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$463.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#23</a></td>
+        <td>15/10 04:05 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$320.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#22</a></td>
+        <td>15/10 08:05 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$486.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#21</a></td>
+        <td>15/10 10:50 AM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$208.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#20</a></td>
+        <td>14/10 11:35 AM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$24.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#19</a></td>
+        <td>14/10 08:50 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$48.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#18</a></td>
+        <td>13/10 11:05 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$630.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#17</a></td>
+        <td>13/10 10:05 AM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$106.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#16</a></td>
+        <td>13/10 11:05 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$712.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#15</a></td>
+        <td>13/10 05:20 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$202.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#14</a></td>
+        <td>13/10 05:05 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$800.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#13</a></td>
+        <td>12/10 10:20 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$344.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#12</a></td>
+        <td>12/10 02:50 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$370.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#11</a></td>
+        <td>12/10 08:20 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$129.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#10</a></td>
+        <td>12/10 03:50 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$39.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#9</a></td>
+        <td>10/10 11:35 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$583.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#8</a></td>
+        <td>10/10 04:05 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$24.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#7</a></td>
+        <td>10/10 03:05 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$87.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#6</a></td>
+        <td>09/10 05:05 PM</td>
+        <td>Ana Rojas<br><a class="ayuda" href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp 3001234567</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 127 # 58-20, Niza, Suba, Bogotá D…</span></td>
+        <td class="num">$105.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#5</a></td>
+        <td>09/10 04:35 PM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$229.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#4</a></td>
+        <td>09/10 05:05 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$562.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#3</a></td>
+        <td>09/10 08:05 AM</td>
+        <td>Marta Gómez<br><a class="ayuda" href="https://wa.me/573205551234" target="_blank" rel="noopener">WhatsApp 3205551234</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Calle 93 # 15-40, Chicó, Chapinero, Bog…</span></td>
+        <td class="num">$194.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#2</a></td>
+        <td>08/10 10:50 AM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Recoger en el taller</td>
+        <td class="num">$690.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#1</a></td>
+        <td>08/10 05:05 PM</td>
+        <td>Luis Pérez<br><a class="ayuda" href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp 3119876543</a></td>
+        <td>Envío a domicilio (Bogotá)<br><span class="ayuda">Cra 78 # 8-15, Castilla, Kennedy, Bogot…</span></td>
+        <td class="num">$216.000</td>
+        <td><a href="#demo-no-disponible">Entregado</a></td>
+      </tr>
+    
+    </tbody>
+  </table></div>
+</div>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../../subjefe/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Subjefe</strong></span><a href="../../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

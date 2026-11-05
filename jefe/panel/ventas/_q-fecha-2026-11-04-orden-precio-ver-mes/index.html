@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="5">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Ventas · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../../static/demo/demo.css">
+  <script src="../../../../static/demo/demo.js" defer></script>
+</head>
+<body class="panel-interno">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../../jefe/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../../jefe/cuenta/panel/index.html" data-orden="0" >Panel</a>
+        
+          <a href="../../../../jefe/panel/inventario/index.html" data-orden="1" >Inventario</a>
+        
+          <a href="../../../../jefe/panel/pedidos/index.html" data-orden="2" >Pedidos</a>
+        
+          <a href="../../../../jefe/panel/agenda/index.html" data-orden="3" >Agenda</a>
+        
+          <a href="../../../../jefe/panel/apartados/solicitudes/index.html" data-orden="4" >Apartados</a>
+        
+          <a href="../../../../jefe/panel/ventas/index.html" data-orden="5" aria-current="page">Ventas</a>
+        
+          <a href="../../../../jefe/panel/clientes/index.html" data-orden="6" >Clientes</a>
+        
+          <a href="../../../../jefe/cuenta/personal/index.html" data-orden="7" >Personal</a>
+        
+          <a href="../../../../jefe/index.html" data-orden="8" >Tienda</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="ancho">
+    
+    
+<div class="acciones" style="justify-content:space-between; margin-bottom:.75rem">
+  <h1 style="margin:0">Ventas</h1>
+  <a class="boton secundario" href="../../../../jefe/panel/ventas/excel/_q-fecha-2026-11-04-orden-precio-ver-mes/ventas_mes_2026-11-01.xlsx">Descargar Excel</a>
+</div>
+
+
+<div class="acciones" style="margin-bottom:1rem">
+  <nav class="segmentos" aria-label="Periodo">
+    <a href="../../../../jefe/panel/ventas/_q-fecha-2026-11-04-orden-precio-ver-dia/index.html" >Día</a><a href="../../../../jefe/panel/ventas/_q-fecha-2026-11-04-orden-precio-ver-semana/index.html" >Semana</a><a href="../../../../jefe/panel/ventas/_q-fecha-2026-11-04-orden-precio-ver-mes/index.html" aria-current="page">Mes</a>
+  </nav>
+  <a href="../../../../jefe/panel/ventas/_q-fecha-2026-10-01-orden-precio-ver-mes/index.html" aria-label="Periodo anterior">←</a>
+  <strong>Noviembre 2026</strong>
+  
+  <form method="get" class="acciones">
+    <input type="hidden" name="ver" value="mes"><input type="hidden" name="orden" value="precio">
+    <label for="fecha" class="ayuda" style="margin:0">Ir a</label>
+    <input id="fecha" type="date" name="fecha" value="2026-11-04" style="width:auto" onchange="this.form.requestSubmit()">
+  </form>
+</div>
+
+<div class="cifras">
+  <div class="cifra principal">
+    <div class="ayuda">Total vendido</div>
+    <div class="valor">$3.293.000</div>
+    <div class="ayuda">
+      ▼ 87 % frente al mes anterior
+      
+    </div>
+  </div>
+  <div class="cifra"><div class="ayuda">Pedidos</div><div class="valor">9</div>
+    <div class="ayuda">Promedio $365.889</div></div>
+  <div class="cifra"><div class="ayuda">Unidades vendidas</div><div class="valor">27</div>
+    <div class="ayuda">Domicilios $16.000</div></div>
+  
+  <div class="cifra"><div class="ayuda">Ganancia</div><div class="valor">$1.011.000</div>
+    <div class="ayuda">Precio − costo de los productos</div></div>
+  
+</div>
+<p class="mensaje aviso">Por cobrar: $2.399.000 de pedidos confirmados que aún no se entregan.</p>
+
+<div class="tarjeta grafica" style="position:relative">
+  <h2 style="margin-top:0">Cómo va la venta por día</h2>
+  
+  <div class="lienzo">
+  <svg viewBox="0 0 640 220" role="img" aria-label="Ventas por día: Noviembre 2026. Los valores exactos están en la tabla de abajo.">
+    
+      <line class="rejilla" x1="46" x2="632" y1="194.0" y2="194.0"/>
+      <text class="eje" x="40" y="194.0" text-anchor="end" dominant-baseline="middle">$0</text>
+    
+      <line class="rejilla" x1="46" x2="632" y1="103.0" y2="103.0"/>
+      <text class="eje" x="40" y="103.0" text-anchor="end" dominant-baseline="middle">$1M</text>
+    
+      <line class="rejilla" x1="46" x2="632" y1="12.0" y2="12.0"/>
+      <text class="eje" x="40" y="12.0" text-anchor="end" dominant-baseline="middle">$2M</text>
+    
+    
+      <rect class="zona" x="46.0" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="domingo 1 de noviembre: $0" data-x="55.8"><title>domingo 1 de noviembre: $0</title></rect>
+      <g></g>
+      <text class="eje" x="55.8" y="212" text-anchor="middle">1</text>
+    
+      <rect class="zona" x="65.5" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="lunes 2 de noviembre: $894.000" data-x="75.3"><title>lunes 2 de noviembre: $894.000</title></rect>
+      <path class="barra" d="M69.2,194.0 V116.6 Q69.2,112.6 73.2,112.6 H77.4 Q81.4,112.6 81.4,116.6 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="85.1" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="martes 3 de noviembre: $582.000" data-x="94.8"><title>martes 3 de noviembre: $582.000</title></rect>
+      <path class="barra" d="M88.8,194.0 V145.0 Q88.8,141.0 92.8,141.0 H96.9 Q100.9,141.0 100.9,145.0 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="104.6" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="miércoles 4 de noviembre: $1.817.000" data-x="114.4"><title>miércoles 4 de noviembre: $1.817.000</title></rect>
+      <path class="barra" d="M108.3,194.0 V32.7 Q108.3,28.7 112.3,28.7 H116.4 Q120.4,28.7 120.4,32.7 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="124.1" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="jueves 5 de noviembre: $0" data-x="133.9"><title>jueves 5 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="143.7" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="viernes 6 de noviembre: $0" data-x="153.4"><title>viernes 6 de noviembre: $0</title></rect>
+      <g></g>
+      <text class="eje" x="153.4" y="212" text-anchor="middle">6</text>
+    
+      <rect class="zona" x="163.2" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="sábado 7 de noviembre: $0" data-x="173.0"><title>sábado 7 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="182.7" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="domingo 8 de noviembre: $0" data-x="192.5"><title>domingo 8 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="202.3" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="lunes 9 de noviembre: $0" data-x="212.0"><title>lunes 9 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="221.8" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="martes 10 de noviembre: $0" data-x="231.6"><title>martes 10 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="241.3" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="miércoles 11 de noviembre: $0" data-x="251.1"><title>miércoles 11 de noviembre: $0</title></rect>
+      <g></g>
+      <text class="eje" x="251.1" y="212" text-anchor="middle">11</text>
+    
+      <rect class="zona" x="260.9" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="jueves 12 de noviembre: $0" data-x="270.6"><title>jueves 12 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="280.4" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="viernes 13 de noviembre: $0" data-x="290.2"><title>viernes 13 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="299.9" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="sábado 14 de noviembre: $0" data-x="309.7"><title>sábado 14 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="319.5" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="domingo 15 de noviembre: $0" data-x="329.2"><title>domingo 15 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="339.0" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="lunes 16 de noviembre: $0" data-x="348.8"><title>lunes 16 de noviembre: $0</title></rect>
+      <g></g>
+      <text class="eje" x="348.8" y="212" text-anchor="middle">16</text>
+    
+      <rect class="zona" x="358.5" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="martes 17 de noviembre: $0" data-x="368.3"><title>martes 17 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="378.1" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="miércoles 18 de noviembre: $0" data-x="387.8"><title>miércoles 18 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="397.6" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="jueves 19 de noviembre: $0" data-x="407.4"><title>jueves 19 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="417.1" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="viernes 20 de noviembre: $0" data-x="426.9"><title>viernes 20 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="436.7" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="sábado 21 de noviembre: $0" data-x="446.4"><title>sábado 21 de noviembre: $0</title></rect>
+      <g></g>
+      <text class="eje" x="446.4" y="212" text-anchor="middle">21</text>
+    
+      <rect class="zona" x="456.2" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="domingo 22 de noviembre: $0" data-x="466.0"><title>domingo 22 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="475.7" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="lunes 23 de noviembre: $0" data-x="485.5"><title>lunes 23 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="495.3" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="martes 24 de noviembre: $0" data-x="505.0"><title>martes 24 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="514.8" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="miércoles 25 de noviembre: $0" data-x="524.6"><title>miércoles 25 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="534.3" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="jueves 26 de noviembre: $0" data-x="544.1"><title>jueves 26 de noviembre: $0</title></rect>
+      <g></g>
+      <text class="eje" x="544.1" y="212" text-anchor="middle">26</text>
+    
+      <rect class="zona" x="553.9" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="viernes 27 de noviembre: $0" data-x="563.6"><title>viernes 27 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="573.4" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="sábado 28 de noviembre: $0" data-x="583.2"><title>sábado 28 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="592.9" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="domingo 29 de noviembre: $0" data-x="602.7"><title>domingo 29 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="612.5" y="12" width="19.5" height="182"
+            tabindex="0" data-tip="lunes 30 de noviembre: $0" data-x="622.2"><title>lunes 30 de noviembre: $0</title></rect>
+      <g></g>
+      
+    
+  </svg>
+  </div>
+  <div class="tip" id="tip" hidden></div>
+  <details style="margin-top:.5rem">
+    <summary class="ayuda">Ver como tabla</summary>
+    <table>
+      <thead><tr><th>Día</th><th class="num">Ventas</th></tr></thead>
+      <tbody><tr><td>lunes 2 de noviembre</td><td class="num">$894.000</td></tr><tr><td>martes 3 de noviembre</td><td class="num">$582.000</td></tr><tr><td>miércoles 4 de noviembre</td><td class="num">$1.817.000</td></tr></tbody>
+    </table>
+  </details>
+  
+</div>
+
+<div class="tarjeta">
+  <div class="acciones" style="justify-content:space-between">
+    <h2 style="margin:0">Qué se vendió</h2>
+    <form method="get" class="acciones">
+      <input type="hidden" name="ver" value="mes"><input type="hidden" name="fecha" value="2026-11-04">
+      <label for="orden" class="ayuda" style="margin:0">Ordenar por</label>
+      <select id="orden" name="orden" style="width:auto" onchange="this.form.requestSubmit()">
+        <option value="precio" selected>Precio (mayor a menor)</option><option value="unidades" >Más vendidos</option><option value="ingreso" >Mayor ingreso</option>
+      </select>
+      <noscript><button type="submit">Ordenar</button></noscript>
+    </form>
+  </div>
+  <div class="tabla"><table>
+    <thead><tr><th>Producto</th><th class="num">Precio</th><th class="num">Unidades</th><th class="num">Ingreso</th><th class="num">Ganancia</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>Batería 12V 45Ah<br><span class="ayuda">ELE-BAT-001</span></td>
+        <td class="num">$345.000</td>
+        <td class="num">2</td>
+        <td class="num">$690.000</td>
+        <td class="num">$170.000</td>
+      </tr>
+    
+      <tr>
+        <td>Amortiguador delantero<br><span class="ayuda">SUS-AMOR-001</span></td>
+        <td class="num">$210.000</td>
+        <td class="num">5</td>
+        <td class="num">$1.050.000</td>
+        <td class="num">$300.000</td>
+      </tr>
+    
+      <tr>
+        <td>Bomba de agua<br><span class="ayuda">MOT-BOMB-002</span></td>
+        <td class="num">$175.000</td>
+        <td class="num">2</td>
+        <td class="num">$350.000</td>
+        <td class="num">$110.000</td>
+      </tr>
+    
+      <tr>
+        <td>Disco de freno ventilado<br><span class="ayuda">FRE-DISC-002</span></td>
+        <td class="num">$160.000</td>
+        <td class="num">2</td>
+        <td class="num">$320.000</td>
+        <td class="num">$100.000</td>
+      </tr>
+    
+      <tr>
+        <td>Pastillas de freno delanteras<br><span class="ayuda">FRE-PAST-001</span></td>
+        <td class="num">$85.000</td>
+        <td class="num">2</td>
+        <td class="num">$170.000</td>
+        <td class="num">$60.000</td>
+      </tr>
+    
+      <tr>
+        <td>Juego de bujías x4<br><span class="ayuda">ELE-BUJ-004</span></td>
+        <td class="num">$68.000</td>
+        <td class="num">6</td>
+        <td class="num">$408.000</td>
+        <td class="num">$156.000</td>
+      </tr>
+    
+      <tr>
+        <td>Terminal de dirección<br><span class="ayuda">SUS-TERM-002</span></td>
+        <td class="num">$64.000</td>
+        <td class="num">1</td>
+        <td class="num">$64.000</td>
+        <td class="num">$23.000</td>
+      </tr>
+    
+      <tr>
+        <td>Filtro de aire<br><span class="ayuda">FIL-AIRE-01</span></td>
+        <td class="num">$35.000</td>
+        <td class="num">5</td>
+        <td class="num">$175.000</td>
+        <td class="num">$70.000</td>
+      </tr>
+    
+      <tr>
+        <td>Líquido de frenos DOT 4 (500 ml)<br><span class="ayuda">FRE-LIQ-003</span></td>
+        <td class="num">$28.000</td>
+        <td class="num">1</td>
+        <td class="num">$28.000</td>
+        <td class="num">$12.000</td>
+      </tr>
+    
+      <tr>
+        <td>Filtro de aceite<br><span class="ayuda">FIL-ACE-02</span></td>
+        <td class="num">$22.000</td>
+        <td class="num">1</td>
+        <td class="num">$22.000</td>
+        <td class="num">$10.000</td>
+      </tr>
+    
+    </tbody>
+  </table></div>
+</div>
+
+
+<div class="tarjeta">
+  <h2 style="margin-top:0">Pedidos del periodo</h2>
+  <div class="tabla"><table>
+    <thead><tr><th>#</th><th>Fecha</th><th>Cliente</th><th>Estado</th><th class="num">Total</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/73/index.html">#73</a></td>
+        <td>02/11</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$242.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/74/index.html">#74</a></td>
+        <td>02/11</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$162.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/75/index.html">#75</a></td>
+        <td>02/11</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$490.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/76/index.html">#76</a></td>
+        <td>03/11</td>
+        <td>Marta Gómez</td>
+        <td>Confirmado</td>
+        <td class="num">$352.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/77/index.html">#77</a></td>
+        <td>03/11</td>
+        <td>Ana Rojas</td>
+        <td>Confirmado</td>
+        <td class="num">$230.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/78/index.html">#78</a></td>
+        <td>04/11</td>
+        <td>Marta Gómez</td>
+        <td>Confirmado</td>
+        <td class="num">$162.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/80/index.html">#80</a></td>
+        <td>04/11</td>
+        <td>Marta Gómez</td>
+        <td>Confirmado</td>
+        <td class="num">$247.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/81/index.html">#81</a></td>
+        <td>04/11</td>
+        <td>Ana Rojas</td>
+        <td>Confirmado</td>
+        <td class="num">$580.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/79/index.html">#79</a></td>
+        <td>04/11</td>
+        <td>Marta Gómez</td>
+        <td>Confirmado</td>
+        <td class="num">$828.000</td>
+      </tr>
+    
+    </tbody>
+  </table></div>
+</div>
+
+
+<script>
+  // Tooltip al pasar el mouse o al moverse con el teclado por las barras.
+  (function () {
+    var tip = document.getElementById("tip"), svg = document.querySelector(".grafica svg");
+    if (!tip || !svg) return;
+    function mostrar(e) {
+      var z = e.target, caja = svg.getBoundingClientRect(), escala = caja.width / svg.viewBox.baseVal.width;
+      tip.textContent = z.dataset.tip;
+      var lienzo = svg.parentElement;
+      tip.style.left = (lienzo.offsetLeft - lienzo.scrollLeft + parseFloat(z.dataset.x) * escala) + "px";
+      tip.style.top = (lienzo.offsetTop + 12 * escala) + "px";
+      tip.hidden = false;
+    }
+    svg.querySelectorAll(".zona").forEach(function (z) {
+      z.addEventListener("mouseenter", mostrar); z.addEventListener("focus", mostrar);
+      z.addEventListener("mouseleave", function () { tip.hidden = true; });
+      z.addEventListener("blur", function () { tip.hidden = true; });
+    });
+  })();
+</script>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../../jefe/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Jefe</strong></span><a href="../../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

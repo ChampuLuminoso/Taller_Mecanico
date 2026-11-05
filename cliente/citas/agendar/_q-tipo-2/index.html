@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Agendar cita · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../../static/demo/demo.css">
+  <script src="../../../../static/demo/demo.js" defer></script>
+</head>
+<body class="">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../../cliente/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../../cliente/index.html" data-orden="0" >Tienda</a>
+        
+          <a href="../../../../cliente/citas/index.html" data-orden="1" aria-current="page">Mis citas</a>
+        
+          <a href="../../../../cliente/mis-pedidos/index.html" data-orden="2" >Mis pedidos</a>
+        
+          <a href="../../../../cliente/carrito/index.html" data-orden="3" >Carrito <span class="insignia" aria-label="2 en el carrito">2</span></a>
+        
+          <a href="../../../../cliente/cuenta/panel/index.html" data-orden="4" >Mi cuenta</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="">
+    
+    
+<p><a href="../../../../cliente/citas/index.html">← Mis citas</a></p>
+
+<div class="tarjeta">
+  
+    <h1>Agendar cita</h1>
+    <h2 style="margin-top:0">1. ¿Qué necesita tu vehículo?</h2>
+    <nav class="tipos" aria-label="Tipo de visita">
+      
+        <a href="../../../../cliente/citas/agendar/_q-tipo-1/index.html" >Revisión general <span class="ayuda">· 90 min</span></a>
+      
+        <a href="../../../../cliente/citas/agendar/_q-tipo-2/index.html" aria-current="true">Cambio de aceite <span class="ayuda">· 45 min</span></a>
+      
+        <a href="../../../../cliente/citas/agendar/_q-tipo-3/index.html" >Frenos <span class="ayuda">· 120 min</span></a>
+      
+        <a href="../../../../cliente/citas/agendar/_q-tipo-4/index.html" >Diagnóstico <span class="ayuda">· 60 min</span></a>
+      
+        <a href="../../../../cliente/citas/agendar/_q-tipo-5/index.html" >Suspensión <span class="ayuda">· 120 min</span></a>
+      
+        <a href="../../../../cliente/citas/agendar/_q-tipo-6/index.html" >Sincronización <span class="ayuda">· 90 min</span></a>
+      
+    </nav>
+  
+</div>
+
+
+<div class="tarjeta">
+  <h2 style="margin-top:0">2. Elige el día</h2>
+  <div class="cal-semana" aria-hidden="true"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span></div>
+  <div class="cal" role="list">
+    <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    
+      
+        <span role="listitem" class="dia lleno" aria-label="miércoles 4 de noviembre: Sin cupos" title="Sin cupos">
+          <strong>4</strong><small>lleno</small>
+        </span>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="jueves 5 de noviembre: 16 horarios">
+          <strong>5</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="viernes 6 de noviembre: 16 horarios">
+          <strong>6</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="sábado 7 de noviembre: 10 horarios">
+          <strong>7</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <span role="listitem" class="dia cerrado" aria-label="domingo 8 de noviembre: Domingo" title="Domingo">
+          <strong>8</strong><small>cerrado</small>
+        </span>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="lunes 9 de noviembre: 16 horarios">
+          <strong>9</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="martes 10 de noviembre: 16 horarios">
+          <strong>10</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="miércoles 11 de noviembre: 16 horarios">
+          <strong>11</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="jueves 12 de noviembre: 16 horarios">
+          <strong>12</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="viernes 13 de noviembre: 16 horarios">
+          <strong>13</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="sábado 14 de noviembre: 10 horarios">
+          <strong>14</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <span role="listitem" class="dia cerrado" aria-label="domingo 15 de noviembre: Domingo" title="Domingo">
+          <strong>15</strong><small>cerrado</small>
+        </span>
+      
+    
+      
+        <span role="listitem" class="dia cerrado" aria-label="lunes 16 de noviembre: Festivo: Independencia de Cartagena (observado)" title="Festivo: Independencia de Cartagena (observado)">
+          <strong>16</strong><small>cerrado</small>
+        </span>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="martes 17 de noviembre: 16 horarios">
+          <strong>17</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="miércoles 18 de noviembre: 16 horarios">
+          <strong>18</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="jueves 19 de noviembre: 16 horarios">
+          <strong>19</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="viernes 20 de noviembre: 16 horarios">
+          <strong>20</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="sábado 21 de noviembre: 10 horarios">
+          <strong>21</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <span role="listitem" class="dia cerrado" aria-label="domingo 22 de noviembre: Domingo" title="Domingo">
+          <strong>22</strong><small>cerrado</small>
+        </span>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="lunes 23 de noviembre: 16 horarios">
+          <strong>23</strong><small>Nov</small>
+        </a>
+      
+    
+      
+        <a role="listitem" class="dia "
+           href="#demo-no-disponible"
+           data-demo-ir="#demo-no-disponible"
+          
+          
+           aria-label="martes 24 de noviembre: 16 horarios">
+          <strong>24</strong><small>Nov</small>
+        </a>
+      
+    
+  </div>
+  <p class="ayuda">Puedes agendar desde 3 horas antes y hasta 20 días adelante. Los días grises son domingos, festivos o días cerrados.</p>
+</div>
+
+<form method="post" class="tarjeta" novalidate
+      action="/citas/agendar/">
+  
+  <input type="hidden" name="tipo" value="2" id="id_tipo">
+  
+<fieldset id="horas" style="border:0; padding:0; margin:0">
+  <legend><h2 style="margin:0 0 .5rem">3. Elige la hora</h2></legend>
+  
+    <p class="ayuda" style="margin-top:0">Toca un día del calendario para ver las horas libres.</p>
+  
+  
+</fieldset>
+
+
+  
+    <h2>4. Tu vehículo</h2>
+    
+    
+      <label for="id_vehiculo">Vehículo:</label> <select name="vehiculo" id="id_vehiculo">
+  <option value="">Otro vehículo (escríbelo abajo)</option>
+
+  <option value="1" selected>ABC123 · Chevrolet Spark 2015</option>
+
+</select> 
+    
+    <div class="dos-col" id="vehiculo-nuevo">
+      <div><label for="id_placa">Placa:</label> <input type="text" name="placa" autocapitalize="characters" placeholder="ABC123" maxlength="7" id="id_placa"> </div>
+      <div><label for="id_marca">Marca del vehículo:</label> <input type="text" name="marca" maxlength="40" id="id_marca"> </div>
+      <div><label for="id_modelo">Modelo:</label> <input type="text" name="modelo" maxlength="60" id="id_modelo"> </div>
+      <div><label for="id_anio">Año:</label> <input type="number" name="anio" min="1950" max="2027" id="id_anio"> </div>
+    </div>
+    <label for="id_nota">¿Qué le pasa al vehículo?</label> <textarea name="nota" cols="40" rows="3" placeholder="Ej.: chilla al frenar, sobre todo en bajada." maxlength="800" id="id_nota">
+</textarea> 
+    <button type="submit">Confirmar cita</button>
+  
+</form>
+
+<script>
+  // Si eligió uno de sus vehículos, no hace falta mostrar los campos de un vehículo nuevo.
+  (function () {
+    var lista = document.querySelector('select[name="vehiculo"]'), nuevo = document.getElementById("vehiculo-nuevo");
+    if (!lista || !nuevo) return;
+    function ver() { nuevo.hidden = lista.value !== ""; }
+    lista.addEventListener("change", ver); ver();
+  })();
+</script>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../../cliente/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Cliente</strong></span><a href="../../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

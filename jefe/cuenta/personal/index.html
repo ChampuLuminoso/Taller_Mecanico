@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="7">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Personal · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../static/demo/demo.css">
+  <script src="../../../static/demo/demo.js" defer></script>
+</head>
+<body class="">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../jefe/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../jefe/cuenta/panel/index.html" data-orden="0" >Panel</a>
+        
+          <a href="../../../jefe/panel/inventario/index.html" data-orden="1" >Inventario</a>
+        
+          <a href="../../../jefe/panel/pedidos/index.html" data-orden="2" >Pedidos</a>
+        
+          <a href="../../../jefe/panel/agenda/index.html" data-orden="3" >Agenda</a>
+        
+          <a href="../../../jefe/panel/apartados/solicitudes/index.html" data-orden="4" >Apartados</a>
+        
+          <a href="../../../jefe/panel/ventas/index.html" data-orden="5" >Ventas</a>
+        
+          <a href="../../../jefe/panel/clientes/index.html" data-orden="6" >Clientes</a>
+        
+          <a href="../../../jefe/cuenta/personal/index.html" data-orden="7" aria-current="page">Personal</a>
+        
+          <a href="../../../jefe/index.html" data-orden="8" >Tienda</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="ancho">
+    
+    
+<div class="tarjeta">
+  <h1>Personal</h1>
+  <a class="boton" href="#demo-no-disponible">+ Nueva cuenta</a>
+  <div class="tabla"><table>
+    <thead><tr><th>Nombre</th><th>Rol</th><th>Cargo</th><th>Estado</th><th>Acción</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>Andrés Martínez<br><span class="ayuda">jefe@demo.co</span></td>
+        <td>Jefe</td>
+        <td>Jefe de taller</td>
+        <td>Activo</td>
+        
+        <td>
+          
+        </td>
+        
+      </tr>
+    
+      <tr>
+        <td>Carlos Muñoz<br><span class="ayuda">empleado@demo.co</span></td>
+        <td>Empleado</td>
+        <td>Mecánico</td>
+        <td>Activo</td>
+        
+        <td>
+          
+          <form method="post" action="/cuenta/personal/4/bloqueo/">
+            
+            
+              <label class="ayuda" for="motivo-4">Motivo</label>
+              <input id="motivo-4" type="text" name="motivo" required maxlength="255">
+              <button class="boton-link" type="submit">Bloquear</button>
+            
+          </form>
+          
+        </td>
+        
+      </tr>
+    
+      <tr>
+        <td>Laura Díaz<br><span class="ayuda">subjefe@demo.co</span></td>
+        <td>Subjefe</td>
+        <td>Administradora</td>
+        <td>Activo</td>
+        
+        <td>
+          
+          <form method="post" action="/cuenta/personal/3/bloqueo/">
+            
+            
+              <label class="ayuda" for="motivo-3">Motivo</label>
+              <input id="motivo-3" type="text" name="motivo" required maxlength="255">
+              <button class="boton-link" type="submit">Bloquear</button>
+            
+          </form>
+          
+        </td>
+        
+      </tr>
+    
+    </tbody>
+  </table></div>
+  <p><a href="../../../jefe/cuenta/panel/index.html">← Volver al panel</a></p>
+</div>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../jefe/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Jefe</strong></span><a href="../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

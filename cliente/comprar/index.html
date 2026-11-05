@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="-1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Finalizar compra · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../static/marca/favicon.png">
+  <link rel="preload" href="../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../static/demo/demo.css">
+  <script src="../../static/demo/demo.js" defer></script>
+</head>
+<body class="">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../cliente/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../cliente/index.html" data-orden="0" >Tienda</a>
+        
+          <a href="../../cliente/citas/index.html" data-orden="1" >Mis citas</a>
+        
+          <a href="../../cliente/mis-pedidos/index.html" data-orden="2" >Mis pedidos</a>
+        
+          <a href="../../cliente/carrito/index.html" data-orden="3" >Carrito <span class="insignia" aria-label="2 en el carrito">2</span></a>
+        
+          <a href="../../cliente/cuenta/panel/index.html" data-orden="4" >Mi cuenta</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="">
+    
+    
+<p><a href="../../cliente/carrito/index.html">← Carrito</a></p>
+<form method="post" novalidate>
+  
+  <div class="tarjeta">
+    <h1>Finalizar compra</h1>
+    
+    <fieldset style="border:0; padding:0; margin:0">
+      <legend><strong>¿Cómo lo quieres recibir?</strong></legend>
+      
+        <div class="check"><label><input type="radio" name="modalidad" value="ENVIO" id="id_modalidad_0" required checked> Envío a domicilio (Bogotá) · $2.000</label></div>
+      
+        <div class="check"><label><input type="radio" name="modalidad" value="RECOGER" id="id_modalidad_1" required> Recoger en el taller · gratis</label></div>
+      
+    </fieldset>
+  </div>
+
+  <div class="tarjeta" id="bloque-envio">
+    <h2 style="margin-top:0">Dirección en Bogotá</h2>
+    <label for="id_direccion">Dirección de entrega:</label> <select name="direccion" id="id_direccion">
+  <option value="">Nueva dirección (escríbela abajo)</option>
+
+  <option value="1" selected>Calle 127 # 58-20, Niza (Suba)</option>
+
+</select>
+    <div id="nueva-direccion">
+      <div class="dos-col">
+        <div><label for="id_localidad">Localidad:</label> <select name="localidad" id="id_localidad">
+  <option value="" selected>Elige la localidad</option>
+
+  <option value="Usaquén">Usaquén</option>
+
+  <option value="Chapinero">Chapinero</option>
+
+  <option value="Santa Fe">Santa Fe</option>
+
+  <option value="San Cristóbal">San Cristóbal</option>
+
+  <option value="Usme">Usme</option>
+
+  <option value="Tunjuelito">Tunjuelito</option>
+
+  <option value="Bosa">Bosa</option>
+
+  <option value="Kennedy">Kennedy</option>
+
+  <option value="Fontibón">Fontibón</option>
+
+  <option value="Engativá">Engativá</option>
+
+  <option value="Suba">Suba</option>
+
+  <option value="Barrios Unidos">Barrios Unidos</option>
+
+  <option value="Teusaquillo">Teusaquillo</option>
+
+  <option value="Los Mártires">Los Mártires</option>
+
+  <option value="Antonio Nariño">Antonio Nariño</option>
+
+  <option value="Puente Aranda">Puente Aranda</option>
+
+  <option value="La Candelaria">La Candelaria</option>
+
+  <option value="Rafael Uribe Uribe">Rafael Uribe Uribe</option>
+
+  <option value="Ciudad Bolívar">Ciudad Bolívar</option>
+
+  <option value="Sumapaz">Sumapaz</option>
+
+</select> </div>
+        <div><label for="id_barrio">Barrio:</label> <input type="text" name="barrio" maxlength="80" id="id_barrio"> </div>
+      </div>
+      <label for="id_direccion_texto">Dirección:</label> <input type="text" name="direccion_texto" placeholder="Ej.: Calle 45 # 12-30, apto 301" maxlength="150" id="id_direccion_texto"> 
+      <label for="id_indicaciones">Indicaciones:</label> <input type="text" name="indicaciones" placeholder="Ej.: casa esquinera, portón azul" maxlength="200" id="id_indicaciones">
+    </div>
+    <p class="mensaje aviso" style="margin-top:1rem">Las entregas se hacen principalmente los sábados. Te llamaremos para acordar la hora. El domicilio se paga contra entrega.</p>
+  </div>
+
+  <div class="tarjeta" id="bloque-pago">
+    <fieldset style="border:0; padding:0; margin:0">
+      <legend><strong>Pago</strong></legend>
+      <div class="check"><label><input type="radio" name="metodo_pago" value="CONTRA_ENTREGA" id="id_metodo_pago_0" required checked> Contra entrega</label></div><div class="check"><label><input type="radio" name="metodo_pago" value="EN_TIENDA" id="id_metodo_pago_1" required> Pago en el taller</label></div>
+      <p class="ayuda">Si recoges en el taller, puedes pagar allá. A domicilio se paga al recibir.</p>
+    </fieldset>
+  </div>
+
+  <div class="tarjeta">
+    <label for="id_telefono">Celular de contacto:</label> <input type="text" name="telefono" value="3001234567" maxlength="20" required id="id_telefono"> 
+    <label for="id_nota">Nota para el taller (opcional):</label> <textarea name="nota" cols="40" rows="2" maxlength="500" id="id_nota">
+</textarea>
+  </div>
+
+  <div class="tarjeta">
+    <h2 style="margin-top:0">Resumen</h2>
+    <p style="margin:.2rem 0">1 × Disco de freno ventilado <span style="float:right">$160.000</span></p><p style="margin:.2rem 0">1 × Pastillas de freno delanteras <span style="float:right">$85.000</span></p>
+    <p style="margin:.5rem 0 0">Subtotal <span style="float:right">$245.000</span></p>
+    <p style="margin:.2rem 0" id="linea-envio">Domicilio <span style="float:right">$2.000</span></p>
+    <p class="ayuda">El taller revisa y confirma tu pedido antes de alistarlo.</p>
+    <button type="submit">Hacer pedido</button>
+  </div>
+</form>
+<script>
+  // Muestra la dirección y el costo de envío solo si eligió domicilio. Sin JavaScript, todo se ve igual y funciona.
+  (function () {
+    var radios = document.querySelectorAll('input[name="modalidad"]');
+    function actualizar() {
+      var envio = document.querySelector('input[name="modalidad"]:checked').value === "ENVIO";
+      document.getElementById("bloque-envio").hidden = !envio;
+      document.getElementById("bloque-pago").hidden = envio;
+      document.getElementById("linea-envio").hidden = !envio;
+    }
+    radios.forEach(function (r) { r.addEventListener("change", actualizar); });
+    actualizar();
+    // Si eligió una dirección guardada, no hace falta mostrar los campos de dirección nueva.
+    var guardada = document.querySelector('select[name="direccion"]');
+    if (guardada) {
+      var nueva = function () { document.getElementById("nueva-direccion").hidden = guardada.value !== ""; };
+      guardada.addEventListener("change", nueva);
+      nueva();
+    }
+  })();
+</script>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../cliente/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Cliente</strong></span><a href="../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

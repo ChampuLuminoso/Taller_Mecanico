@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="5">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Ventas · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../../static/demo/demo.css">
+  <script src="../../../../static/demo/demo.js" defer></script>
+</head>
+<body class="panel-interno">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../../jefe/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../../jefe/cuenta/panel/index.html" data-orden="0" >Panel</a>
+        
+          <a href="../../../../jefe/panel/inventario/index.html" data-orden="1" >Inventario</a>
+        
+          <a href="../../../../jefe/panel/pedidos/index.html" data-orden="2" >Pedidos</a>
+        
+          <a href="../../../../jefe/panel/agenda/index.html" data-orden="3" >Agenda</a>
+        
+          <a href="../../../../jefe/panel/apartados/solicitudes/index.html" data-orden="4" >Apartados</a>
+        
+          <a href="../../../../jefe/panel/ventas/index.html" data-orden="5" aria-current="page">Ventas</a>
+        
+          <a href="../../../../jefe/panel/clientes/index.html" data-orden="6" >Clientes</a>
+        
+          <a href="../../../../jefe/cuenta/personal/index.html" data-orden="7" >Personal</a>
+        
+          <a href="../../../../jefe/index.html" data-orden="8" >Tienda</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="ancho">
+    
+    
+<div class="acciones" style="justify-content:space-between; margin-bottom:.75rem">
+  <h1 style="margin:0">Ventas</h1>
+  <a class="boton secundario" href="#demo-no-disponible">Descargar Excel</a>
+</div>
+
+
+<div class="acciones" style="margin-bottom:1rem">
+  <nav class="segmentos" aria-label="Periodo">
+    <a href="#demo-no-disponible" >Día</a><a href="#demo-no-disponible" >Semana</a><a href="../../../../jefe/panel/ventas/_q-fecha-2026-10-01-orden-precio-ver-mes/index.html" aria-current="page">Mes</a>
+  </nav>
+  <a href="#demo-no-disponible" aria-label="Periodo anterior">←</a>
+  <strong>Octubre 2026</strong>
+  <a href="#demo-no-disponible" aria-label="Periodo siguiente">→</a>
+  <form method="get" class="acciones">
+    <input type="hidden" name="ver" value="mes"><input type="hidden" name="orden" value="precio">
+    <label for="fecha" class="ayuda" style="margin:0">Ir a</label>
+    <input id="fecha" type="date" name="fecha" value="2026-10-01" style="width:auto" onchange="this.form.requestSubmit()">
+  </form>
+</div>
+
+<div class="cifras">
+  <div class="cifra principal">
+    <div class="ayuda">Total vendido</div>
+    <div class="valor">$24.451.000</div>
+    <div class="ayuda">
+      Sin ventas el mes anterior para comparar
+      
+    </div>
+  </div>
+  <div class="cifra"><div class="ayuda">Pedidos</div><div class="valor">72</div>
+    <div class="ayuda">Promedio $339.597</div></div>
+  <div class="cifra"><div class="ayuda">Unidades vendidas</div><div class="valor">215</div>
+    <div class="ayuda">Domicilios $90.000</div></div>
+  
+  <div class="cifra"><div class="ayuda">Ganancia</div><div class="valor">$7.337.000</div>
+    <div class="ayuda">Precio − costo de los productos</div></div>
+  
+</div>
+
+
+<div class="tarjeta grafica" style="position:relative">
+  <h2 style="margin-top:0">Cómo va la venta por día</h2>
+  
+  <div class="lienzo">
+  <svg viewBox="0 0 640 220" role="img" aria-label="Ventas por día: Octubre 2026. Los valores exactos están en la tabla de abajo.">
+    
+      <line class="rejilla" x1="46" x2="632" y1="194.0" y2="194.0"/>
+      <text class="eje" x="40" y="194.0" text-anchor="end" dominant-baseline="middle">$0</text>
+    
+      <line class="rejilla" x1="46" x2="632" y1="103.0" y2="103.0"/>
+      <text class="eje" x="40" y="103.0" text-anchor="end" dominant-baseline="middle">$1,25M</text>
+    
+      <line class="rejilla" x1="46" x2="632" y1="12.0" y2="12.0"/>
+      <text class="eje" x="40" y="12.0" text-anchor="end" dominant-baseline="middle">$2,5M</text>
+    
+    
+      <rect class="zona" x="46.0" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="jueves 1 de octubre: $0" data-x="55.5"><title>jueves 1 de octubre: $0</title></rect>
+      <g></g>
+      <text class="eje" x="55.5" y="212" text-anchor="middle">1</text>
+    
+      <rect class="zona" x="64.9" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="viernes 2 de octubre: $0" data-x="74.4"><title>viernes 2 de octubre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="83.8" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="sábado 3 de octubre: $0" data-x="93.3"><title>sábado 3 de octubre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="102.7" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="domingo 4 de octubre: $0" data-x="112.2"><title>domingo 4 de octubre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="121.6" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="lunes 5 de octubre: $0" data-x="131.1"><title>lunes 5 de octubre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="140.5" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="martes 6 de octubre: $0" data-x="150.0"><title>martes 6 de octubre: $0</title></rect>
+      <g></g>
+      <text class="eje" x="150.0" y="212" text-anchor="middle">6</text>
+    
+      <rect class="zona" x="159.4" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="miércoles 7 de octubre: $0" data-x="168.9"><title>miércoles 7 de octubre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="178.3" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="jueves 8 de octubre: $906.000" data-x="187.8"><title>jueves 8 de octubre: $906.000</title></rect>
+      <path class="barra" d="M181.9,194.0 V132.0 Q181.9,128.0 185.9,128.0 H189.6 Q193.6,128.0 193.6,132.0 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="197.2" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="viernes 9 de octubre: $1.090.000" data-x="206.7"><title>viernes 9 de octubre: $1.090.000</title></rect>
+      <path class="barra" d="M200.8,194.0 V118.6 Q200.8,114.6 204.8,114.6 H208.5 Q212.5,114.6 212.5,118.6 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="216.1" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="sábado 10 de octubre: $694.000" data-x="225.6"><title>sábado 10 de octubre: $694.000</title></rect>
+      <path class="barra" d="M219.7,194.0 V147.5 Q219.7,143.5 223.7,143.5 H227.4 Q231.4,143.5 231.4,147.5 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="235.0" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="domingo 11 de octubre: $0" data-x="244.5"><title>domingo 11 de octubre: $0</title></rect>
+      <g></g>
+      <text class="eje" x="244.5" y="212" text-anchor="middle">11</text>
+    
+      <rect class="zona" x="253.9" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="lunes 12 de octubre: $882.000" data-x="263.4"><title>lunes 12 de octubre: $882.000</title></rect>
+      <path class="barra" d="M257.5,194.0 V133.8 Q257.5,129.8 261.5,129.8 H265.2 Q269.2,129.8 269.2,133.8 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="272.8" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="martes 13 de octubre: $2.450.000" data-x="282.3"><title>martes 13 de octubre: $2.450.000</title></rect>
+      <path class="barra" d="M276.4,194.0 V19.6 Q276.4,15.6 280.4,15.6 H284.2 Q288.2,15.6 288.2,19.6 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="291.7" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="miércoles 14 de octubre: $72.000" data-x="301.2"><title>miércoles 14 de octubre: $72.000</title></rect>
+      <path class="barra" d="M295.3,194.0 V192.8 Q295.3,188.8 299.3,188.8 H303.1 Q307.1,188.8 307.1,192.8 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="310.6" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="jueves 15 de octubre: $1.477.000" data-x="320.1"><title>jueves 15 de octubre: $1.477.000</title></rect>
+      <path class="barra" d="M314.2,194.0 V90.5 Q314.2,86.5 318.2,86.5 H322.0 Q326.0,86.5 326.0,90.5 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="329.5" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="viernes 16 de octubre: $2.008.000" data-x="339.0"><title>viernes 16 de octubre: $2.008.000</title></rect>
+      <path class="barra" d="M333.1,194.0 V51.8 Q333.1,47.8 337.1,47.8 H340.9 Q344.9,47.8 344.9,51.8 V194.0 Z"/>
+      <text class="eje" x="339.0" y="212" text-anchor="middle">16</text>
+    
+      <rect class="zona" x="348.5" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="sábado 17 de octubre: $1.988.000" data-x="357.9"><title>sábado 17 de octubre: $1.988.000</title></rect>
+      <path class="barra" d="M352.0,194.0 V53.3 Q352.0,49.3 356.0,49.3 H359.8 Q363.8,49.3 363.8,53.3 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="367.4" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="domingo 18 de octubre: $0" data-x="376.8"><title>domingo 18 de octubre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="386.3" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="lunes 19 de octubre: $928.000" data-x="395.7"><title>lunes 19 de octubre: $928.000</title></rect>
+      <path class="barra" d="M389.8,194.0 V130.4 Q389.8,126.4 393.8,126.4 H397.6 Q401.6,126.4 401.6,130.4 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="405.2" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="martes 20 de octubre: $1.014.000" data-x="414.6"><title>martes 20 de octubre: $1.014.000</title></rect>
+      <path class="barra" d="M408.8,194.0 V124.2 Q408.8,120.2 412.8,120.2 H416.5 Q420.5,120.2 420.5,124.2 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="424.1" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="miércoles 21 de octubre: $1.262.000" data-x="433.5"><title>miércoles 21 de octubre: $1.262.000</title></rect>
+      <path class="barra" d="M427.7,194.0 V106.1 Q427.7,102.1 431.7,102.1 H435.4 Q439.4,102.1 439.4,106.1 V194.0 Z"/>
+      <text class="eje" x="433.5" y="212" text-anchor="middle">21</text>
+    
+      <rect class="zona" x="443.0" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="jueves 22 de octubre: $733.000" data-x="452.4"><title>jueves 22 de octubre: $733.000</title></rect>
+      <path class="barra" d="M446.6,194.0 V144.6 Q446.6,140.6 450.6,140.6 H454.3 Q458.3,140.6 458.3,144.6 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="461.9" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="viernes 23 de octubre: $1.761.000" data-x="471.3"><title>viernes 23 de octubre: $1.761.000</title></rect>
+      <path class="barra" d="M465.5,194.0 V69.8 Q465.5,65.8 469.5,65.8 H473.2 Q477.2,65.8 477.2,69.8 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="480.8" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="sábado 24 de octubre: $725.000" data-x="490.2"><title>sábado 24 de octubre: $725.000</title></rect>
+      <path class="barra" d="M484.4,194.0 V145.2 Q484.4,141.2 488.4,141.2 H492.1 Q496.1,141.2 496.1,145.2 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="499.7" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="domingo 25 de octubre: $0" data-x="509.1"><title>domingo 25 de octubre: $0</title></rect>
+      <g></g>
+      
+    
+      <rect class="zona" x="518.6" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="lunes 26 de octubre: $1.103.000" data-x="528.0"><title>lunes 26 de octubre: $1.103.000</title></rect>
+      <path class="barra" d="M522.2,194.0 V117.7 Q522.2,113.7 526.2,113.7 H529.9 Q533.9,113.7 533.9,117.7 V194.0 Z"/>
+      <text class="eje" x="528.0" y="212" text-anchor="middle">26</text>
+    
+      <rect class="zona" x="537.5" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="martes 27 de octubre: $205.000" data-x="546.9"><title>martes 27 de octubre: $205.000</title></rect>
+      <path class="barra" d="M541.1,194.0 V183.1 Q541.1,179.1 545.1,179.1 H548.8 Q552.8,179.1 552.8,183.1 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="556.4" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="miércoles 28 de octubre: $1.333.000" data-x="565.8"><title>miércoles 28 de octubre: $1.333.000</title></rect>
+      <path class="barra" d="M560.0,194.0 V101.0 Q560.0,97.0 564.0,97.0 H567.7 Q571.7,97.0 571.7,101.0 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="575.3" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="jueves 29 de octubre: $1.400.000" data-x="584.7"><title>jueves 29 de octubre: $1.400.000</title></rect>
+      <path class="barra" d="M578.9,194.0 V96.1 Q578.9,92.1 582.9,92.1 H586.6 Q590.6,92.1 590.6,96.1 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="594.2" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="viernes 30 de octubre: $1.157.000" data-x="603.6"><title>viernes 30 de octubre: $1.157.000</title></rect>
+      <path class="barra" d="M597.8,194.0 V113.8 Q597.8,109.8 601.8,109.8 H605.5 Q609.5,109.8 609.5,113.8 V194.0 Z"/>
+      
+    
+      <rect class="zona" x="613.1" y="12" width="18.9" height="182"
+            tabindex="0" data-tip="sábado 31 de octubre: $1.263.000" data-x="622.5"><title>sábado 31 de octubre: $1.263.000</title></rect>
+      <path class="barra" d="M616.7,194.0 V106.1 Q616.7,102.1 620.7,102.1 H624.4 Q628.4,102.1 628.4,106.1 V194.0 Z"/>
+      <text class="eje" x="622.5" y="212" text-anchor="middle">31</text>
+    
+  </svg>
+  </div>
+  <div class="tip" id="tip" hidden></div>
+  <details style="margin-top:.5rem">
+    <summary class="ayuda">Ver como tabla</summary>
+    <table>
+      <thead><tr><th>Día</th><th class="num">Ventas</th></tr></thead>
+      <tbody><tr><td>jueves 8 de octubre</td><td class="num">$906.000</td></tr><tr><td>viernes 9 de octubre</td><td class="num">$1.090.000</td></tr><tr><td>sábado 10 de octubre</td><td class="num">$694.000</td></tr><tr><td>lunes 12 de octubre</td><td class="num">$882.000</td></tr><tr><td>martes 13 de octubre</td><td class="num">$2.450.000</td></tr><tr><td>miércoles 14 de octubre</td><td class="num">$72.000</td></tr><tr><td>jueves 15 de octubre</td><td class="num">$1.477.000</td></tr><tr><td>viernes 16 de octubre</td><td class="num">$2.008.000</td></tr><tr><td>sábado 17 de octubre</td><td class="num">$1.988.000</td></tr><tr><td>lunes 19 de octubre</td><td class="num">$928.000</td></tr><tr><td>martes 20 de octubre</td><td class="num">$1.014.000</td></tr><tr><td>miércoles 21 de octubre</td><td class="num">$1.262.000</td></tr><tr><td>jueves 22 de octubre</td><td class="num">$733.000</td></tr><tr><td>viernes 23 de octubre</td><td class="num">$1.761.000</td></tr><tr><td>sábado 24 de octubre</td><td class="num">$725.000</td></tr><tr><td>lunes 26 de octubre</td><td class="num">$1.103.000</td></tr><tr><td>martes 27 de octubre</td><td class="num">$205.000</td></tr><tr><td>miércoles 28 de octubre</td><td class="num">$1.333.000</td></tr><tr><td>jueves 29 de octubre</td><td class="num">$1.400.000</td></tr><tr><td>viernes 30 de octubre</td><td class="num">$1.157.000</td></tr><tr><td>sábado 31 de octubre</td><td class="num">$1.263.000</td></tr></tbody>
+    </table>
+  </details>
+  
+</div>
+
+<div class="tarjeta">
+  <div class="acciones" style="justify-content:space-between">
+    <h2 style="margin:0">Qué se vendió</h2>
+    <form method="get" class="acciones">
+      <input type="hidden" name="ver" value="mes"><input type="hidden" name="fecha" value="2026-10-01">
+      <label for="orden" class="ayuda" style="margin:0">Ordenar por</label>
+      <select id="orden" name="orden" style="width:auto" onchange="this.form.requestSubmit()">
+        <option value="precio" selected>Precio (mayor a menor)</option><option value="unidades" >Más vendidos</option><option value="ingreso" >Mayor ingreso</option>
+      </select>
+      <noscript><button type="submit">Ordenar</button></noscript>
+    </form>
+  </div>
+  <div class="tabla"><table>
+    <thead><tr><th>Producto</th><th class="num">Precio</th><th class="num">Unidades</th><th class="num">Ingreso</th><th class="num">Ganancia</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>Batería 12V 45Ah<br><span class="ayuda">ELE-BAT-001</span></td>
+        <td class="num">$345.000</td>
+        <td class="num">25</td>
+        <td class="num">$8.625.000</td>
+        <td class="num">$2.125.000</td>
+      </tr>
+    
+      <tr>
+        <td>Amortiguador delantero<br><span class="ayuda">SUS-AMOR-001</span></td>
+        <td class="num">$210.000</td>
+        <td class="num">22</td>
+        <td class="num">$4.620.000</td>
+        <td class="num">$1.320.000</td>
+      </tr>
+    
+      <tr>
+        <td>Bomba de agua<br><span class="ayuda">MOT-BOMB-002</span></td>
+        <td class="num">$175.000</td>
+        <td class="num">12</td>
+        <td class="num">$2.100.000</td>
+        <td class="num">$660.000</td>
+      </tr>
+    
+      <tr>
+        <td>Disco de freno ventilado<br><span class="ayuda">FRE-DISC-002</span></td>
+        <td class="num">$160.000</td>
+        <td class="num">13</td>
+        <td class="num">$2.080.000</td>
+        <td class="num">$650.000</td>
+      </tr>
+    
+      <tr>
+        <td>Pastillas de freno delanteras<br><span class="ayuda">FRE-PAST-001</span></td>
+        <td class="num">$85.000</td>
+        <td class="num">22</td>
+        <td class="num">$1.870.000</td>
+        <td class="num">$660.000</td>
+      </tr>
+    
+      <tr>
+        <td>Juego de bujías x4<br><span class="ayuda">ELE-BUJ-004</span></td>
+        <td class="num">$68.000</td>
+        <td class="num">16</td>
+        <td class="num">$1.088.000</td>
+        <td class="num">$416.000</td>
+      </tr>
+    
+      <tr>
+        <td>Terminal de dirección<br><span class="ayuda">SUS-TERM-002</span></td>
+        <td class="num">$64.000</td>
+        <td class="num">16</td>
+        <td class="num">$1.024.000</td>
+        <td class="num">$368.000</td>
+      </tr>
+    
+      <tr>
+        <td>Aceite 20W50 galón<br><span class="ayuda">ACE-20W50</span></td>
+        <td class="num">$48.000</td>
+        <td class="num">16</td>
+        <td class="num">$768.000</td>
+        <td class="num">$272.000</td>
+      </tr>
+    
+      <tr>
+        <td>Aceite sintético 5W30 cuarto<br><span class="ayuda">ACE-5W30</span></td>
+        <td class="num">$39.000</td>
+        <td class="num">20</td>
+        <td class="num">$780.000</td>
+        <td class="num">$260.000</td>
+      </tr>
+    
+      <tr>
+        <td>Filtro de aire<br><span class="ayuda">FIL-AIRE-01</span></td>
+        <td class="num">$35.000</td>
+        <td class="num">12</td>
+        <td class="num">$420.000</td>
+        <td class="num">$168.000</td>
+      </tr>
+    
+      <tr>
+        <td>Líquido de frenos DOT 4 (500 ml)<br><span class="ayuda">FRE-LIQ-003</span></td>
+        <td class="num">$28.000</td>
+        <td class="num">14</td>
+        <td class="num">$392.000</td>
+        <td class="num">$168.000</td>
+      </tr>
+    
+      <tr>
+        <td>Filtro de aceite<br><span class="ayuda">FIL-ACE-02</span></td>
+        <td class="num">$22.000</td>
+        <td class="num">27</td>
+        <td class="num">$594.000</td>
+        <td class="num">$270.000</td>
+      </tr>
+    
+    </tbody>
+  </table></div>
+</div>
+
+
+<div class="tarjeta">
+  <h2 style="margin-top:0">Pedidos del periodo</h2>
+  <div class="tabla"><table>
+    <thead><tr><th>#</th><th>Fecha</th><th>Cliente</th><th>Estado</th><th class="num">Total</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#2</a></td>
+        <td>08/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$690.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#1</a></td>
+        <td>08/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$216.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#3</a></td>
+        <td>09/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$194.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#5</a></td>
+        <td>09/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$229.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#6</a></td>
+        <td>09/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$105.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#4</a></td>
+        <td>09/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$562.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#9</a></td>
+        <td>10/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$583.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#7</a></td>
+        <td>10/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$87.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#8</a></td>
+        <td>10/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$24.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#11</a></td>
+        <td>12/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$129.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#13</a></td>
+        <td>12/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$344.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#12</a></td>
+        <td>12/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$370.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#10</a></td>
+        <td>12/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$39.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#17</a></td>
+        <td>13/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$106.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#16</a></td>
+        <td>13/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$712.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#18</a></td>
+        <td>13/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$630.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#14</a></td>
+        <td>13/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$800.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#15</a></td>
+        <td>13/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$202.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#19</a></td>
+        <td>14/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$48.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#20</a></td>
+        <td>14/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$24.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#22</a></td>
+        <td>15/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$486.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#21</a></td>
+        <td>15/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$208.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#23</a></td>
+        <td>15/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$320.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#24</a></td>
+        <td>15/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$463.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#26</a></td>
+        <td>16/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$727.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#28</a></td>
+        <td>16/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$422.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#29</a></td>
+        <td>16/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$636.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#27</a></td>
+        <td>16/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$177.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#25</a></td>
+        <td>16/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$46.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#33</a></td>
+        <td>17/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$545.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#31</a></td>
+        <td>17/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$571.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#30</a></td>
+        <td>17/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$180.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#32</a></td>
+        <td>17/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$692.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#36</a></td>
+        <td>19/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$162.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#35</a></td>
+        <td>19/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$718.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#34</a></td>
+        <td>19/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$48.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#37</a></td>
+        <td>20/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$170.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#40</a></td>
+        <td>20/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$124.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#38</a></td>
+        <td>20/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$311.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#39</a></td>
+        <td>20/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$409.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#41</a></td>
+        <td>21/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$442.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#42</a></td>
+        <td>21/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$820.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#43</a></td>
+        <td>22/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$308.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#44</a></td>
+        <td>22/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$425.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#48</a></td>
+        <td>23/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$475.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#47</a></td>
+        <td>23/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$245.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#45</a></td>
+        <td>23/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$140.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#49</a></td>
+        <td>23/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$155.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#46</a></td>
+        <td>23/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$746.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#50</a></td>
+        <td>24/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$50.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#51</a></td>
+        <td>24/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$675.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#53</a></td>
+        <td>26/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$667.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#52</a></td>
+        <td>26/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$436.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#54</a></td>
+        <td>27/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$170.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#55</a></td>
+        <td>27/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$35.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#59</a></td>
+        <td>28/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$435.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#56</a></td>
+        <td>28/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$24.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#57</a></td>
+        <td>28/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$760.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#58</a></td>
+        <td>28/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$114.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#61</a></td>
+        <td>29/10</td>
+        <td>Ana Rojas</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$120.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#60</a></td>
+        <td>29/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$347.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#63</a></td>
+        <td>29/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$330.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#62</a></td>
+        <td>29/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$391.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#64</a></td>
+        <td>29/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$212.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#68</a></td>
+        <td>30/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$422.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#66</a></td>
+        <td>30/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$256.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#69</a></td>
+        <td>30/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$301.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#67</a></td>
+        <td>30/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$44.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#65</a></td>
+        <td>30/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$134.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#72</a></td>
+        <td>31/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$429.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#70</a></td>
+        <td>31/10</td>
+        <td>Marta Gómez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$799.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="#demo-no-disponible">#71</a></td>
+        <td>31/10</td>
+        <td>Luis Pérez</td>
+        <td>Entregado · pagado</td>
+        <td class="num">$35.000</td>
+      </tr>
+    
+    </tbody>
+  </table></div>
+</div>
+
+
+<script>
+  // Tooltip al pasar el mouse o al moverse con el teclado por las barras.
+  (function () {
+    var tip = document.getElementById("tip"), svg = document.querySelector(".grafica svg");
+    if (!tip || !svg) return;
+    function mostrar(e) {
+      var z = e.target, caja = svg.getBoundingClientRect(), escala = caja.width / svg.viewBox.baseVal.width;
+      tip.textContent = z.dataset.tip;
+      var lienzo = svg.parentElement;
+      tip.style.left = (lienzo.offsetLeft - lienzo.scrollLeft + parseFloat(z.dataset.x) * escala) + "px";
+      tip.style.top = (lienzo.offsetTop + 12 * escala) + "px";
+      tip.hidden = false;
+    }
+    svg.querySelectorAll(".zona").forEach(function (z) {
+      z.addEventListener("mouseenter", mostrar); z.addEventListener("focus", mostrar);
+      z.addEventListener("mouseleave", function () { tip.hidden = true; });
+      z.addEventListener("blur", function () { tip.hidden = true; });
+    });
+  })();
+</script>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../../jefe/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Jefe</strong></span><a href="../../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

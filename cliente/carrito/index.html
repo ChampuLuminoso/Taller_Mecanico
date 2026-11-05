@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="3">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Carrito · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../static/marca/favicon.png">
+  <link rel="preload" href="../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../static/demo/demo.css">
+  <script src="../../static/demo/demo.js" defer></script>
+</head>
+<body class="">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../cliente/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../cliente/index.html" data-orden="0" >Tienda</a>
+        
+          <a href="../../cliente/citas/index.html" data-orden="1" >Mis citas</a>
+        
+          <a href="../../cliente/mis-pedidos/index.html" data-orden="2" >Mis pedidos</a>
+        
+          <a href="../../cliente/carrito/index.html" data-orden="3" aria-current="page">Carrito <span class="insignia" aria-label="2 en el carrito">2</span></a>
+        
+          <a href="../../cliente/cuenta/panel/index.html" data-orden="4" >Mi cuenta</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="">
+    
+    
+<h1>Tu carrito</h1>
+
+<div class="tarjeta">
+  
+    <div class="acciones" style="justify-content:space-between; border-bottom:1px solid var(--borde); padding:.6rem 0">
+      <div style="flex:1; min-width:12rem">
+        <a href="../../cliente/tienda/p/FRE-DISC-002/index.html"><strong>Disco de freno ventilado</strong></a><br>
+        <span class="ayuda">$160.000 c/u</span>
+        
+      </div>
+      <form method="post" action="/carrito/cambiar/2/" class="acciones">
+        <label for="c-2" class="ayuda" style="margin:0">Cant.</label>
+        <input id="c-2" type="number" name="cantidad" min="0" max="31" value="1" style="width:4.5rem">
+        <button type="submit" class="secundario">Actualizar</button>
+      </form>
+      <strong style="min-width:6rem; text-align:right">$160.000</strong>
+      <form method="post" action="/carrito/cambiar/2/">
+        <input type="hidden" name="cantidad" value="0">
+        <button type="submit" class="boton-link" aria-label="Quitar Disco de freno ventilado">Quitar</button>
+      </form>
+    </div>
+  
+    <div class="acciones" style="justify-content:space-between; border-bottom:1px solid var(--borde); padding:.6rem 0">
+      <div style="flex:1; min-width:12rem">
+        <a href="../../cliente/tienda/p/FRE-PAST-001/index.html"><strong>Pastillas de freno delanteras</strong></a><br>
+        <span class="ayuda">$85.000 c/u</span>
+        
+      </div>
+      <form method="post" action="/carrito/cambiar/1/" class="acciones">
+        <label for="c-1" class="ayuda" style="margin:0">Cant.</label>
+        <input id="c-1" type="number" name="cantidad" min="0" max="30" value="1" style="width:4.5rem">
+        <button type="submit" class="secundario">Actualizar</button>
+      </form>
+      <strong style="min-width:6rem; text-align:right">$85.000</strong>
+      <form method="post" action="/carrito/cambiar/1/">
+        <input type="hidden" name="cantidad" value="0">
+        <button type="submit" class="boton-link" aria-label="Quitar Pastillas de freno delanteras">Quitar</button>
+      </form>
+    </div>
+  
+  <p style="text-align:right; font-size:1.15rem">Subtotal: <strong>$245.000</strong></p>
+  <p class="ayuda" style="text-align:right">El domicilio ($2.000 en Bogotá) se suma en el siguiente paso. Recoger en el taller no tiene costo.</p>
+  
+    <div class="acciones" style="justify-content:flex-end">
+      <a href="../../cliente/index.html">Seguir comprando</a>
+      <a class="boton" href="../../cliente/comprar/index.html">Continuar con la compra</a>
+    </div>
+  
+</div>
+
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../cliente/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Cliente</strong></span><a href="../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

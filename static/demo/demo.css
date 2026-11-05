@@ -1,0 +1,21 @@
+
+.demo-barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: flex; flex-wrap: wrap; gap: .25rem 1rem;
+  justify-content: center; align-items: center; padding: .55rem max(16px, env(safe-area-inset-right, 0px))
+  calc(.55rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background: var(--carbon); color: #fff; font-size: .88rem; }
+.demo-barra a { color: #ffd2bf; font-weight: 600; }
+body { padding-bottom: 3.2rem; }
+.demo-aviso { position: fixed; left: 50%; bottom: 4.2rem; transform: translateX(-50%); z-index: 60; max-width: min(28rem, calc(100vw - 32px));
+  background: var(--blanco); color: var(--carbon); border: 1px solid var(--borde-fuerte); border-left: 4px solid var(--naranja);
+  border-radius: var(--radio); padding: .75rem 1rem; box-shadow: 0 10px 30px rgb(0 0 0 / .18); font-size: .95rem; }
+.demo-portada { max-width: 60rem; margin: 0 auto; padding-block: 2rem 4rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.demo-portada header { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
+.demo-portada header img { width: 88px; height: auto; }
+.demo-roles { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
+.demo-rol { display: grid; gap: .35rem; padding: 1.1rem 1.2rem; background: var(--blanco); border: 1px solid var(--borde);
+  border-top: 3px solid var(--naranja); border-radius: var(--radio); box-shadow: var(--sombra); color: var(--carbon); text-decoration: none; }
+.demo-rol:hover { border-color: var(--naranja); color: var(--carbon); transform: translateY(-2px); }
+.demo-rol strong { font: 700 1.4rem/1.1 var(--f-titulo); }
+.demo-rol span { color: var(--gris); }
+.demo-rol small { color: var(--naranja-texto); font-weight: 600; }

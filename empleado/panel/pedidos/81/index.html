@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="2">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Pedido #81 · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../../static/demo/demo.css">
+  <script src="../../../../static/demo/demo.js" defer></script>
+</head>
+<body class="panel-interno">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../../empleado/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../../empleado/cuenta/panel/index.html" data-orden="0" >Panel</a>
+        
+          <a href="../../../../empleado/panel/inventario/index.html" data-orden="1" >Inventario</a>
+        
+          <a href="../../../../empleado/panel/pedidos/index.html" data-orden="2" aria-current="page">Pedidos</a>
+        
+          <a href="../../../../empleado/panel/agenda/index.html" data-orden="3" >Agenda</a>
+        
+          <a href="../../../../empleado/panel/apartados/index.html" data-orden="4" >Apartados</a>
+        
+          <a href="../../../../empleado/index.html" data-orden="5" >Tienda</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="">
+    
+    
+<p><a href="../../../../empleado/panel/pedidos/index.html">← Pedidos</a></p>
+<div class="tarjeta">
+  <div class="acciones" style="justify-content:space-between">
+    <h1 style="margin:0">Pedido #81</h1>
+    <span class="etiqueta aviso">
+      Confirmado</span>
+  </div>
+  <p class="ayuda">Hecho el 04/11/2026 09:05 AM · confirmado por Andrés Martínez</p>
+
+  <h2>Cliente</h2>
+  <p style="margin:.2rem 0"><strong>Ana Rojas</strong> ·
+    <a href="tel:+573001234567">3001234567</a> ·
+    <a href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp</a></p>
+  <p style="margin:.2rem 0">Envío a domicilio (Bogotá) · Contra entrega</p>
+  <p style="margin:.2rem 0">📍 Calle 127 # 58-20, Niza, Suba, Bogotá D.C.</p>
+  
+
+  <h2>Productos</h2>
+  <div class="tabla"><table>
+    <thead><tr><th>Producto</th><th class="num">Cant.</th><th class="num">Precio</th><th class="num">Subtotal</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>Amortiguador delantero<br><span class="ayuda">SUS-AMOR-001</span></td>
+        <td class="num">2</td>
+        <td class="num">$210.000</td>
+        <td class="num">$420.000</td>
+        
+      </tr>
+    
+      <tr>
+        <td>Juego de bujías x4<br><span class="ayuda">ELE-BUJ-004</span></td>
+        <td class="num">2</td>
+        <td class="num">$68.000</td>
+        <td class="num">$136.000</td>
+        
+      </tr>
+    
+      <tr>
+        <td>Filtro de aceite<br><span class="ayuda">FIL-ACE-02</span></td>
+        <td class="num">1</td>
+        <td class="num">$22.000</td>
+        <td class="num">$22.000</td>
+        
+      </tr>
+    
+    </tbody>
+  </table></div>
+  <p style="text-align:right; margin:.4rem 0">Subtotal $578.000 · Domicilio $2.000</p>
+  <p style="text-align:right; font-size:1.2rem; margin:.2rem 0"><strong>Total a cobrar $580.000</strong></p>
+  
+</div>
+
+
+
+
+<div class="tarjeta">
+  <div class="acciones">
+    
+      <form method="post" action="/panel/pedidos/81/accion/">
+        <input type="hidden" name="accion" value="ALISTADO">
+        <button type="submit" class="secundario">Marcar alistado</button>
+      </form>
+    
+      <form method="post" action="/panel/pedidos/81/accion/">
+        <input type="hidden" name="accion" value="EN_CAMINO">
+        <button type="submit" class="">Salió a entrega</button>
+      </form>
+    
+  </div>
+  
+</div>
+
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../../empleado/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Empleado</strong></span><a href="../../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

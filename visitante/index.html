@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="0">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Repuestos · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../static/marca/favicon.png">
+  <link rel="preload" href="../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../static/demo/demo.css">
+  <script src="../static/demo/demo.js" defer></script>
+</head>
+<body class="">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../visitante/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../visitante/index.html" data-orden="0" aria-current="page">Tienda</a>
+        
+          <a href="../visitante/cuenta/entrar/_q-next-2Fcitas-2Fagendar-2F/index.html" data-orden="1" >Agendar cita</a>
+        
+          <a href="../visitante/carrito/index.html" data-orden="2" >Carrito <span class="insignia" aria-label="2 en el carrito">2</span></a>
+        
+          <a href="../visitante/cuenta/entrar/index.html" data-orden="3" >Entrar</a>
+        
+      </nav>
+      
+    </div>
+  </header>
+  <main class="ancho">
+    
+      <div class="mensaje " role="status">Agregaste Pastillas de freno delanteras al carrito.</div>
+    
+      <div class="mensaje " role="status">Agregaste Disco de freno ventilado al carrito.</div>
+    
+    
+<header class="portada">
+  <span class="antetitulo">Repuestos y taller · Bogotá · desde 2012</span>
+  <h1 style="margin:0">Repuestos para tu vehículo</h1>
+  <p class="ayuda" style="margin:0">Precios y unidades disponibles hoy. Domicilio en Bogotá por $2.000 o recoge gratis en el taller.</p>
+</header>
+
+<form class="filtros" method="get" action="/" role="search"
+      data-demo-ir="../visitante/index.html"
+     >
+  <div>
+    <label for="q" class="ayuda" style="margin:0">Busca por repuesto o por tu carro</label>
+    <input id="q" type="search" name="q" value="" placeholder="Ej.: pastillas spark 2015">
+  </div>
+  <div>
+    <label for="categoria" class="ayuda" style="margin:0">Categoría</label>
+    <select id="categoria" name="categoria">
+      <option value="">Todas</option>
+      <option value="1" >Frenos</option><option value="2" >Suspensión</option><option value="3" >Motor</option><option value="4" >Eléctricos</option><option value="5" >Filtros</option><option value="6" >Aceites</option>
+    </select>
+  </div>
+  <div class="check" style="align-self:end"><label><input type="checkbox" name="disponibles" value="1" > Solo disponibles</label></div>
+  <noscript><button type="submit">Buscar</button></noscript>
+</form>
+
+<div id="resultados" aria-live="polite">
+
+<p class="ayuda">13 productos</p>
+<ul class="productos" style="list-style:none; padding:0; margin:0">
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/ACE-20W50/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/ACE-20W50/index.html">Aceite 20W50 galón</a></h2>
+      <span class="ayuda">Aceites · Mobil</span>
+      <span class="precio">$48.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">54 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/12/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Aceite 20W50 galón al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/ACE-20W50/index.html"
+                aria-label="Vista rápida de Aceite 20W50 galón">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/FRE-LIQ-003/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/FRE-LIQ-003/index.html">Líquido de frenos DOT 4 (500 ml)</a></h2>
+      <span class="ayuda">Frenos · Bosch</span>
+      <span class="precio">$28.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">45 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/3/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Líquido de frenos DOT 4 (500 ml) al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/FRE-LIQ-003/index.html"
+                aria-label="Vista rápida de Líquido de frenos DOT 4 (500 ml)">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/ACE-5W30/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/ACE-5W30/index.html">Aceite sintético 5W30 cuarto</a></h2>
+      <span class="ayuda">Aceites · Castrol</span>
+      <span class="precio">$39.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">44 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/13/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Aceite sintético 5W30 cuarto al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/ACE-5W30/index.html"
+                aria-label="Vista rápida de Aceite sintético 5W30 cuarto">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/FIL-ACE-02/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/FIL-ACE-02/index.html">Filtro de aceite</a></h2>
+      <span class="ayuda">Filtros · Mann</span>
+      <span class="precio">$22.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">37 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/11/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Filtro de aceite al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/FIL-ACE-02/index.html"
+                aria-label="Vista rápida de Filtro de aceite">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/ELE-BUJ-004/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/ELE-BUJ-004/index.html">Juego de bujías x4</a></h2>
+      <span class="ayuda">Eléctricos · NGK</span>
+      <span class="precio">$68.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">36 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/8/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Juego de bujías x4 al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/ELE-BUJ-004/index.html"
+                aria-label="Vista rápida de Juego de bujías x4">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/FIL-AIRE-01/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/FIL-AIRE-01/index.html">Filtro de aire</a></h2>
+      <span class="ayuda">Filtros · Mann</span>
+      <span class="precio">$35.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">35 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/10/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Filtro de aire al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/FIL-AIRE-01/index.html"
+                aria-label="Vista rápida de Filtro de aire">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/FRE-DISC-002/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/FRE-DISC-002/index.html">Disco de freno ventilado</a></h2>
+      <span class="ayuda">Frenos · Brembo</span>
+      <span class="precio">$160.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">31 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/2/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Disco de freno ventilado al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/FRE-DISC-002/index.html"
+                aria-label="Vista rápida de Disco de freno ventilado">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/FRE-PAST-001/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/FRE-PAST-001/index.html">Pastillas de freno delanteras</a></h2>
+      <span class="ayuda">Frenos · Bosch</span>
+      <span class="precio">$85.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">30 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/1/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Pastillas de freno delanteras al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/FRE-PAST-001/index.html"
+                aria-label="Vista rápida de Pastillas de freno delanteras">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/MOT-BOMB-002/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/MOT-BOMB-002/index.html">Bomba de agua</a></h2>
+      <span class="ayuda">Motor · Gates</span>
+      <span class="precio">$175.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">29 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/7/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Bomba de agua al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/MOT-BOMB-002/index.html"
+                aria-label="Vista rápida de Bomba de agua">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/SUS-TERM-002/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/SUS-TERM-002/index.html">Terminal de dirección</a></h2>
+      <span class="ayuda">Suspensión · TRW</span>
+      <span class="precio">$64.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">25 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/5/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Terminal de dirección al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/SUS-TERM-002/index.html"
+                aria-label="Vista rápida de Terminal de dirección">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/SUS-AMOR-001/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/SUS-AMOR-001/index.html">Amortiguador delantero</a></h2>
+      <span class="ayuda">Suspensión · Monroe</span>
+      <span class="precio">$210.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">17 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/4/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Amortiguador delantero al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/SUS-AMOR-001/index.html"
+                aria-label="Vista rápida de Amortiguador delantero">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/ELE-BAT-001/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/ELE-BAT-001/index.html">Batería 12V 45Ah</a></h2>
+      <span class="ayuda">Eléctricos · MAC</span>
+      <span class="precio">$345.000</span>
+      
+        <span class="etiqueta ok" style="align-self:flex-start">17 disponibles</span>
+      
+      <div class="pie">
+        
+        <form method="post" action="/carrito/agregar/9/">
+          <input type="hidden" name="volver" value="/">
+          <button type="submit" aria-label="Agregar Batería 12V 45Ah al carrito">Agregar</button>
+        </form>
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/ELE-BAT-001/index.html"
+                aria-label="Vista rápida de Batería 12V 45Ah">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+  <li class="producto">
+    <a class="foto sin-imagen" href="../visitante/tienda/p/MOT-CORR-001/index.html" tabindex="-1" aria-hidden="true">
+      
+    </a>
+    <div class="cuerpo">
+      <h2><a href="../visitante/tienda/p/MOT-CORR-001/index.html">Correa de distribución</a></h2>
+      <span class="ayuda">Motor · Gates</span>
+      <span class="precio">$120.000</span>
+      
+        <span class="etiqueta error" style="align-self:flex-start">Agotado</span>
+      
+      <div class="pie">
+        
+        <button type="button" class="secundario" data-demo-ir="../visitante/tienda/p/MOT-CORR-001/index.html"
+                aria-label="Vista rápida de Correa de distribución">Ver</button>
+      </div>
+    </div>
+  </li>
+  
+</ul>
+
+
+</div>
+
+
+<dialog id="vista-rapida" aria-label="Vista rápida del producto"
+        onclick="if (event.target === this) this.close()"></dialog>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../visitante/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Visitante</strong></span><a href="../index.html">Cambiar de rol</a></div>
+</body>
+</html>

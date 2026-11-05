@@ -1,9 +1,0 @@
-.git
-.env
-.venv
-__pycache__
-*.pyc
-media
-staticfiles
-*.zip
-db.sqlite3

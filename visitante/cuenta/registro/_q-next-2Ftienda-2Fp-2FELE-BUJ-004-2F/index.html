@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="-1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Crear cuenta · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../../static/demo/demo.css">
+  <script src="../../../../static/demo/demo.js" defer></script>
+</head>
+<body class="">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../../visitante/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../../visitante/index.html" data-orden="0" >Tienda</a>
+        
+          <a href="../../../../visitante/cuenta/entrar/_q-next-2Fcitas-2Fagendar-2F/index.html" data-orden="1" >Agendar cita</a>
+        
+          <a href="../../../../visitante/carrito/index.html" data-orden="2" >Carrito <span class="insignia" aria-label="2 en el carrito">2</span></a>
+        
+          <a href="../../../../visitante/cuenta/entrar/index.html" data-orden="3" >Entrar</a>
+        
+      </nav>
+      
+    </div>
+  </header>
+  <main class="">
+    
+    
+<div class="tarjeta">
+  <h1>Crear cuenta</h1>
+  <p class="ayuda">Para comprar repuestos y agendar citas. Debes ser mayor de edad.</p>
+  <form method="post" novalidate>
+    
+    <input type="hidden" name="next" value="/tienda/p/ELE-BUJ-004/">
+    
+    
+      <div class="">
+        
+          <label for="id_nombres">Nombres:</label> <input type="text" name="nombres" maxlength="80" required id="id_nombres">
+        
+        
+        
+      </div>
+    
+      <div class="">
+        
+          <label for="id_apellidos">Apellidos:</label> <input type="text" name="apellidos" maxlength="80" required id="id_apellidos">
+        
+        
+        
+      </div>
+    
+      <div class="">
+        
+          <label for="id_email">Correo:</label> <input type="email" name="email" autocomplete="email" maxlength="320" required id="id_email">
+        
+        
+        
+      </div>
+    
+      <div class="">
+        
+          <label for="id_telefono">Celular:</label> <input type="text" name="telefono" inputmode="tel" autocomplete="tel" maxlength="20" required id="id_telefono">
+        
+        
+        
+      </div>
+    
+      <div class="">
+        
+          <label for="id_fecha_nacimiento">Fecha de nacimiento:</label> <input type="date" name="fecha_nacimiento" required id="id_fecha_nacimiento">
+        
+        
+        
+      </div>
+    
+      <div class="">
+        
+          <label for="id_password1">Contraseña:</label> <input type="password" name="password1" autocomplete="new-password" required aria-describedby="id_password1_helptext" id="id_password1">
+        
+        <div class="ayuda">Mínimo 10 caracteres. Evita contraseñas comunes o solo números.</div>
+        
+      </div>
+    
+      <div class="">
+        
+          <label for="id_password2">Repite la contraseña:</label> <input type="password" name="password2" autocomplete="new-password" required id="id_password2">
+        
+        
+        
+      </div>
+    
+      <div class="check">
+        
+          <label><input type="checkbox" name="acepta_politica" required id="id_acepta_politica"> Autorizo el tratamiento de mis datos personales según la política de privacidad.</label>
+        
+        
+        
+      </div>
+    
+      <div class="check">
+        
+          <label><input type="checkbox" name="acepta_marketing" id="id_acepta_marketing"> Quiero recibir promociones (opcional).</label>
+        
+        
+        
+      </div>
+    
+    <p class="ayuda">Lee la <a href="../../../../visitante/cuenta/privacidad/index.html" target="_blank">política de tratamiento de datos</a>.</p>
+    <button type="submit">Crear cuenta</button>
+  </form>
+  <p>¿Ya tienes cuenta? <a href="../../../../visitante/cuenta/entrar/_q-next-2Ftienda-2Fp-2FELE-BUJ-004-2F/index.html">Entra</a></p>
+</div>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../../visitante/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Visitante</strong></span><a href="../../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

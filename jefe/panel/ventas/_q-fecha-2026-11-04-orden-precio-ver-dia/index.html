@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="5">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Ventas · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../../static/demo/demo.css">
+  <script src="../../../../static/demo/demo.js" defer></script>
+</head>
+<body class="panel-interno">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../../jefe/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../../jefe/cuenta/panel/index.html" data-orden="0" >Panel</a>
+        
+          <a href="../../../../jefe/panel/inventario/index.html" data-orden="1" >Inventario</a>
+        
+          <a href="../../../../jefe/panel/pedidos/index.html" data-orden="2" >Pedidos</a>
+        
+          <a href="../../../../jefe/panel/agenda/index.html" data-orden="3" >Agenda</a>
+        
+          <a href="../../../../jefe/panel/apartados/solicitudes/index.html" data-orden="4" >Apartados</a>
+        
+          <a href="../../../../jefe/panel/ventas/index.html" data-orden="5" aria-current="page">Ventas</a>
+        
+          <a href="../../../../jefe/panel/clientes/index.html" data-orden="6" >Clientes</a>
+        
+          <a href="../../../../jefe/cuenta/personal/index.html" data-orden="7" >Personal</a>
+        
+          <a href="../../../../jefe/index.html" data-orden="8" >Tienda</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="ancho">
+    
+    
+<div class="acciones" style="justify-content:space-between; margin-bottom:.75rem">
+  <h1 style="margin:0">Ventas</h1>
+  <a class="boton secundario" href="../../../../jefe/panel/ventas/excel/_q-fecha-2026-11-04-orden-precio-ver-dia/ventas_dia_2026-11-04.xlsx">Descargar Excel</a>
+</div>
+
+
+<div class="acciones" style="margin-bottom:1rem">
+  <nav class="segmentos" aria-label="Periodo">
+    <a href="../../../../jefe/panel/ventas/_q-fecha-2026-11-04-orden-precio-ver-dia/index.html" aria-current="page">Día</a><a href="../../../../jefe/panel/ventas/_q-fecha-2026-11-04-orden-precio-ver-semana/index.html" >Semana</a><a href="../../../../jefe/panel/ventas/_q-fecha-2026-11-04-orden-precio-ver-mes/index.html" >Mes</a>
+  </nav>
+  <a href="../../../../jefe/panel/ventas/_q-fecha-2026-11-03-orden-precio-ver-dia/index.html" aria-label="Periodo anterior">←</a>
+  <strong>Hoy, miércoles 4 de noviembre 2026</strong>
+  
+  <form method="get" class="acciones">
+    <input type="hidden" name="ver" value="dia"><input type="hidden" name="orden" value="precio">
+    <label for="fecha" class="ayuda" style="margin:0">Ir a</label>
+    <input id="fecha" type="date" name="fecha" value="2026-11-04" style="width:auto" onchange="this.form.requestSubmit()">
+  </form>
+</div>
+
+<div class="cifras">
+  <div class="cifra principal">
+    <div class="ayuda">Total vendido</div>
+    <div class="valor">$1.817.000</div>
+    <div class="ayuda">
+      ▲ 212 % frente al día anterior
+      
+    </div>
+  </div>
+  <div class="cifra"><div class="ayuda">Pedidos</div><div class="valor">4</div>
+    <div class="ayuda">Promedio $454.250</div></div>
+  <div class="cifra"><div class="ayuda">Unidades vendidas</div><div class="valor">12</div>
+    <div class="ayuda">Domicilios $8.000</div></div>
+  
+  <div class="cifra"><div class="ayuda">Ganancia</div><div class="valor">$528.000</div>
+    <div class="ayuda">Precio − costo de los productos</div></div>
+  
+</div>
+<p class="mensaje aviso">Por cobrar: $1.817.000 de pedidos confirmados que aún no se entregan.</p>
+
+<div class="tarjeta grafica" style="position:relative">
+  <h2 style="margin-top:0">Cómo va la venta por hora</h2>
+  
+  <div class="lienzo">
+  <svg viewBox="0 0 640 220" role="img" aria-label="Ventas por hora: Hoy, miércoles 4 de noviembre 2026. Los valores exactos están en la tabla de abajo.">
+    
+      <line class="rejilla" x1="46" x2="632" y1="194.0" y2="194.0"/>
+      <text class="eje" x="40" y="194.0" text-anchor="end" dominant-baseline="middle">$0</text>
+    
+      <line class="rejilla" x1="46" x2="632" y1="103.0" y2="103.0"/>
+      <text class="eje" x="40" y="103.0" text-anchor="end" dominant-baseline="middle">$750K</text>
+    
+      <line class="rejilla" x1="46" x2="632" y1="12.0" y2="12.0"/>
+      <text class="eje" x="40" y="12.0" text-anchor="end" dominant-baseline="middle">$1,5M</text>
+    
+    
+      <rect class="zona" x="46.0" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="8:00 a. m.: $409.000" data-x="72.6"><title>8:00 a. m.: $409.000</title></rect>
+      <path class="barra" d="M60.6,194.0 V148.4 Q60.6,144.4 64.6,144.4 H80.6 Q84.6,144.4 84.6,148.4 V194.0 Z"/>
+      <text class="eje" x="72.6" y="212" text-anchor="middle">8a</text>
+    
+      <rect class="zona" x="99.3" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="9:00 a. m.: $1.408.000" data-x="125.9"><title>9:00 a. m.: $1.408.000</title></rect>
+      <path class="barra" d="M113.9,194.0 V27.2 Q113.9,23.2 117.9,23.2 H133.9 Q137.9,23.2 137.9,27.2 V194.0 Z"/>
+      <text class="eje" x="125.9" y="212" text-anchor="middle">9a</text>
+    
+      <rect class="zona" x="152.5" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="10:00 a. m.: $0" data-x="179.2"><title>10:00 a. m.: $0</title></rect>
+      <g></g>
+      <text class="eje" x="179.2" y="212" text-anchor="middle">10a</text>
+    
+      <rect class="zona" x="205.8" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="11:00 a. m.: $0" data-x="232.5"><title>11:00 a. m.: $0</title></rect>
+      <g></g>
+      <text class="eje" x="232.5" y="212" text-anchor="middle">11a</text>
+    
+      <rect class="zona" x="259.1" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="12:00 p. m.: $0" data-x="285.7"><title>12:00 p. m.: $0</title></rect>
+      <g></g>
+      <text class="eje" x="285.7" y="212" text-anchor="middle">12p</text>
+    
+      <rect class="zona" x="312.4" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="1:00 p. m.: $0" data-x="339.0"><title>1:00 p. m.: $0</title></rect>
+      <g></g>
+      <text class="eje" x="339.0" y="212" text-anchor="middle">1p</text>
+    
+      <rect class="zona" x="365.6" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="2:00 p. m.: $0" data-x="392.3"><title>2:00 p. m.: $0</title></rect>
+      <g></g>
+      <text class="eje" x="392.3" y="212" text-anchor="middle">2p</text>
+    
+      <rect class="zona" x="418.9" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="3:00 p. m.: $0" data-x="445.5"><title>3:00 p. m.: $0</title></rect>
+      <g></g>
+      <text class="eje" x="445.5" y="212" text-anchor="middle">3p</text>
+    
+      <rect class="zona" x="472.2" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="4:00 p. m.: $0" data-x="498.8"><title>4:00 p. m.: $0</title></rect>
+      <g></g>
+      <text class="eje" x="498.8" y="212" text-anchor="middle">4p</text>
+    
+      <rect class="zona" x="525.5" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="5:00 p. m.: $0" data-x="552.1"><title>5:00 p. m.: $0</title></rect>
+      <g></g>
+      <text class="eje" x="552.1" y="212" text-anchor="middle">5p</text>
+    
+      <rect class="zona" x="578.7" y="12" width="53.3" height="182"
+            tabindex="0" data-tip="6:00 p. m.: $0" data-x="605.4"><title>6:00 p. m.: $0</title></rect>
+      <g></g>
+      <text class="eje" x="605.4" y="212" text-anchor="middle">6p</text>
+    
+  </svg>
+  </div>
+  <div class="tip" id="tip" hidden></div>
+  <details style="margin-top:.5rem">
+    <summary class="ayuda">Ver como tabla</summary>
+    <table>
+      <thead><tr><th>Hora</th><th class="num">Ventas</th></tr></thead>
+      <tbody><tr><td>8:00 a. m.</td><td class="num">$409.000</td></tr><tr><td>9:00 a. m.</td><td class="num">$1.408.000</td></tr></tbody>
+    </table>
+  </details>
+  
+</div>
+
+<div class="tarjeta">
+  <div class="acciones" style="justify-content:space-between">
+    <h2 style="margin:0">Qué se vendió</h2>
+    <form method="get" class="acciones">
+      <input type="hidden" name="ver" value="dia"><input type="hidden" name="fecha" value="2026-11-04">
+      <label for="orden" class="ayuda" style="margin:0">Ordenar por</label>
+      <select id="orden" name="orden" style="width:auto" onchange="this.form.requestSubmit()">
+        <option value="precio" selected>Precio (mayor a menor)</option><option value="unidades" >Más vendidos</option><option value="ingreso" >Mayor ingreso</option>
+      </select>
+      <noscript><button type="submit">Ordenar</button></noscript>
+    </form>
+  </div>
+  <div class="tabla"><table>
+    <thead><tr><th>Producto</th><th class="num">Precio</th><th class="num">Unidades</th><th class="num">Ingreso</th><th class="num">Ganancia</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>Batería 12V 45Ah<br><span class="ayuda">ELE-BAT-001</span></td>
+        <td class="num">$345.000</td>
+        <td class="num">2</td>
+        <td class="num">$690.000</td>
+        <td class="num">$170.000</td>
+      </tr>
+    
+      <tr>
+        <td>Amortiguador delantero<br><span class="ayuda">SUS-AMOR-001</span></td>
+        <td class="num">$210.000</td>
+        <td class="num">3</td>
+        <td class="num">$630.000</td>
+        <td class="num">$180.000</td>
+      </tr>
+    
+      <tr>
+        <td>Disco de freno ventilado<br><span class="ayuda">FRE-DISC-002</span></td>
+        <td class="num">$160.000</td>
+        <td class="num">1</td>
+        <td class="num">$160.000</td>
+        <td class="num">$50.000</td>
+      </tr>
+    
+      <tr>
+        <td>Juego de bujías x4<br><span class="ayuda">ELE-BUJ-004</span></td>
+        <td class="num">$68.000</td>
+        <td class="num">4</td>
+        <td class="num">$272.000</td>
+        <td class="num">$104.000</td>
+      </tr>
+    
+      <tr>
+        <td>Filtro de aire<br><span class="ayuda">FIL-AIRE-01</span></td>
+        <td class="num">$35.000</td>
+        <td class="num">1</td>
+        <td class="num">$35.000</td>
+        <td class="num">$14.000</td>
+      </tr>
+    
+      <tr>
+        <td>Filtro de aceite<br><span class="ayuda">FIL-ACE-02</span></td>
+        <td class="num">$22.000</td>
+        <td class="num">1</td>
+        <td class="num">$22.000</td>
+        <td class="num">$10.000</td>
+      </tr>
+    
+    </tbody>
+  </table></div>
+</div>
+
+
+<div class="tarjeta">
+  <h2 style="margin-top:0">Pedidos del periodo</h2>
+  <div class="tabla"><table>
+    <thead><tr><th>#</th><th>Hora</th><th>Cliente</th><th>Estado</th><th class="num">Total</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/78/index.html">#78</a></td>
+        <td>8:05 a. m.</td>
+        <td>Marta Gómez</td>
+        <td>Confirmado</td>
+        <td class="num">$162.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/80/index.html">#80</a></td>
+        <td>8:20 a. m.</td>
+        <td>Marta Gómez</td>
+        <td>Confirmado</td>
+        <td class="num">$247.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/81/index.html">#81</a></td>
+        <td>9:05 a. m.</td>
+        <td>Ana Rojas</td>
+        <td>Confirmado</td>
+        <td class="num">$580.000</td>
+      </tr>
+    
+      <tr>
+        <td><a href="../../../../jefe/panel/pedidos/79/index.html">#79</a></td>
+        <td>9:50 a. m.</td>
+        <td>Marta Gómez</td>
+        <td>Confirmado</td>
+        <td class="num">$828.000</td>
+      </tr>
+    
+    </tbody>
+  </table></div>
+</div>
+
+
+<script>
+  // Tooltip al pasar el mouse o al moverse con el teclado por las barras.
+  (function () {
+    var tip = document.getElementById("tip"), svg = document.querySelector(".grafica svg");
+    if (!tip || !svg) return;
+    function mostrar(e) {
+      var z = e.target, caja = svg.getBoundingClientRect(), escala = caja.width / svg.viewBox.baseVal.width;
+      tip.textContent = z.dataset.tip;
+      var lienzo = svg.parentElement;
+      tip.style.left = (lienzo.offsetLeft - lienzo.scrollLeft + parseFloat(z.dataset.x) * escala) + "px";
+      tip.style.top = (lienzo.offsetTop + 12 * escala) + "px";
+      tip.hidden = false;
+    }
+    svg.querySelectorAll(".zona").forEach(function (z) {
+      z.addEventListener("mouseenter", mostrar); z.addEventListener("focus", mostrar);
+      z.addEventListener("mouseleave", function () { tip.hidden = true; });
+      z.addEventListener("blur", function () { tip.hidden = true; });
+    });
+  })();
+</script>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../../jefe/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Jefe</strong></span><a href="../../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

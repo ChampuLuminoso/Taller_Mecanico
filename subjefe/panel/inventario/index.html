@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Inventario · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../static/demo/demo.css">
+  <script src="../../../static/demo/demo.js" defer></script>
+</head>
+<body class="panel-interno">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../subjefe/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../subjefe/cuenta/panel/index.html" data-orden="0" >Panel</a>
+        
+          <a href="../../../subjefe/panel/inventario/index.html" data-orden="1" aria-current="page">Inventario</a>
+        
+          <a href="../../../subjefe/panel/pedidos/index.html" data-orden="2" >Pedidos</a>
+        
+          <a href="../../../subjefe/panel/agenda/index.html" data-orden="3" >Agenda</a>
+        
+          <a href="../../../subjefe/panel/apartados/solicitudes/index.html" data-orden="4" >Apartados</a>
+        
+          <a href="../../../subjefe/cuenta/personal/index.html" data-orden="5" >Personal</a>
+        
+          <a href="../../../subjefe/index.html" data-orden="6" >Tienda</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="ancho">
+    
+    
+<div class="acciones" style="justify-content:space-between; margin-bottom:1rem">
+  <h1 style="margin:0">Inventario</h1>
+  <div class="acciones">
+    <a class="boton secundario" href="../../../subjefe/panel/inventario/fotos/index.html">Subir fotos</a>
+    
+    <a class="boton" href="../../../subjefe/panel/inventario/nuevo/index.html">+ Nuevo producto</a>
+  </div>
+</div>
+
+
+<form class="filtros" method="get" action="/panel/inventario/"
+      data-demo-ir="../../../subjefe/panel/inventario/index.html"
+     >
+  <div>
+    <label for="q" class="ayuda" style="margin:0">Buscar</label>
+    <input id="q" type="search" name="q" value="" placeholder="Nombre, ProductoID, marca o vehículo (ej. Spark)">
+  </div>
+  <div>
+    <label for="categoria" class="ayuda" style="margin:0">Categoría</label>
+    <select id="categoria" name="categoria">
+      <option value="">Todas</option>
+      <option value="1" >Frenos</option><option value="2" >Suspensión</option><option value="3" >Motor</option><option value="4" >Eléctricos</option><option value="5" >Filtros</option><option value="6" >Aceites</option>
+    </select>
+  </div>
+  <div>
+    <label for="estado" class="ayuda" style="margin:0">Estado</label>
+    <select id="estado" name="estado">
+      <option value="">Activos</option>
+      <option value="disponibles" >Disponibles</option>
+      <option value="agotados" >Agotados</option>
+      <option value="bajo" >Stock bajo</option>
+      <option value="inactivos" >Desactivados</option>
+      <option value="todos" >Todos</option>
+    </select>
+  </div>
+  <noscript><button type="submit">Filtrar</button></noscript>
+</form>
+
+<div id="tabla-productos" class="tarjeta" aria-live="polite">
+  <div class="tabla">
+<table>
+  <thead>
+    <tr>
+      <th>Producto</th><th>Categoría</th><th class="num">Precio</th>
+      <th class="num">Físico</th><th class="num">Apartado</th><th class="num">Disponible</th><th>Estado</th>
+      <th><span class="ayuda" style="text-transform:none">Edición rápida</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+<tr id="producto-12">
+  <td><a href="../../../subjefe/panel/inventario/12/index.html">Aceite 20W50 galón</a><br><span class="ayuda">ACE-20W50 · Mobil</span></td>
+  <td>Aceites</td>
+  <td class="num">$48.000</td>
+  <td class="num">54</td>
+  <td class="num">0</td>
+  <td class="num">54</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Aceite 20W50 galón">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-13">
+  <td><a href="../../../subjefe/panel/inventario/13/index.html">Aceite sintético 5W30 cuarto</a><br><span class="ayuda">ACE-5W30 · Castrol</span></td>
+  <td>Aceites</td>
+  <td class="num">$39.000</td>
+  <td class="num">44</td>
+  <td class="num">0</td>
+  <td class="num">44</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Aceite sintético 5W30 cuarto">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-4">
+  <td><a href="../../../subjefe/panel/inventario/4/index.html">Amortiguador delantero</a><br><span class="ayuda">SUS-AMOR-001 · Monroe</span></td>
+  <td>Suspensión</td>
+  <td class="num">$210.000</td>
+  <td class="num">18</td>
+  <td class="num">1</td>
+  <td class="num">17</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Amortiguador delantero">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-9">
+  <td><a href="#demo-no-disponible">Batería 12V 45Ah</a><br><span class="ayuda">ELE-BAT-001 · MAC</span></td>
+  <td>Eléctricos</td>
+  <td class="num">$345.000</td>
+  <td class="num">17</td>
+  <td class="num">0</td>
+  <td class="num">17</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Batería 12V 45Ah">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-7">
+  <td><a href="#demo-no-disponible">Bomba de agua</a><br><span class="ayuda">MOT-BOMB-002 · Gates</span></td>
+  <td>Motor</td>
+  <td class="num">$175.000</td>
+  <td class="num">29</td>
+  <td class="num">0</td>
+  <td class="num">29</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Bomba de agua">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-6">
+  <td><a href="../../../subjefe/panel/inventario/6/index.html">Correa de distribución</a><br><span class="ayuda">MOT-CORR-001 · Gates</span></td>
+  <td>Motor</td>
+  <td class="num">$120.000</td>
+  <td class="num">0</td>
+  <td class="num">0</td>
+  <td class="num">0</td>
+  <td>
+    <span class="etiqueta error">No disponible</span>
+    
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Correa de distribución">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-2">
+  <td><a href="../../../subjefe/panel/inventario/2/index.html">Disco de freno ventilado</a><br><span class="ayuda">FRE-DISC-002 · Brembo</span></td>
+  <td>Frenos</td>
+  <td class="num">$160.000</td>
+  <td class="num">31</td>
+  <td class="num">0</td>
+  <td class="num">31</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Disco de freno ventilado">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-11">
+  <td><a href="#demo-no-disponible">Filtro de aceite</a><br><span class="ayuda">FIL-ACE-02 · Mann</span></td>
+  <td>Filtros</td>
+  <td class="num">$22.000</td>
+  <td class="num">37</td>
+  <td class="num">0</td>
+  <td class="num">37</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Filtro de aceite">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-10">
+  <td><a href="#demo-no-disponible">Filtro de aire</a><br><span class="ayuda">FIL-AIRE-01 · Mann</span></td>
+  <td>Filtros</td>
+  <td class="num">$35.000</td>
+  <td class="num">35</td>
+  <td class="num">0</td>
+  <td class="num">35</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Filtro de aire">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-8">
+  <td><a href="#demo-no-disponible">Juego de bujías x4</a><br><span class="ayuda">ELE-BUJ-004 · NGK</span></td>
+  <td>Eléctricos</td>
+  <td class="num">$68.000</td>
+  <td class="num">36</td>
+  <td class="num">0</td>
+  <td class="num">36</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Juego de bujías x4">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-3">
+  <td><a href="#demo-no-disponible">Líquido de frenos DOT 4 (500 ml)</a><br><span class="ayuda">FRE-LIQ-003 · Bosch</span></td>
+  <td>Frenos</td>
+  <td class="num">$28.000</td>
+  <td class="num">45</td>
+  <td class="num">0</td>
+  <td class="num">45</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Líquido de frenos DOT 4 (500 ml)">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-1">
+  <td><a href="#demo-no-disponible">Pastillas de freno delanteras</a><br><span class="ayuda">FRE-PAST-001 · Bosch</span></td>
+  <td>Frenos</td>
+  <td class="num">$85.000</td>
+  <td class="num">30</td>
+  <td class="num">0</td>
+  <td class="num">30</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Pastillas de freno delanteras">Editar</button></td>
+  
+</tr>
+
+    
+      
+<tr id="producto-5">
+  <td><a href="#demo-no-disponible">Terminal de dirección</a><br><span class="ayuda">SUS-TERM-002 · TRW</span></td>
+  <td>Suspensión</td>
+  <td class="num">$64.000</td>
+  <td class="num">25</td>
+  <td class="num">0</td>
+  <td class="num">25</td>
+  <td>
+    <span class="etiqueta ok">Disponible</span>
+  </td>
+  
+  <td><button class="boton-link" data-demo-ir="#demo-no-disponible"
+              aria-label="Editar precio y stock mínimo de Terminal de dirección">Editar</button></td>
+  
+</tr>
+
+    
+  </tbody>
+</table>
+</div>
+
+
+</div>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../subjefe/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Subjefe</strong></span><a href="../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

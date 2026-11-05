@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="6">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Ana Rojas · Historial · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../../static/demo/demo.css">
+  <script src="../../../../static/demo/demo.js" defer></script>
+</head>
+<body class="panel-interno">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../../jefe/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../../jefe/cuenta/panel/index.html" data-orden="0" >Panel</a>
+        
+          <a href="../../../../jefe/panel/inventario/index.html" data-orden="1" >Inventario</a>
+        
+          <a href="../../../../jefe/panel/pedidos/index.html" data-orden="2" >Pedidos</a>
+        
+          <a href="../../../../jefe/panel/agenda/index.html" data-orden="3" >Agenda</a>
+        
+          <a href="../../../../jefe/panel/apartados/solicitudes/index.html" data-orden="4" >Apartados</a>
+        
+          <a href="../../../../jefe/panel/ventas/index.html" data-orden="5" >Ventas</a>
+        
+          <a href="../../../../jefe/panel/clientes/index.html" data-orden="6" aria-current="page">Clientes</a>
+        
+          <a href="../../../../jefe/cuenta/personal/index.html" data-orden="7" >Personal</a>
+        
+          <a href="../../../../jefe/index.html" data-orden="8" >Tienda</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="ancho">
+    
+    
+<p><a href="../../../../jefe/panel/clientes/index.html">← Buscar otro cliente</a></p>
+<div class="tarjeta">
+  <h1 style="margin-bottom:.25rem">Ana Rojas</h1>
+  <p class="ayuda" style="margin:0">Cliente desde 4 de noviembre 2026 · Cédula de ciudadanía 1000000005</p>
+  <p style="margin:.4rem 0"><a href="tel:+573001234567">3001234567</a> ·
+    <a href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:ana@demo.co">ana@demo.co</a></p>
+  <p style="margin:.2rem 0">🚗 ABC123 · Chevrolet Spark 2015</p>
+</div>
+
+<form method="get" class="tarjeta acciones" style="align-items:flex-end">
+  <div><label for="desde" style="margin:0" class="ayuda">Desde</label><input id="desde" type="date" name="desde" value=""></div>
+  <div><label for="hasta" style="margin:0" class="ayuda">Hasta</label><input id="hasta" type="date" name="hasta" value=""></div>
+  <button type="submit" class="secundario">Filtrar</button>
+  
+</form>
+
+<div class="cifras">
+  <div class="cifra principal"><div class="ayuda">Total comprado</div><div class="valor">$7.257.000</div></div>
+  <div class="cifra"><div class="ayuda">Compras</div><div class="valor">22</div></div>
+  <div class="cifra"><div class="ayuda">Citas</div><div class="valor">8</div></div>
+  <div class="cifra"><div class="ayuda">Apartados</div><div class="valor">1</div></div>
+</div>
+
+<div class="tarjeta">
+  <h2 style="margin-top:0">Pedidos</h2>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#82</strong></a> · 04/11/2026 ·
+      <strong>$165.000</strong> · <span class="etiqueta ">Recibido</span>
+      <div class="ayuda">1 × Pastillas de freno delanteras, 2 × Aceite sintético 5W30 cuarto</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="../../../../jefe/panel/pedidos/81/index.html"><strong>#81</strong></a> · 04/11/2026 ·
+      <strong>$580.000</strong> · <span class="etiqueta ">Confirmado</span>
+      <div class="ayuda">2 × Amortiguador delantero, 2 × Juego de bujías x4, 1 × Filtro de aceite</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="../../../../jefe/panel/pedidos/77/index.html"><strong>#77</strong></a> · 03/11/2026 ·
+      <strong>$230.000</strong> · <span class="etiqueta ">Confirmado</span>
+      <div class="ayuda">1 × Terminal de dirección, 1 × Líquido de frenos DOT 4 (500 ml), 2 × Juego de bujías x4</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#61</strong></a> · 29/10/2026 ·
+      <strong>$120.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">1 × Filtro de aceite, 2 × Aceite 20W50 galón</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#58</strong></a> · 28/10/2026 ·
+      <strong>$114.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">2 × Filtro de aceite, 1 × Juego de bujías x4</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#55</strong></a> · 27/10/2026 ·
+      <strong>$35.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">1 × Filtro de aire</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#53</strong></a> · 26/10/2026 ·
+      <strong>$667.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">1 × Batería 12V 45Ah, 2 × Disco de freno ventilado</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#46</strong></a> · 23/10/2026 ·
+      <strong>$746.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">2 × Batería 12V 45Ah, 2 × Líquido de frenos DOT 4 (500 ml)</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#45</strong></a> · 23/10/2026 ·
+      <strong>$140.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">2 × Aceite 20W50 galón, 2 × Filtro de aceite</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#47</strong></a> · 23/10/2026 ·
+      <strong>$245.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">1 × Pastillas de freno delanteras, 1 × Disco de freno ventilado</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#42</strong></a> · 21/10/2026 ·
+      <strong>$820.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">2 × Batería 12V 45Ah, 2 × Terminal de dirección</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#38</strong></a> · 20/10/2026 ·
+      <strong>$311.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">1 × Terminal de dirección, 1 × Bomba de agua, 2 × Filtro de aire</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#31</strong></a> · 17/10/2026 ·
+      <strong>$571.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">2 × Aceite 20W50 galón, 2 × Terminal de dirección, 1 × Batería 12V 45Ah</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#29</strong></a> · 16/10/2026 ·
+      <strong>$636.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">2 × Amortiguador delantero, 2 × Juego de bujías x4, 2 × Aceite sintético 5W30 cuarto</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#28</strong></a> · 16/10/2026 ·
+      <strong>$422.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">2 × Amortiguador delantero</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#24</strong></a> · 15/10/2026 ·
+      <strong>$463.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">1 × Disco de freno ventilado, 1 × Bomba de agua, 2 × Terminal de dirección</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#23</strong></a> · 15/10/2026 ·
+      <strong>$320.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">2 × Disco de freno ventilado</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#21</strong></a> · 15/10/2026 ·
+      <strong>$208.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">2 × Aceite sintético 5W30 cuarto, 2 × Terminal de dirección</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#20</strong></a> · 14/10/2026 ·
+      <strong>$24.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">1 × Filtro de aceite</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#17</strong></a> · 13/10/2026 ·
+      <strong>$106.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">2 × Líquido de frenos DOT 4 (500 ml), 1 × Aceite 20W50 galón</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#12</strong></a> · 12/10/2026 ·
+      <strong>$370.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">1 × Aceite 20W50 galón, 2 × Disco de freno ventilado</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#8</strong></a> · 10/10/2026 ·
+      <strong>$24.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">1 × Filtro de aceite</div>
+    </div>
+  
+    <div style="border-bottom:1px solid var(--borde); padding:.5rem 0">
+      <a href="#demo-no-disponible"><strong>#6</strong></a> · 09/10/2026 ·
+      <strong>$105.000</strong> · <span class="etiqueta ok">Entregado</span>
+      <div class="ayuda">1 × Aceite sintético 5W30 cuarto, 1 × Terminal de dirección</div>
+    </div>
+  
+</div>
+
+<div class="tarjeta">
+  <h2 style="margin-top:0">Citas</h2>
+  
+    <p style="margin:.3rem 0">09/11/2026 · Cambio de aceite · ABC123 <span class="etiqueta">Confirmada</span></p>
+  
+    <p style="margin:.3rem 0">09/11/2026 · Frenos · ABC123 <span class="etiqueta">Confirmada</span></p>
+  
+    <p style="margin:.3rem 0">07/11/2026 · Cambio de aceite · ABC123 <span class="etiqueta">Confirmada</span></p>
+  
+    <p style="margin:.3rem 0">07/11/2026 · Frenos · ABC123 <span class="etiqueta">Confirmada</span></p>
+  
+    <p style="margin:.3rem 0">06/11/2026 · Cambio de aceite · ABC123 <span class="etiqueta">Confirmada</span></p>
+  
+    <p style="margin:.3rem 0">06/11/2026 · Frenos · ABC123 <span class="etiqueta">Confirmada</span></p>
+  
+    <p style="margin:.3rem 0">05/11/2026 · Cambio de aceite · ABC123 <span class="etiqueta">Confirmada</span></p>
+  
+    <p style="margin:.3rem 0">05/11/2026 · Frenos · ABC123 <span class="etiqueta">Confirmada</span></p>
+  
+</div>
+
+<div class="tarjeta">
+  <h2 style="margin-top:0">Apartados y solicitudes</h2>
+  
+    <p style="margin:.3rem 0">04/11/2026 · 1 × Amortiguador delantero · abono $50.000 <span class="etiqueta">Activo</span></p>
+  
+  
+  
+</div>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../../jefe/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Jefe</strong></span><a href="../../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

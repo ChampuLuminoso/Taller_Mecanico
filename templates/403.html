@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block titulo %}Sin permiso · {{ marca.NOMBRE }}{% endblock %}
-{% block contenido %}
-<div class="tarjeta">
-  <h1>No tienes permiso para ver esta página</h1>
-  <p>Si crees que deberías poder entrar, pídele acceso al jefe del taller.</p>
-  <a class="boton" href="{% url 'cuentas:panel' %}">Volver a mi panel</a>
-</div>
-{% endblock %}

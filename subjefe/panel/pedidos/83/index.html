@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="2">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Pedido #83 · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../../static/demo/demo.css">
+  <script src="../../../../static/demo/demo.js" defer></script>
+</head>
+<body class="panel-interno">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../../subjefe/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../../subjefe/cuenta/panel/index.html" data-orden="0" >Panel</a>
+        
+          <a href="../../../../subjefe/panel/inventario/index.html" data-orden="1" >Inventario</a>
+        
+          <a href="../../../../subjefe/panel/pedidos/index.html" data-orden="2" aria-current="page">Pedidos</a>
+        
+          <a href="../../../../subjefe/panel/agenda/index.html" data-orden="3" >Agenda</a>
+        
+          <a href="../../../../subjefe/panel/apartados/solicitudes/index.html" data-orden="4" >Apartados</a>
+        
+          <a href="../../../../subjefe/cuenta/personal/index.html" data-orden="5" >Personal</a>
+        
+          <a href="../../../../subjefe/index.html" data-orden="6" >Tienda</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="">
+    
+    
+<p><a href="../../../../subjefe/panel/pedidos/index.html">← Pedidos</a></p>
+<div class="tarjeta">
+  <div class="acciones" style="justify-content:space-between">
+    <h1 style="margin:0">Pedido #83</h1>
+    <span class="etiqueta aviso">
+      Por confirmar</span>
+  </div>
+  <p class="ayuda">Hecho el 04/11/2026 10:04 PM</p>
+
+  <h2>Cliente</h2>
+  <p style="margin:.2rem 0"><strong>Luis Pérez</strong> ·
+    <a href="tel:+573119876543">3119876543</a> ·
+    <a href="https://wa.me/573119876543" target="_blank" rel="noopener">WhatsApp</a></p>
+  <p style="margin:.2rem 0">Envío a domicilio (Bogotá) · Contra entrega</p>
+  <p style="margin:.2rem 0">📍 Cra 78 # 8-15, Castilla, Kennedy, Bogotá D.C.</p>
+  <p style="margin:.2rem 0">Nota: “Llamar antes de llegar”</p>
+
+  <h2>Productos</h2>
+  <div class="tabla"><table>
+    <thead><tr><th>Producto</th><th class="num">Cant.</th><th class="num">Precio</th><th class="num">Subtotal</th><th class="num">Disponible hoy</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>Aceite sintético 5W30 cuarto<br><span class="ayuda">ACE-5W30</span></td>
+        <td class="num">2</td>
+        <td class="num">$39.000</td>
+        <td class="num">$78.000</td>
+        <td class="num"><span class="etiqueta ok">44</span></td>
+      </tr>
+    
+      <tr>
+        <td>Pastillas de freno delanteras<br><span class="ayuda">FRE-PAST-001</span></td>
+        <td class="num">1</td>
+        <td class="num">$85.000</td>
+        <td class="num">$85.000</td>
+        <td class="num"><span class="etiqueta ok">30</span></td>
+      </tr>
+    
+    </tbody>
+  </table></div>
+  <p style="text-align:right; margin:.4rem 0">Subtotal $163.000 · Domicilio $2.000</p>
+  <p style="text-align:right; font-size:1.2rem; margin:.2rem 0"><strong>Total a cobrar $165.000</strong></p>
+  
+</div>
+
+
+
+
+<div class="tarjeta">
+  <div class="acciones">
+    
+      <form method="post" action="/panel/pedidos/83/accion/">
+        <input type="hidden" name="accion" value="confirmar">
+        <button type="submit" class="">Confirmar y descontar inventario</button>
+      </form>
+    
+  </div>
+  
+    <form method="post" action="/panel/pedidos/83/accion/" style="margin-top:1rem">
+      <input type="hidden" name="accion" value="cancelar">
+      <label for="motivo">Cancelar pedido (se le avisa al cliente por correo)</label>
+      <div class="acciones">
+        <input id="motivo" type="text" name="motivo" maxlength="200" required placeholder="Motivo" style="flex:1">
+        <button type="submit" class="secundario">Cancelar</button>
+      </div>
+    </form>
+  
+</div>
+
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../../subjefe/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Subjefe</strong></span><a href="../../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es-CO" data-seccion="1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Nuevo producto · AutoPartes M&amp;F</title>
+  <meta name="description" content="Repuestos para tu vehículo y taller mecánico en Bogotá desde 2012. Agenda tu cita en línea.">
+  <link rel="icon" href="../../../../static/marca/favicon.png">
+  <link rel="preload" href="../../../../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../../static/fuentes/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../static/css/marca.css">
+  <script>
+    /* Dirección de la animación entre páginas. Corre en la página NUEVA, antes de pintarse:
+       si la sección queda más a la derecha en el menú, el contenido entra desde la derecha. */
+    (function () {
+      var actual = Number(document.documentElement.dataset.seccion);
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition) return;
+        var previa = -1;
+        try { previa = Number(sessionStorage.getItem("seccion") || -1); } catch (err) {}
+        if (previa >= 0 && actual >= 0 && previa !== actual) {
+          document.documentElement.dataset.dir = actual > previa ? "adelante" : "atras";
+          e.viewTransition.finished.finally(function () { delete document.documentElement.dataset.dir; });
+        }
+      });
+      function guardar() { try { sessionStorage.setItem("seccion", String(actual)); } catch (err) {} }
+      addEventListener("pageswap", guardar);
+      addEventListener("pagehide", guardar);
+    })();
+  </script>
+  
+  <script src="../../../../static/js/deslizar.js" defer></script>
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../../../../static/demo/demo.css">
+  <script src="../../../../static/demo/demo.js" defer></script>
+</head>
+<body class="panel-interno">
+  <div class="fondo-marca" aria-hidden="true"></div>
+  <header class="encabezado">
+    <div class="fila">
+      <a class="marca" href="../../../../subjefe/index.html" aria-label="AutoPartes M&amp;F, ir a la tienda">
+        <img src="../../../../static/marca/logo_96.webp" alt="" width="46" height="46">
+        <span><strong>AutoPartes M&amp;F</strong><small>Taller Mecánico Francois</small></span>
+      </a>
+      <nav class="secciones" aria-label="Secciones">
+        
+          <a href="../../../../subjefe/cuenta/panel/index.html" data-orden="0" >Panel</a>
+        
+          <a href="../../../../subjefe/panel/inventario/index.html" data-orden="1" aria-current="page">Inventario</a>
+        
+          <a href="../../../../subjefe/panel/pedidos/index.html" data-orden="2" >Pedidos</a>
+        
+          <a href="../../../../subjefe/panel/agenda/index.html" data-orden="3" >Agenda</a>
+        
+          <a href="../../../../subjefe/panel/apartados/solicitudes/index.html" data-orden="4" >Apartados</a>
+        
+          <a href="../../../../subjefe/cuenta/personal/index.html" data-orden="5" >Personal</a>
+        
+          <a href="../../../../subjefe/index.html" data-orden="6" >Tienda</a>
+        
+      </nav>
+      
+        <form class="salir" method="post" action="/cuenta/salir/"><button type="submit">Salir</button></form>
+      
+    </div>
+  </header>
+  <main class="">
+    
+    
+<form method="post" enctype="multipart/form-data" novalidate>
+  
+  <div class="tarjeta">
+    <h1>Nuevo producto</h1>
+    <p class="ayuda">La cantidad no se escribe aquí: después de guardar, el Jefe registra la entrada de mercancía. Así todo queda en el historial.</p>
+    
+    
+      <div class="">
+        
+          <label for="id_sku">ProductoID:</label> <input type="text" name="sku" maxlength="30" required aria-describedby="id_sku_helptext" id="id_sku">
+        
+        <div class="ayuda">Código único. Solo mayúsculas, números y guiones (ej. FRE-PAST-001).</div>
+        
+      </div>
+      
+    
+      <div class="">
+        
+          <label for="id_nombre">Nombre:</label> <input type="text" name="nombre" maxlength="150" required id="id_nombre">
+        
+        
+        
+      </div>
+      
+    
+      <div class="">
+        
+          <label for="id_categoria">Categoria:</label> <select name="categoria" id="id_categoria">
+  <option value="" selected>---------</option>
+
+  <option value="1">Frenos</option>
+
+  <option value="2">Suspensión</option>
+
+  <option value="3">Motor</option>
+
+  <option value="4">Eléctricos</option>
+
+  <option value="5">Filtros</option>
+
+  <option value="6">Aceites</option>
+
+</select>
+        
+        
+        
+      </div>
+      
+    
+      <div class="">
+        
+          <label for="id_marca">Marca del repuesto:</label> <select name="marca" id="id_marca">
+  <option value="" selected>---------</option>
+
+  <option value="1">Bosch</option>
+
+  <option value="2">Brembo</option>
+
+  <option value="3">Monroe</option>
+
+  <option value="4">TRW</option>
+
+  <option value="5">Gates</option>
+
+  <option value="6">NGK</option>
+
+  <option value="7">MAC</option>
+
+  <option value="8">Mann</option>
+
+  <option value="9">Mobil</option>
+
+  <option value="10">Castrol</option>
+
+</select>
+        
+        
+        
+      </div>
+      
+    
+      <div class="">
+        
+          <label for="id_proveedor">Proveedor:</label> <select name="proveedor" id="id_proveedor">
+  <option value="" selected>---------</option>
+
+</select>
+        
+        
+        
+      </div>
+      
+    
+      <div class="">
+        
+          <label for="id_precio_venta">Precio de venta:</label> <input type="number" name="precio_venta" step="0.01" required id="id_precio_venta">
+        
+        
+        
+      </div>
+      
+    
+      <div class="">
+        
+          <label for="id_costo">Costo:</label> <input type="number" name="costo" step="0.01" aria-describedby="id_costo_helptext" id="id_costo">
+        
+        <div class="ayuda">Lo que le cuesta al taller. Solo lo ven Subjefe y Jefe.</div>
+        
+      </div>
+      
+    
+      <div class="">
+        
+          <label for="id_stock_minimo">Stock mínimo:</label> <input type="number" name="stock_minimo" value="0" min="0" required aria-describedby="id_stock_minimo_helptext" id="id_stock_minimo">
+        
+        <div class="ayuda">Cuando lo disponible llegue a este número, se avisa en el panel y por correo.</div>
+        
+      </div>
+      
+    
+      <div class="">
+        
+          <label for="id_descripcion">Descripción:</label> <textarea name="descripcion" cols="40" rows="3" id="id_descripcion">
+</textarea>
+        
+        
+        
+      </div>
+      
+    
+      <div class="">
+        
+          <label for="id_imagen">Imagen:</label> <input type="file" name="imagen" accept="image/*" id="id_imagen">
+        
+        
+        
+      </div>
+      
+    
+      <div class="check">
+        
+          <label><input type="checkbox" name="activo" id="id_activo" checked> Activo</label>
+        
+        
+        
+      </div>
+      
+    
+  </div>
+
+  <div class="tarjeta">
+    <h2 style="margin-top:0">¿Para qué vehículos sirve?</h2>
+    <p class="ayuda">Deja el modelo vacío si sirve para todos los de esa marca. Los clientes podrán buscar por su carro.</p>
+    <input type="hidden" name="compat-TOTAL_FORMS" value="1" id="id_compat-TOTAL_FORMS"><input type="hidden" name="compat-INITIAL_FORMS" value="0" id="id_compat-INITIAL_FORMS"><input type="hidden" name="compat-MIN_NUM_FORMS" value="0" id="id_compat-MIN_NUM_FORMS"><input type="hidden" name="compat-MAX_NUM_FORMS" value="1000" id="id_compat-MAX_NUM_FORMS">
+    
+    <div class="tabla"><table>
+      <thead><tr><th>Marca</th><th>Modelo</th><th>Año desde</th><th>Año hasta</th><th>Quitar</th></tr></thead>
+      <tbody>
+      
+        <tr>
+          <input type="hidden" name="compat-0-id" id="id_compat-0-id"><input type="hidden" name="compat-0-producto" id="id_compat-0-producto">
+          <td><input type="text" name="compat-0-marca_vehiculo" maxlength="40" id="id_compat-0-marca_vehiculo"></td>
+          <td><input type="text" name="compat-0-modelo" maxlength="60" id="id_compat-0-modelo"></td>
+          <td><input type="number" name="compat-0-anio_desde" min="0" id="id_compat-0-anio_desde"></td>
+          <td><input type="number" name="compat-0-anio_hasta" min="0" id="id_compat-0-anio_hasta"></td>
+          <td></td>
+        </tr>
+      
+      </tbody>
+    </table></div>
+    <p class="ayuda">¿Necesitas más filas? Guarda y vuelve a editar: siempre aparece una fila nueva vacía.</p>
+  </div>
+
+  <div class="acciones">
+    <button type="submit">Guardar producto</button>
+    <a href="../../../../subjefe/panel/inventario/index.html">Cancelar</a>
+  </div>
+</form>
+
+  </main>
+  <footer class="pie-sitio">
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <a href="../../../../subjefe/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
+  </footer>
+<div class="demo-barra" role="note"><span><strong>Demostración</strong> · datos de ejemplo · viendo como <strong>Subjefe</strong></span><a href="../../../../index.html">Cambiar de rol</a></div>
+</body>
+</html>
