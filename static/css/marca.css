@@ -248,6 +248,79 @@ dialog::backdrop { background: rgb(40 48 56 / .55); backdrop-filter: blur(2px); 
   color: var(--gris); font-size: .85rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between;
   border-top: 1px solid var(--borde); }
 
+/* ── Página de inicio (Fase 9) ── */
+.heroe { position: relative; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 2rem; align-items: center;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 4vw, 3rem); margin-bottom: 1rem; background: var(--blanco);
+  border: 1px solid var(--borde); border-radius: calc(var(--radio) * 1.5); box-shadow: var(--sombra); overflow: hidden; }
+.heroe::before { /* franja naranja en diagonal, inclinada a la derecha como la marca de agua */
+  content: ""; position: absolute; right: -12%; top: -30%; width: 46%; height: 160%; background: var(--naranja-suave);
+  transform: rotate(14deg); border-left: 6px solid var(--naranja); }
+.heroe > * { position: relative; }
+.heroe .antetitulo { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--naranja-texto); }
+.heroe h1 { font-size: clamp(2.1rem, 5.4vw, 3.5rem); margin: .4rem 0 .7rem; max-width: 18ch; }
+.heroe-bajada { font-size: 1.12rem; color: var(--gris); margin: 0; max-width: 46ch; }
+.heroe-botones { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+.heroe-botones .boton { margin-top: 0; }
+.boton.grande { padding: .85rem 1.5rem; font-size: 1.08rem; }
+.heroe-marca { display: flex; justify-content: center; }
+.heroe-marca img { width: min(100%, 22rem); height: auto; filter: drop-shadow(0 12px 22px rgb(40 48 56 / .14)); }
+.estado-taller { display: flex; align-items: center; gap: .5rem; margin: 1.1rem 0 0; font-weight: 600; font-size: .95rem; }
+.estado-taller .punto { width: .65rem; height: .65rem; border-radius: 50%; background: var(--gris); flex: none; }
+.estado-taller.abierto { color: var(--ok); }
+.estado-taller.abierto .punto { background: #2f9e4f; box-shadow: 0 0 0 4px var(--ok-suave); }
+.estado-taller.cerrado { color: var(--gris); }
+
+.bloque { margin-top: clamp(2rem, 5vw, 3.25rem); }
+.bloque > h2, .bloque-cabeza h2 { margin-top: 0; font-size: clamp(1.5rem, 3.2vw, 1.9rem); }
+.bloque-cabeza { margin-bottom: 1rem; }
+.bloque-cabeza p { margin: 0; }
+.fila-cabeza { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: .5rem 1rem; }
+.ver-todo { font-weight: 600; }
+
+.servicios { list-style: none; padding: 0; margin: 0; display: grid; gap: .9rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); }
+.servicios li { display: flex; flex-direction: column; gap: .35rem; background: var(--blanco); border: 1px solid var(--borde);
+  border-radius: var(--radio); padding: 1.1rem 1.15rem 1rem; box-shadow: var(--sombra); transition: border-color .15s, transform .15s; }
+.servicios li:hover { border-color: var(--naranja); transform: translateY(-2px); }
+.servicios .icono { width: 2.4rem; height: 2.4rem; padding: .45rem; border-radius: var(--radio); background: var(--naranja-suave);
+  stroke: var(--naranja-texto); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.servicios h3 { margin: .35rem 0 0; font-size: 1.3rem; }
+.servicios p { margin: 0; color: var(--gris); font-size: .95rem; }
+.servicio-pie { margin-top: auto; padding-top: .6rem; display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+.servicio-pie a { font-weight: 600; text-decoration: none; }
+
+.productos.destacados { list-style: none; padding: 0; margin: 0; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+@media (max-width: 560px) { .productos.destacados { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; } }
+
+.razones { list-style: none; padding: 0; margin: 0; display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+.razones li { display: grid; gap: .25rem; padding: 1rem 1.1rem; border-left: 4px solid var(--naranja); background: var(--blanco);
+  border-radius: 0 var(--radio) var(--radio) 0; box-shadow: var(--sombra); }
+.razones strong { font: 700 1.35rem/1.1 var(--f-titulo); }
+.razones span { color: var(--gris); font-size: .95rem; }
+
+.visitanos { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); align-items: start; }
+.visitanos .tarjeta { margin: 0; }
+.visitanos h3 { margin: 0 0 .6rem; font-size: 1.3rem; }
+.horario { margin: 0; display: grid; gap: .35rem; }
+.horario div { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px dashed var(--borde); padding-bottom: .35rem; }
+.horario dt { font-weight: 600; }
+.horario dd { margin: 0; text-align: right; }
+.direccion { font-size: 1.1rem; font-weight: 600; margin-top: 0; }
+.boton.whatsapp { background: #1f7a43; border-color: #1f7a43; margin-top: 0; }
+.boton.whatsapp:hover { background: #17633a; border-color: #17633a; }
+.redes { display: flex; gap: 1rem; flex-wrap: wrap; font-weight: 600; }
+.pendiente { border: 1px dashed var(--aviso); background: var(--aviso-suave); color: var(--aviso); border-radius: var(--radio);
+  padding: .5rem .7rem; font-size: .88rem; }
+.pie-enlaces { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .heroe { grid-template-columns: 1fr; gap: 1rem; }
+  .heroe::before { right: -38%; top: -48%; width: 70%; height: 62%; border-left-width: 4px; }
+  .heroe-marca { order: -1; justify-content: flex-start; }
+  .heroe-marca img { width: 7.5rem; }
+  .heroe-botones .boton { flex: 1 1 12rem; }
+}
+
 /* Carga de HTMX */
 .htmx-request { opacity: .55; transition: opacity .2s; }
 
@@ -269,7 +342,7 @@ main.soltando { transition: transform .2s ease; }
 /* Movimiento reducido: sin deriva ni deslizamiento; solo un fundido corto. */
 @media (prefers-reduced-motion: reduce) {
   .fondo-marca::before { animation: none; }
-  .producto, .producto:hover { transition: none; transform: none; }
+  .producto, .producto:hover, .servicios li, .servicios li:hover { transition: none; transform: none; }
   .htmx-request { transition: none; }
   html[data-dir]::view-transition-old(contenido), html[data-dir]::view-transition-new(contenido) {
     animation-name: fundido; animation-duration: .15s; }
