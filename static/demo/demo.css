@@ -19,3 +19,9 @@ body { padding-bottom: 3.2rem; }
 .demo-rol strong { font: 700 1.4rem/1.1 var(--f-titulo); }
 .demo-rol span { color: var(--gris); }
 .demo-rol small { color: var(--naranja-texto); font-weight: 600; }
+.demo-recorrido { margin: 1.5rem 0; border-top: 3px solid var(--naranja); }
+.demo-recorrido td, .demo-recorrido th { padding: .4rem .6rem; text-align: left; }
+.demo-cuentas { display: grid; gap: .3rem; margin: 0 0 1rem; padding: .8rem 1rem; background: var(--naranja-suave);
+  border: 1px dashed var(--naranja); border-radius: var(--radio); font-size: .92rem; }
+.demo-cuentas ul { margin: .2rem 0 0; padding-left: 1.1rem; }
+.demo-cuentas .boton-link { font-weight: 600; }

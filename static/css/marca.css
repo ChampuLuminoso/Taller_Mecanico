@@ -306,6 +306,7 @@ dialog::backdrop { background: rgb(40 48 56 / .55); backdrop-filter: blur(2px); 
 .horario dt { font-weight: 600; }
 .horario dd { margin: 0; text-align: right; }
 .direccion { font-size: 1.1rem; font-weight: 600; margin-top: 0; }
+.direccion .lugar { font: 700 1.3rem/1.2 var(--f-titulo); color: var(--naranja-texto); }
 .boton.whatsapp { background: #1f7a43; border-color: #1f7a43; margin-top: 0; }
 .boton.whatsapp:hover { background: #17633a; border-color: #17633a; }
 .redes { display: flex; gap: 1rem; flex-wrap: wrap; font-weight: 600; }

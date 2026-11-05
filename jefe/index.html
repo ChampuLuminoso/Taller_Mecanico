@@ -7,13 +7,14 @@
   <title>AutoPartes M&amp;F · Repuestos y taller mecánico en Bogotá</title>
   <meta name="description" content="Repuestos y mano de obra de confianza en Bogotá. Taller mecánico y repuestos en Bogotá desde 2012: frenos, suspensión, aceite y diagnóstico. Agenda tu cita en línea o pide tus repuestos a domicilio.">
   
+  <script src="../static/js/estado_taller.js" defer></script>
   <link rel="canonical" href="../jefe/index.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
   <meta property="og:title" content="AutoPartes M&amp;F · Taller Mecánico Francois">
   <meta property="og:description" content="Repuestos y mano de obra de confianza en Bogotá. Agenda tu cita o pide repuestos en línea.">
   <meta property="og:image" content="http://testserver/static/marca/logo_512.webp">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["AutoRepair", "AutoPartsStore"], "name": "AutoPartes M&F", "alternateName": "Taller Mecánico Francois", "foundingDate": "2012", "url": "http://testserver/", "logo": "http://testserver/static/marca/logo_512.webp", "image": "http://testserver/static/marca/logo_512.webp", "areaServed": "Bogotá", "priceRange": "$$", "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "08:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "08:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "08:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "08:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["AutoRepair", "AutoPartsStore"], "name": "AutoPartes M&F", "alternateName": "Taller Mecánico Francois", "foundingDate": "2012", "url": "http://testserver/", "logo": "http://testserver/static/marca/logo_512.webp", "image": "http://testserver/static/marca/logo_512.webp", "areaServed": "Bogotá", "priceRange": "$$", "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "08:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "08:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "08:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "08:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "18:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00"}], "telephone": "319 244 8887", "address": {"@type": "PostalAddress", "streetAddress": "Cra 19 # 1-16", "addressLocality": "Bogotá", "addressCountry": "CO"}, "sameAs": ["https://www.instagram.com/fran.rozo/"]}</script>
 
   <link rel="icon" href="../static/marca/favicon.png">
   <link rel="preload" href="../static/fuentes/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -92,7 +93,8 @@
       <a class="boton grande" href="#demo-no-disponible">Agendar cita</a>
       <a class="boton grande secundario" href="../jefe/tienda/index.html">Comprar repuestos</a>
     </div>
-    <p class="estado-taller abierto"><span class="punto" aria-hidden="true"></span>Abierto ahora · hasta las 6:00 p. m.</p>
+    <p class="estado-taller abierto" id="estado-taller" aria-live="polite"><span class="punto" aria-hidden="true"></span><span class="texto">Abierto ahora · hasta las 6:00 p. m.</span></p>
+    <script type="application/json" id="calendario-taller">{"2026-11-05": ["08:00", "18:00", "13:00", "14:00"], "2026-11-06": ["08:00", "18:00", "13:00", "14:00"], "2026-11-07": ["09:00", "16:00", "13:00", "14:00"], "2026-11-08": "", "2026-11-09": ["08:00", "18:00", "13:00", "14:00"], "2026-11-10": ["08:00", "18:00", "13:00", "14:00"], "2026-11-11": ["08:00", "18:00", "13:00", "14:00"], "2026-11-12": ["08:00", "18:00", "13:00", "14:00"], "2026-11-13": ["08:00", "18:00", "13:00", "14:00"], "2026-11-14": ["09:00", "16:00", "13:00", "14:00"], "2026-11-15": "", "2026-11-16": "festivo (Independencia de Cartagena)", "2026-11-17": ["08:00", "18:00", "13:00", "14:00"], "2026-11-18": ["08:00", "18:00", "13:00", "14:00"], "2026-11-19": ["08:00", "18:00", "13:00", "14:00"], "2026-11-20": ["08:00", "18:00", "13:00", "14:00"], "2026-11-21": ["09:00", "16:00", "13:00", "14:00"], "2026-11-22": "", "2026-11-23": ["08:00", "18:00", "13:00", "14:00"], "2026-11-24": ["08:00", "18:00", "13:00", "14:00"], "2026-11-25": ["08:00", "18:00", "13:00", "14:00"], "2026-11-26": ["08:00", "18:00", "13:00", "14:00"], "2026-11-27": ["08:00", "18:00", "13:00", "14:00"], "2026-11-28": ["09:00", "16:00", "13:00", "14:00"], "2026-11-29": "", "2026-11-30": ["08:00", "18:00", "13:00", "14:00"], "2026-12-01": ["08:00", "18:00", "13:00", "14:00"], "2026-12-02": ["08:00", "18:00", "13:00", "14:00"], "2026-12-03": ["08:00", "18:00", "13:00", "14:00"], "2026-12-04": ["08:00", "18:00", "13:00", "14:00"], "2026-12-05": ["09:00", "16:00", "13:00", "14:00"], "2026-12-06": "", "2026-12-07": ["08:00", "18:00", "13:00", "14:00"], "2026-12-08": "festivo (La Inmaculada Concepción)", "2026-12-09": ["08:00", "18:00", "13:00", "14:00"], "2026-12-10": ["08:00", "18:00", "13:00", "14:00"], "2026-12-11": ["08:00", "18:00", "13:00", "14:00"], "2026-12-12": ["09:00", "16:00", "13:00", "14:00"], "2026-12-13": "", "2026-12-14": ["08:00", "18:00", "13:00", "14:00"], "2026-12-15": ["08:00", "18:00", "13:00", "14:00"], "2026-12-16": ["08:00", "18:00", "13:00", "14:00"], "2026-12-17": ["08:00", "18:00", "13:00", "14:00"], "2026-12-18": ["08:00", "18:00", "13:00", "14:00"], "2026-12-19": ["09:00", "16:00", "13:00", "14:00"], "2026-12-20": "", "2026-12-21": ["08:00", "18:00", "13:00", "14:00"], "2026-12-22": ["08:00", "18:00", "13:00", "14:00"], "2026-12-23": ["08:00", "18:00", "13:00", "14:00"], "2026-12-24": ["08:00", "18:00", "13:00", "14:00"], "2026-12-25": "festivo (Navidad)", "2026-12-26": ["09:00", "16:00", "13:00", "14:00"], "2026-12-27": "", "2026-12-28": ["08:00", "18:00", "13:00", "14:00"], "2026-12-29": ["08:00", "18:00", "13:00", "14:00"], "2026-12-30": ["08:00", "18:00", "13:00", "14:00"], "2026-12-31": ["08:00", "18:00", "13:00", "14:00"], "2027-01-01": "festivo (Año Nuevo)", "2027-01-02": ["09:00", "16:00", "13:00", "14:00"], "2027-01-03": ""}</script>
   </div>
   <div class="heroe-marca" aria-hidden="true">
     <img src="../static/marca/logo_512.webp" alt="" width="360" height="327" fetchpriority="high">
@@ -326,19 +328,24 @@
     <div class="tarjeta">
       <h3>Dónde estamos</h3>
       
-        <p class="pendiente">Dirección por confirmar · se configura con TALLER_DIRECCION y TALLER_ZONA</p>
+        <p class="direccion"><span class="lugar">Ejes Francois</span><br>Cra 19 # 1-16<br><span class="ayuda">Bogotá</span></p>
+        <a class="boton secundario" href="https://www.google.com/maps/search/?api=1&amp;query=Ejes%20Francois%2C%20Cra%2019%20%23%201-16%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noopener">Cómo llegar (Google Maps)</a>
       
     </div>
     <div class="tarjeta">
       <h3>Escríbenos</h3>
       
-        <a class="boton whatsapp" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20taller" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="boton whatsapp" href="https://wa.me/573192448887?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20taller" target="_blank" rel="noopener">WhatsApp</a>
       
       
-        <p class="pendiente">Teléfono por confirmar · TALLER_TELEFONO</p>
+        <p>Teléfono: <a href="tel:+573192448887">319 244 8887</a></p>
       
       
-        <p class="pendiente">Redes sociales por confirmar · TALLER_INSTAGRAM, TALLER_FACEBOOK, TALLER_TIKTOK</p>
+        <p class="redes">
+          <a href="https://www.instagram.com/fran.rozo/" target="_blank" rel="noopener">Instagram</a>
+          
+          
+        </p>
       
       <p class="ayuda">¿No encuentras un repuesto? Escríbenos y te ayudamos a conseguirlo.</p>
     </div>
@@ -347,9 +354,9 @@
 
   </main>
   <footer class="pie-sitio">
-    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012</span>
+    <span>AutoPartes M&amp;F · Taller Mecánico Francois · Bogotá, desde 2012 · Ejes Francois, Cra 19 # 1-16 · 319 244 8887</span>
     <span class="pie-enlaces">
-      
+      <a href="https://www.instagram.com/fran.rozo/" rel="noopener" target="_blank">Instagram</a>
       
       
       <a href="../jefe/cuenta/privacidad/index.html">Tratamiento de datos personales</a>
