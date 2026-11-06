@@ -51,15 +51,16 @@ h2 { margin: 1.75rem 0 .6rem; font-size: 1.4rem; }
 h3 { font-size: 1.15rem; }
 :focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; }
 
-/* ── Fondo con la marca de agua, moviéndose lento en diagonal hacia la derecha ── */
+/* ── Fondo con la marca de agua, subiendo lento en diagonal hacia arriba a la derecha, sin fin ── */
 .fondo-marca { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-/* Mosaico de 320 × 320 con dos logos escalonados. La capa es 320 px más grande que la pantalla y se
-   desplaza exactamente 320 px en diagonal (abajo-derecha): al reiniciar, el patrón calza y no se nota el salto.
-   Se mueve con transform (lo hace la tarjeta gráfica), no con background-position, para no gastar batería. */
-.fondo-marca::before { content: ""; position: absolute; top: -320px; left: -320px; right: 0; bottom: 0;
+/* Mosaico de 320 × 320 con dos logos escalonados. La capa sobra 320 px a la izquierda y 320 px abajo, y se
+   desplaza exactamente 320 px a la derecha y 320 px hacia arriba: al reiniciar, el patrón calza y no se nota
+   el salto, así que parece infinito. Se mueve con transform (lo hace la tarjeta gráfica en una capa aparte),
+   no con background-position: no repinta la página y casi no gasta batería. */
+.fondo-marca::before { content: ""; position: absolute; top: 0; left: -320px; right: 0; bottom: -320px;
   background: url("../marca/mosaico_marca.webp") 0 0 / 320px 320px repeat;
-  opacity: .07; animation: deriva 90s linear infinite; will-change: transform; }
-@keyframes deriva { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(320px, 320px, 0); } }
+  opacity: .07; animation: deriva 70s linear infinite; will-change: transform; }
+@keyframes deriva { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(320px, -320px, 0); } }
 body.panel-interno .fondo-marca::before { opacity: .045; }   /* en el panel, más discreta */
 
 /* ── Encabezado ── */
@@ -367,6 +368,111 @@ dialog::backdrop { background: rgb(40 48 56 / .55); backdrop-filter: blur(2px); 
   border: 1px solid var(--borde-fuerte); box-shadow: var(--sombra); }
 .interruptor-lapices[aria-pressed="true"] { border-color: var(--naranja); color: var(--naranja-texto); }
 body.sin-lapices .lapiz { display: none; }
+
+/* ============================================================================
+   Celular (Fase 11). Todo lo de arriba ya se adapta; aquí se compacta para pantallas de 360–430 px.
+   ============================================================================ */
+@media (max-width: 52rem) {
+  /* Encabezado: la fila del logo se va al bajar y queda pegada solo la barra de secciones (44 px).
+     Sin JavaScript: es un "sticky" con top negativo igual al alto de la fila del logo. */
+  .encabezado { top: calc(-1 * var(--fila-logo)); --fila-logo: 53px; }
+  .encabezado .fila { padding-top: 0; gap: 0 .75rem; }
+  .marca, .salir { height: 50px; display: flex; align-items: center; }
+  .marca img { width: 36px; height: 36px; }
+  .marca strong { font-size: 1.12rem; }
+  .marca small { font-size: .68rem; }
+  .salir button { padding: .3rem .65rem; font-size: .8rem; }
+  .secciones { height: 42px; }
+  .secciones a { padding: 0 .6rem; font-size: .9rem; }
+  /* Si las secciones no caben, un degradado a la derecha avisa que hay más (se deslizan con el dedo). */
+  .encabezado .fila { position: relative; }
+  .encabezado .fila::after { content: ""; position: absolute; right: 0; bottom: 0; width: 28px; height: 42px; pointer-events: none;
+    background: linear-gradient(90deg, rgb(255 255 255 / 0), var(--blanco) 80%); }
+}
+
+@media (max-width: 40rem) {
+  main { margin: 1rem auto 2rem; }
+  h1 { font-size: clamp(1.55rem, 7vw, 1.9rem); }
+  h2 { font-size: 1.25rem; margin-top: 1.4rem; }
+  .tarjeta { padding: 1rem; border-radius: 10px; }
+  button, .boton { padding: .6rem 1rem; }
+  label { margin-top: .75rem; }
+  .ayuda { font-size: .86rem; }
+  p { overflow-wrap: anywhere; }
+
+  /* Tienda: dos productos por fila, tarjetas más compactas. */
+  .productos, .productos.destacados { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+  .producto .cuerpo { padding: .6rem .65rem .7rem; gap: .2rem; }
+  .producto h2 { font-size: .9rem; line-height: 1.25; }
+  .producto .precio { font-size: 1.15rem; }
+  .producto .etiqueta { font-size: .7rem; padding: .1rem .45rem; }
+  .producto .pie { gap: .3rem; }
+  .producto .pie form { flex: 1; }
+  .producto .pie button { padding: .45rem .5rem; font-size: .84rem; width: 100%; }
+  .producto .pie > button { flex: 0 0 auto; }
+  .foto::after { width: 30%; }
+  .portada { margin-bottom: .75rem; }
+  .filtros { gap: .4rem; }
+  .filtros label { margin-top: .3rem; }
+
+  /* Ficha del producto */
+  .ficha-foto { aspect-ratio: 4 / 3; max-height: 46vh; }
+  dialog .ficha-foto { max-height: 30vh; }
+
+  /* Vista rápida: hoja que sube desde abajo, a todo lo ancho. */
+  dialog { width: 100vw; max-width: 100vw; margin: auto 0 0; max-height: 88vh; border-radius: 16px 16px 0 0; }
+
+  /* Inicio */
+  .heroe { padding: 1.1rem 1rem 1.25rem; border-radius: 12px; }
+  .heroe h1 { font-size: clamp(1.75rem, 8.2vw, 2.2rem); margin: .3rem 0 .5rem; }
+  .heroe-bajada { font-size: 1rem; }
+  .heroe-botones { margin-top: 1rem; }
+  .heroe-marca img { width: 4.6rem; }
+  .heroe .antetitulo { font-size: .68rem; letter-spacing: .06em; }
+  .bloque { margin-top: 1.75rem; }
+  .servicios { gap: .6rem; }
+  .servicios li { padding: .85rem .9rem; }
+  .servicios .icono { width: 2.1rem; height: 2.1rem; }
+  .servicios h3 { font-size: 1.15rem; }
+  .razones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+  .razones li { padding: .75rem .8rem; }
+  .razones strong { font-size: 1.12rem; }
+  .razones span { font-size: .85rem; }
+
+  /* Citas */
+  .cal .dia { min-height: 3.1rem; font-size: .9rem; }
+  .cal .dia small { font-size: .6rem; }
+  .horas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tipos a { padding: .45rem .75rem; font-size: .9rem; }
+
+  /* Reportes */
+  .cifra { padding: .7rem .8rem; }
+  .cifra .valor { font-size: 1.35rem; }
+  .cifras > :nth-child(even):last-child { grid-column: 1 / -1; }   /* la que queda sola ocupa toda la fila */
+  .segmentos a { padding: .4rem .75rem; }
+
+  /* Tablas anchas → tarjetas apiladas (tablas.js pone a cada celda el nombre de su columna). */
+  table.apilada thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  table.apilada, table.apilada tbody, table.apilada tr, table.apilada td { display: block; width: 100%; }
+  table.apilada tr { padding: .55rem 0; border-bottom: 1px solid var(--borde); }
+  table.apilada tr:last-child { border-bottom: 0; }
+  /* La etiqueta va a la izquierda en posición absoluta, así el contenido de la celda (texto, enlaces,
+     botones, saltos de línea) fluye junto en la columna derecha sin partirse. */
+  table.apilada td { position: relative; padding: .22rem 0 .22rem min(38%, 8.5rem); border: 0; text-align: left; min-height: 1.6rem; }
+  table.apilada td::before { content: attr(data-columna); position: absolute; left: 0; top: .32rem; width: calc(min(38%, 8.5rem) - .6rem);
+    font-size: .68rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--gris); line-height: 1.3; }
+  table.apilada td[data-columna=""] { padding-left: 0; }
+  table.apilada td[data-columna=""]::before { display: none; }
+  table.apilada td.num { text-align: left; }
+  table.apilada td:first-child { font-weight: 600; }
+  table.apilada td form, table.apilada td .acciones { margin: 0; }
+  tbody tr:hover td { background: none; }
+
+  /* Pie y avisos flotantes */
+  .pie-sitio { padding-top: 1.1rem; font-size: .8rem; }
+  .interruptor-lapices { bottom: .8rem; font-size: .76rem; padding: .4rem .7rem; }
+  .edicion-aviso { bottom: 3.6rem; }
+}
 
 /* Carga de HTMX */
 .htmx-request { opacity: .55; transition: opacity .2s; }
