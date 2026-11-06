@@ -4,6 +4,12 @@
   calc(.55rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
   background: var(--carbon); color: #fff; font-size: .88rem; }
 .demo-barra a { color: #ffd2bf; font-weight: 600; }
+@media (max-width: 40rem) {
+  .demo-barra { flex-wrap: nowrap; gap: .75rem; font-size: .74rem; padding-top: .4rem; padding-bottom: calc(.4rem + env(safe-area-inset-bottom, 0px)); }
+  .demo-extra { display: none; }
+  .demo-barra a { white-space: nowrap; }
+  body { padding-bottom: 2.3rem; }
+}
 .interruptor-lapices { bottom: calc(3.4rem + env(safe-area-inset-bottom, 0px)) !important; }
 .edicion-aviso { bottom: 4.4rem !important; }
 body { padding-bottom: 3.2rem; }

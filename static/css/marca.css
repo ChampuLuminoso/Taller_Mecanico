@@ -474,6 +474,70 @@ body.sin-lapices .lapiz { display: none; }
   .edicion-aviso { bottom: 3.6rem; }
 }
 
+/* Celular, segunda pasada (probado en un Samsung S21 FE): más compacto. Chrome en Android aplica el
+   tamaño de letra del sistema como zoom de página, así que en muchos teléfonos la pantalla "mide" menos
+   de 360 px. Todo se diseña para verse bien incluso a 320 px. */
+@media (max-width: 40rem) {
+  body { font-size: 15px; }
+  input[type=text], input[type=email], input[type=password], input[type=date], input[type=tel], input[type=time],
+  input[type=number], input[type=search], select, textarea { font-size: 16px; padding: .55rem .7rem; }  /* 16 px: el iPhone no hace zoom */
+  main { margin-top: .75rem; }
+  h1 { font-size: clamp(1.32rem, 6vw, 1.55rem); margin-bottom: .4rem; }
+  h2 { font-size: 1.12rem; }
+  h3 { font-size: 1.02rem; }
+  label { font-size: .92rem; margin: .65rem 0 .25rem; }
+  .ayuda { font-size: .82rem; }
+  .tarjeta { padding: .9rem; }
+  button, .boton { padding: .55rem .9rem; font-size: .93rem; }
+  .boton.grande { padding: .7rem .75rem; font-size: .97rem; }
+
+  .encabezado { --fila-logo: 47px; }
+  .marca, .salir { height: 44px; }
+  .marca { gap: .45rem; }
+  .marca img { width: 30px; height: 30px; }
+  .marca strong { font-size: 1.02rem; }
+  .marca small { font-size: .64rem; }
+  .secciones, .encabezado .fila::after { height: 38px; }
+  .secciones a { font-size: .84rem; padding: 0 .5rem; }
+  .secciones a[aria-current="page"]::after { left: .5rem; right: .5rem; height: 2px; }
+  .insignia { min-width: 1.15rem; height: 1.15rem; font-size: .68rem; }
+
+  /* Inicio: el logo ya está en el encabezado, así que la portada empieza directo con el mensaje. */
+  .heroe { padding: 1rem .95rem 1.05rem; }
+  .heroe-marca { display: none; }
+  .heroe::before { right: -52%; top: -66%; width: 70%; height: 80%; border-left: 0; opacity: .8; }   /* sin la raya: no cruza el texto */
+  .heroe .antetitulo { font-size: .62rem; letter-spacing: .05em; }
+  .heroe h1 { font-size: clamp(1.45rem, 7vw, 1.75rem); max-width: none; margin: .25rem 0 .45rem; }
+  .heroe-bajada { font-size: .93rem; line-height: 1.45; }
+  .heroe-botones { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: .5rem; margin-top: .85rem; }
+  .heroe-botones .boton { flex: none; white-space: nowrap; }
+  .estado-taller { font-size: .84rem; margin-top: .75rem; }
+  .bloque { margin-top: 1.5rem; }
+  .bloque > h2, .bloque-cabeza h2 { font-size: 1.25rem; }
+  .servicios li { padding: .75rem .8rem; gap: .25rem; }
+  .servicios .icono { width: 1.9rem; height: 1.9rem; padding: .35rem; }
+  .servicios li { display: grid; grid-template-columns: auto 1fr; column-gap: .6rem; align-items: center; }   /* ícono al lado del título */
+  .servicios li > p, .servicios .servicio-pie { grid-column: 1 / -1; }
+  .servicios .servicio-pie { padding-top: .35rem; }
+  .servicios h3 { font-size: 1.05rem; margin: 0; }
+  .servicios p { font-size: .86rem; }
+  .razones strong { font-size: 1.02rem; }
+  .razones span { font-size: .8rem; }
+  .visitanos h3 { font-size: 1.1rem; }
+  .direccion { font-size: 1rem; }
+  .direccion .lugar { font-size: 1.12rem; }
+
+  /* Tienda y reportes */
+  .producto h2 { font-size: .86rem; }
+  .producto .precio { font-size: 1.08rem; }
+  .producto .pie button { font-size: .8rem; padding: .42rem .4rem; }
+  .portada .antetitulo { font-size: .64rem; }
+  .cifra .valor { font-size: 1.2rem; }
+  .cifra.principal .valor { font-size: 1.6rem; }
+  .cal .dia { min-height: 2.8rem; font-size: .85rem; }
+  .pie-sitio { font-size: .76rem; }
+}
+
 /* Carga de HTMX */
 .htmx-request { opacity: .55; transition: opacity .2s; }
 
